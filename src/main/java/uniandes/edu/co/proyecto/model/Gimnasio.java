@@ -1,14 +1,14 @@
-package uniandes.edu.co.proyecto.entities;
+package uniandes.edu.co.proyecto.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="gimnasios")
-public class GimnasioEntity extends ServicioEntity {
+public class Gimnasio extends Servicio {
 
     private String maquinas;
     private String horario;
-    public GimnasioEntity(Integer id, Float capacidad, Float costoDanios, String nombre, String maquinas,
+    public Gimnasio(Integer id, Float capacidad, Float costoDanios, String nombre, String maquinas,
             String horario) {
         super(id, capacidad, costoDanios, nombre);
         this.maquinas = maquinas;

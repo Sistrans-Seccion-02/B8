@@ -3,7 +3,8 @@ package uniandes.edu.co.proyecto.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uniandes.edu.co.proyecto.entities.GimnasioEntity;
+
+import uniandes.edu.co.proyecto.model.Gimnasio;
 import uniandes.edu.co.proyecto.repositories.GimnasioRepository;
 
 import java.util.List;
@@ -16,24 +17,24 @@ public class GimnasioService {
     private GimnasioRepository gimnasioRepository;
 
     @Transactional
-    public GimnasioEntity createGimnasio(GimnasioEntity gimnasio) {
+    public Gimnasio createGimnasio(Gimnasio gimnasio) {
         return gimnasioRepository.save(gimnasio);
     }
 
     @Transactional
-    public List<GimnasioEntity> getAllGimnasios() {
+    public List<Gimnasio> getAllGimnasios() {
         return gimnasioRepository.findAll();
     }
 
     @Transactional
-    public GimnasioEntity getGimnasioById(Long id) {
-        Optional<GimnasioEntity> gimnasioOptional = gimnasioRepository.findById(id);
+    public Gimnasio getGimnasioById(Long id) {
+        Optional<Gimnasio> gimnasioOptional = gimnasioRepository.findById(id);
         return gimnasioOptional.orElse(null);
     }
 
     @Transactional
-    public GimnasioEntity updateGimnasio(Long id, GimnasioEntity updatedGimnasio) {
-        Optional<GimnasioEntity> existingGimnasioOptional = gimnasioRepository.findById(id);
+    public Gimnasio updateGimnasio(Long id, Gimnasio updatedGimnasio) {
+        Optional<Gimnasio> existingGimnasioOptional = gimnasioRepository.findById(id);
         if (existingGimnasioOptional.isPresent()) {
             updatedGimnasio.setId(id);
             return gimnasioRepository.save(updatedGimnasio);

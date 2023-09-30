@@ -3,7 +3,8 @@ package uniandes.edu.co.proyecto.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uniandes.edu.co.proyecto.entities.habitacionEntity;
+
+import uniandes.edu.co.proyecto.model.Habitacion;
 import uniandes.edu.co.proyecto.repositories.HabitacionRepository;
 
 import java.util.List;
@@ -16,24 +17,24 @@ public class HabitacionService {
     private HabitacionRepository habitacionRepository;
 
     @Transactional
-    public habitacionEntity createHabitacion(habitacionEntity habitacion) {
+    public Habitacion createHabitacion(Habitacion habitacion) {
         return habitacionRepository.save(habitacion);
     }
 
     @Transactional
-    public List<habitacionEntity> getAllHabitaciones() {
+    public List<Habitacion> getAllHabitaciones() {
         return habitacionRepository.findAll();
     }
 
     @Transactional
-    public habitacionEntity getHabitacionByNumero(Integer numero) {
-        habitacionEntity habitacion = habitacionRepository.findByNumero(numero);
+    public Habitacion getHabitacionByNumero(Integer numero) {
+        Habitacion habitacion = habitacionRepository.findByNumero(numero);
         return habitacion;
     }
 
     @Transactional
-    public habitacionEntity updateHabitacion(Long id, habitacionEntity updatedHabitacion) {
-        Optional<habitacionEntity> existingHabitacionOptional = habitacionRepository.findById(id);
+    public Habitacion updateHabitacion(Long id, Habitacion updatedHabitacion) {
+        Optional<Habitacion> existingHabitacionOptional = habitacionRepository.findById(id);
         if (existingHabitacionOptional.isPresent()) {
             updatedHabitacion.setId(id);
             return habitacionRepository.save(updatedHabitacion);

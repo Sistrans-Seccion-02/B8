@@ -3,7 +3,8 @@ package uniandes.edu.co.proyecto.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uniandes.edu.co.proyecto.entities.SalonEntity;
+
+import uniandes.edu.co.proyecto.model.Salon;
 import uniandes.edu.co.proyecto.repositories.SalonRepository;
 
 import java.util.List;
@@ -16,24 +17,24 @@ public class SalonService {
     private SalonRepository salonRepository;
 
     @Transactional
-    public SalonEntity createSalon(SalonEntity salon) {
+    public Salon createSalon(Salon salon) {
         return salonRepository.save(salon);
     }
 
     @Transactional
-    public List<SalonEntity> getAllSalones() {
+    public List<Salon> getAllSalones() {
         return salonRepository.findAll();
     }
 
     @Transactional
-    public SalonEntity getSalonById(Long id) {
-        Optional<SalonEntity> salonOptional = salonRepository.findById(id);
+    public Salon getSalonById(Long id) {
+        Optional<Salon> salonOptional = salonRepository.findById(id);
         return salonOptional.orElse(null);
     }
 
     @Transactional
-    public SalonEntity updateSalon(Long id, SalonEntity updatedSalon) {
-        Optional<SalonEntity> existingSalonOptional = salonRepository.findById(id);
+    public Salon updateSalon(Long id, Salon updatedSalon) {
+        Optional<Salon> existingSalonOptional = salonRepository.findById(id);
         if (existingSalonOptional.isPresent()) {
             updatedSalon.setId(id);
             return salonRepository.save(updatedSalon);

@@ -3,7 +3,8 @@ package uniandes.edu.co.proyecto.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uniandes.edu.co.proyecto.entities.PiscinaEntity;
+
+import uniandes.edu.co.proyecto.model.Piscina;
 import uniandes.edu.co.proyecto.repositories.PiscinaRepository;
 
 import java.util.List;
@@ -16,24 +17,24 @@ public class PiscinaService {
     private PiscinaRepository piscinaRepository;
 
     @Transactional
-    public PiscinaEntity createPiscina(PiscinaEntity piscina) {
+    public Piscina createPiscina(Piscina piscina) {
         return piscinaRepository.save(piscina);
     }
 
     @Transactional
-    public List<PiscinaEntity> getAllPiscinas() {
+    public List<Piscina> getAllPiscinas() {
         return piscinaRepository.findAll();
     }
 
     @Transactional
-    public PiscinaEntity getPiscinaById(Long id) {
-        Optional<PiscinaEntity> piscinaOptional = piscinaRepository.findById(id);
+    public Piscina getPiscinaById(Long id) {
+        Optional<Piscina> piscinaOptional = piscinaRepository.findById(id);
         return piscinaOptional.orElse(null);
     }
 
     @Transactional
-    public PiscinaEntity updatePiscina(Long id, PiscinaEntity updatedPiscina) {
-        Optional<PiscinaEntity> existingPiscinaOptional = piscinaRepository.findById(id);
+    public Piscina updatePiscina(Long id, Piscina updatedPiscina) {
+        Optional<Piscina> existingPiscinaOptional = piscinaRepository.findById(id);
         if (existingPiscinaOptional.isPresent()) {
             updatedPiscina.setId(id);
             return piscinaRepository.save(updatedPiscina);

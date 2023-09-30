@@ -3,7 +3,8 @@ package uniandes.edu.co.proyecto.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uniandes.edu.co.proyecto.entities.SupermercadoEntity;
+
+import uniandes.edu.co.proyecto.model.Supermercado;
 import uniandes.edu.co.proyecto.repositories.SupermercadoRepository;
 
 import java.util.List;
@@ -16,24 +17,24 @@ public class SupermercadoService {
     private SupermercadoRepository supermercadoRepository;
 
     @Transactional
-    public SupermercadoEntity createSupermercado(SupermercadoEntity supermercado) {
+    public Supermercado createSupermercado(Supermercado supermercado) {
         return supermercadoRepository.save(supermercado);
     }
 
     @Transactional
-    public List<SupermercadoEntity> getAllSupermercados() {
+    public List<Supermercado> getAllSupermercados() {
         return supermercadoRepository.findAll();
     }
 
     @Transactional
-    public SupermercadoEntity getSupermercadoById(Long id) {
-        Optional<SupermercadoEntity> supermercadoOptional = supermercadoRepository.findById(id);
+    public Supermercado getSupermercadoById(Long id) {
+        Optional<Supermercado> supermercadoOptional = supermercadoRepository.findById(id);
         return supermercadoOptional.orElse(null);
     }
 
     @Transactional
-    public SupermercadoEntity updateSupermercado(Long id, SupermercadoEntity updatedSupermercado) {
-        Optional<SupermercadoEntity> existingSupermercadoOptional = supermercadoRepository.findById(id);
+    public Supermercado updateSupermercado(Long id, Supermercado updatedSupermercado) {
+        Optional<Supermercado> existingSupermercadoOptional = supermercadoRepository.findById(id);
         if (existingSupermercadoOptional.isPresent()) {
             updatedSupermercado.setId(id);
             return supermercadoRepository.save(updatedSupermercado);

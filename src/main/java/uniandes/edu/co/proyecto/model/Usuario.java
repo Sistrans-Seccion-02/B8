@@ -1,11 +1,11 @@
-package uniandes.edu.co.proyecto.entities;
+package uniandes.edu.co.proyecto.model;
 
 import jakarta.persistence.OneToMany;
 
 import jakarta.persistence.Entity;
 
 @Entity
-public class UsuarioEntity {
+public class Usuario {
     private Integer cedula;
     private String nombre;
     private String apellido;

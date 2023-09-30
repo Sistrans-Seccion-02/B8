@@ -3,7 +3,8 @@ package uniandes.edu.co.proyecto.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uniandes.edu.co.proyecto.entities.LavanderiaEntity;
+
+import uniandes.edu.co.proyecto.model.Lavanderia;
 import uniandes.edu.co.proyecto.repositories.LavanderiaRepository;
 
 import java.util.List;
@@ -16,25 +17,25 @@ public class LavanderiaService {
     private LavanderiaRepository lavanderiaRepository;
 
     @Transactional
-    public LavanderiaEntity createLavanderia(LavanderiaEntity lavanderia) {
+    public Lavanderia createLavanderia(Lavanderia lavanderia) {
         return lavanderiaRepository.save(lavanderia);
     }
 
     @Transactional
-    public List<LavanderiaEntity> getAllLavanderia() {
+    public List<Lavanderia> getAllLavanderia() {
         return lavanderiaRepository.findAll();
     }
 
     @Transactional
-    public LavanderiaEntity getLavanderiaById(Long id) {
-        Optional<LavanderiaEntity> lavanderiaOptional = lavanderiaRepository.findById(id);
+    public Lavanderia getLavanderiaById(Long id) {
+        Optional<Lavanderia> lavanderiaOptional = lavanderiaRepository.findById(id);
         return lavanderiaOptional.orElse(null);
     }
 
     @Transactional
-    public LavanderiaEntity updateLavanderia(Long id,
-            LavanderiaEntity updatedLavanderia) {
-        Optional<LavanderiaEntity> existingLavanderiaOptional = lavanderiaRepository
+    public Lavanderia updateLavanderia(Long id,
+            Lavanderia updatedLavanderia) {
+        Optional<Lavanderia> existingLavanderiaOptional = lavanderiaRepository
                 .findById(id);
         if (existingLavanderiaOptional.isPresent()) {
             updatedLavanderia.setId(id);

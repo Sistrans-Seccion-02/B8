@@ -1,11 +1,11 @@
-package uniandes.edu.co.proyecto.entities;
+package uniandes.edu.co.proyecto.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="habitaciones")
-public class habitacionEntity {
+public class Habitacion {
     private Integer numero;
     private String tipoHabitacion;
     private String plan;
@@ -14,7 +14,7 @@ public class habitacionEntity {
     private Boolean cafetera;
     private Integer diasEstadia;
 
-    public habitacionEntity(Integer numero, String tipoHabitacion, String plan, Boolean television, Boolean minibar, Boolean cafetera, Integer diasEstadia)
+    public Habitacion(Integer numero, String tipoHabitacion, String plan, Boolean television, Boolean minibar, Boolean cafetera, Integer diasEstadia)
     {
         this.numero=numero;
         this.tipoHabitacion=tipoHabitacion;
@@ -24,7 +24,7 @@ public class habitacionEntity {
         this.cafetera=cafetera;
         this.diasEstadia=diasEstadia;
     }
-    public habitacionEntity()
+    public Habitacion()
     {;}
     public Integer getNumero() {
         return numero;

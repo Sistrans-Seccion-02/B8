@@ -3,7 +3,8 @@ package uniandes.edu.co.proyecto.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uniandes.edu.co.proyecto.entities.consumoEntity;
+
+import uniandes.edu.co.proyecto.model.Consumo;
 import uniandes.edu.co.proyecto.repositories.ConsumoRepository;
 
 import java.util.List;
@@ -16,24 +17,24 @@ public class ConsumoService {
     private ConsumoRepository consumoRepository;
 
     @Transactional
-    public consumoEntity createConsumo(consumoEntity consumo) {
+    public Consumo createConsumo(Consumo consumo) {
         return consumoRepository.save(consumo);
     }
 
     @Transactional
-    public List<consumoEntity> getAllConsumos() {
+    public List<Consumo> getAllConsumos() {
         return consumoRepository.findAll();
     }
 
     @Transactional
-    public consumoEntity getConsumoById(Long id) {
-        Optional<consumoEntity> consumoOptional = consumoRepository.findById(id);
+    public Consumo getConsumoById(Long id) {
+        Optional<Consumo> consumoOptional = consumoRepository.findById(id);
         return consumoOptional.orElse(null);
     }
 
     @Transactional
-    public consumoEntity updateConsumo(Long id, consumoEntity updatedConsumo) {
-        Optional<consumoEntity> existingConsumoOptional = consumoRepository.findById(id);
+    public Consumo updateConsumo(Long id, Consumo updatedConsumo) {
+        Optional<Consumo> existingConsumoOptional = consumoRepository.findById(id);
         if (existingConsumoOptional.isPresent()) {
             updatedConsumo.setId(id);
             return consumoRepository.save(updatedConsumo);
