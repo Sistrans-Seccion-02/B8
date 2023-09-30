@@ -1,7 +1,10 @@
 package uniandes.edu.co.proyecto.entities;
 
-public class TiendaEntity  extends ServicioEntity{
+import jakarta.persistence.Entity;
+
+@Entity
+public class TiendaEntity extends ServicioEntity {
     private String tipo;
     private String productos;
-    
+
 }

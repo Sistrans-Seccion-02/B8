@@ -1,5 +1,8 @@
 package uniandes.edu.co.proyecto.entities;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class habitacionEntity {
     private Integer numero;
     private String tipoHabitacion;

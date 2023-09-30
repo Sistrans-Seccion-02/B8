@@ -2,6 +2,9 @@ package uniandes.edu.co.proyecto.entities;
 
 import jakarta.persistence.OneToMany;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class UsuarioEntity {
     private Integer cedula;
     private String nombre;
@@ -12,6 +15,4 @@ public class UsuarioEntity {
     private Integer numAcompañantes;
     private String AreaEmpleado;
 
-
-    
 }
