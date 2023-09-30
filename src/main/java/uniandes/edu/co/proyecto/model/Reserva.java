@@ -1,11 +1,11 @@
-package uniandes.edu.co.proyecto.entities;
+package uniandes.edu.co.proyecto.model;
 
 import java.sql.Date;
 
 import jakarta.persistence.Entity;
 
 @Entity
-public class ReservaEntity {
+public class Reserva {
     private Long id;
     private Integer costoTotal;
     private Date fechaInicio;

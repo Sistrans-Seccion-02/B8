@@ -2,10 +2,11 @@ package uniandes.edu.co.proyecto.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import uniandes.edu.co.proyecto.entities.habitacionEntity;
+
+import uniandes.edu.co.proyecto.model.Habitacion;
 
 @Repository
-public interface HabitacionRepository extends JpaRepository<habitacionEntity, Long> {
+public interface HabitacionRepository extends JpaRepository<Habitacion, Long> {
     // You can add custom query methods here if needed
-    habitacionEntity findByNumero(Integer numero);
+    Habitacion findByNumero(Integer numero);
 }

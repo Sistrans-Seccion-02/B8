@@ -3,7 +3,8 @@ package uniandes.edu.co.proyecto.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uniandes.edu.co.proyecto.entities.ServicioEntity;
+
+import uniandes.edu.co.proyecto.model.Servicio;
 import uniandes.edu.co.proyecto.repositories.ServicioRepository;
 
 import java.util.List;
@@ -16,24 +17,24 @@ public class ServicioService {
     private ServicioRepository servicioRepository;
 
     @Transactional
-    public ServicioEntity createServicio(ServicioEntity servicio) {
+    public Servicio createServicio(Servicio servicio) {
         return servicioRepository.save(servicio);
     }
 
     @Transactional
-    public List<ServicioEntity> getAllServicios() {
+    public List<Servicio> getAllServicios() {
         return servicioRepository.findAll();
     }
 
     @Transactional
-    public ServicioEntity getServicioById(Long id) {
-        Optional<ServicioEntity> servicioOptional = servicioRepository.findById(id);
+    public Servicio getServicioById(Long id) {
+        Optional<Servicio> servicioOptional = servicioRepository.findById(id);
         return servicioOptional.orElse(null);
     }
 
     @Transactional
-    public ServicioEntity updateServicio(Long id, ServicioEntity updatedServicio) {
-        Optional<ServicioEntity> existingServicioOptional = servicioRepository.findById(id);
+    public Servicio updateServicio(Long id, Servicio updatedServicio) {
+        Optional<Servicio> existingServicioOptional = servicioRepository.findById(id);
         if (existingServicioOptional.isPresent()) {
             updatedServicio.setId(id);
             return servicioRepository.save(updatedServicio);

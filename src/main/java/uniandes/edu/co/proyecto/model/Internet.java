@@ -1,14 +1,14 @@
-package uniandes.edu.co.proyecto.entities;
+package uniandes.edu.co.proyecto.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="internet")
-public class InternetEntity extends ServicioEntity {
+public class Internet extends Servicio {
     private Float cobroPorDia;
 
-    public InternetEntity(Integer id, Float capacidad, Float costoDanios, String nombre, Float cobroPorDia) {
+    public Internet(Integer id, Float capacidad, Float costoDanios, String nombre, Float cobroPorDia) {
         super(id, capacidad, costoDanios, nombre);
         this.cobroPorDia = cobroPorDia;
     }

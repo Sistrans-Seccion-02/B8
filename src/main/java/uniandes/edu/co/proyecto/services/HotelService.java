@@ -3,7 +3,8 @@ package uniandes.edu.co.proyecto.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uniandes.edu.co.proyecto.entities.HotelEntity;
+
+import uniandes.edu.co.proyecto.model.Hotel;
 import uniandes.edu.co.proyecto.repositories.HotelRepository;
 
 import java.util.List;
@@ -16,24 +17,24 @@ public class HotelService {
     private HotelRepository hotelRepository;
 
     @Transactional
-    public HotelEntity createHotel(HotelEntity hotel) {
+    public Hotel createHotel(Hotel hotel) {
         return hotelRepository.save(hotel);
     }
 
     @Transactional
-    public List<HotelEntity> getAllHotels() {
+    public List<Hotel> getAllHotels() {
         return hotelRepository.findAll();
     }
 
     @Transactional
-    public HotelEntity getHotelByNombre(String nombre) {
-        HotelEntity hotelOptional = hotelRepository.findByNombre(null);
+    public Hotel getHotelByNombre(String nombre) {
+        Hotel hotelOptional = hotelRepository.findByNombre(null);
         return hotelOptional;
     }
 
     @Transactional
-    public HotelEntity updateHotel(Long id, HotelEntity updatedHotel) {
-        Optional<HotelEntity> existingHotelOptional = hotelRepository.findById(id);
+    public Hotel updateHotel(Long id, Hotel updatedHotel) {
+        Optional<Hotel> existingHotelOptional = hotelRepository.findById(id);
         if (existingHotelOptional.isPresent()) {
             updatedHotel.setId(id);
             return hotelRepository.save(updatedHotel);

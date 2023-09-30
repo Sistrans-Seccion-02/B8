@@ -3,7 +3,8 @@ package uniandes.edu.co.proyecto.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uniandes.edu.co.proyecto.entities.UsuarioEntity;
+
+import uniandes.edu.co.proyecto.model.Usuario;
 import uniandes.edu.co.proyecto.repositories.UsuarioRepository;
 
 import java.util.List;
@@ -16,24 +17,24 @@ public class UsuarioService {
     private UsuarioRepository usuarioRepository;
 
     @Transactional
-    public UsuarioEntity createUsuario(UsuarioEntity usuario) {
+    public Usuario createUsuario(Usuario usuario) {
         return usuarioRepository.save(usuario);
     }
 
     @Transactional
-    public List<UsuarioEntity> getAllUsuarios() {
+    public List<Usuario> getAllUsuarios() {
         return usuarioRepository.findAll();
     }
 
     @Transactional
-    public UsuarioEntity getUsuarioById(Long id) {
-        Optional<UsuarioEntity> usuarioOptional = usuarioRepository.findById(id);
+    public Usuario getUsuarioById(Long id) {
+        Optional<Usuario> usuarioOptional = usuarioRepository.findById(id);
         return usuarioOptional.orElse(null);
     }
 
     @Transactional
-    public UsuarioEntity updateUsuario(Long id, UsuarioEntity updatedUsuario) {
-        Optional<UsuarioEntity> existingUsuarioOptional = usuarioRepository.findById(id);
+    public Usuario updateUsuario(Long id, Usuario updatedUsuario) {
+        Optional<Usuario> existingUsuarioOptional = usuarioRepository.findById(id);
         if (existingUsuarioOptional.isPresent()) {
             updatedUsuario.setId(id);
             return usuarioRepository.save(updatedUsuario);

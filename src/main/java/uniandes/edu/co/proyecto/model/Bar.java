@@ -1,15 +1,15 @@
-package uniandes.edu.co.proyecto.entities;
+package uniandes.edu.co.proyecto.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 @Entity
 @Table(name="bares")
 
-public class BarEntity extends ServicioEntity {
+public class Bar extends Servicio {
 
     private String estilo;
     private String carta;
-    public BarEntity(Integer id, Float capacidad, Float costoDanios, String nombre, String estilo,
+    public Bar(Integer id, Float capacidad, Float costoDanios, String nombre, String estilo,
             String carta) {
         super(id, capacidad, costoDanios, nombre);
         this.estilo = estilo;

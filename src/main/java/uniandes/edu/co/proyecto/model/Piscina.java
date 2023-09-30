@@ -1,14 +1,14 @@
-package uniandes.edu.co.proyecto.entities;
+package uniandes.edu.co.proyecto.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="piscinas")
-public class PiscinaEntity extends ServicioEntity {
+public class Piscina extends Servicio {
     private Float profundidad;
     private String horario;
-    public PiscinaEntity(Integer id, Float capacidad, Float costoDanios, String nombre, Float profundidad,
+    public Piscina(Integer id, Float capacidad, Float costoDanios, String nombre, Float profundidad,
             String horario) {
         super(id, capacidad, costoDanios, nombre);
         this.profundidad = profundidad;

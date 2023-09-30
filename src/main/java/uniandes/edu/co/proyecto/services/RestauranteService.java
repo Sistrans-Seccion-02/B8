@@ -3,7 +3,8 @@ package uniandes.edu.co.proyecto.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uniandes.edu.co.proyecto.entities.RestauranteEntity;
+
+import uniandes.edu.co.proyecto.model.Restaurante;
 import uniandes.edu.co.proyecto.repositories.RestauranteRepository;
 
 import java.util.List;
@@ -16,24 +17,24 @@ public class RestauranteService {
     private RestauranteRepository restauranteRepository;
 
     @Transactional
-    public RestauranteEntity createRestaurante(RestauranteEntity restaurante) {
+    public Restaurante createRestaurante(Restaurante restaurante) {
         return restauranteRepository.save(restaurante);
     }
 
     @Transactional
-    public List<RestauranteEntity> getAllRestaurantes() {
+    public List<Restaurante> getAllRestaurantes() {
         return restauranteRepository.findAll();
     }
 
     @Transactional
-    public RestauranteEntity getRestauranteById(Long id) {
-        Optional<RestauranteEntity> restauranteOptional = restauranteRepository.findById(id);
+    public Restaurante getRestauranteById(Long id) {
+        Optional<Restaurante> restauranteOptional = restauranteRepository.findById(id);
         return restauranteOptional.orElse(null);
     }
 
     @Transactional
-    public RestauranteEntity updateRestaurante(Long id, RestauranteEntity updatedRestaurante) {
-        Optional<RestauranteEntity> existingRestauranteOptional = restauranteRepository.findById(id);
+    public Restaurante updateRestaurante(Long id, Restaurante updatedRestaurante) {
+        Optional<Restaurante> existingRestauranteOptional = restauranteRepository.findById(id);
         if (existingRestauranteOptional.isPresent()) {
             updatedRestaurante.setId(id);
             return restauranteRepository.save(updatedRestaurante);

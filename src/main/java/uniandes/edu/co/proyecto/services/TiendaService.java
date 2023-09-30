@@ -3,7 +3,8 @@ package uniandes.edu.co.proyecto.services;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uniandes.edu.co.proyecto.entities.TiendaEntity;
+
+import uniandes.edu.co.proyecto.model.Tienda;
 import uniandes.edu.co.proyecto.repositories.TiendaRepository;
 
 import java.util.List;
@@ -16,24 +17,24 @@ public class TiendaService {
     private TiendaRepository tiendaRepository;
 
     @Transactional
-    public TiendaEntity createTienda(TiendaEntity tienda) {
+    public Tienda createTienda(Tienda tienda) {
         return tiendaRepository.save(tienda);
     }
 
     @Transactional
-    public List<TiendaEntity> getAllTiendas() {
+    public List<Tienda> getAllTiendas() {
         return tiendaRepository.findAll();
     }
 
     @Transactional
-    public TiendaEntity getTiendaById(Long id) {
-        Optional<TiendaEntity> tiendaOptional = tiendaRepository.findById(id);
+    public Tienda getTiendaById(Long id) {
+        Optional<Tienda> tiendaOptional = tiendaRepository.findById(id);
         return tiendaOptional.orElse(null);
     }
 
     @Transactional
-    public TiendaEntity updateTienda(Long id, TiendaEntity updatedTienda) {
-        Optional<TiendaEntity> existingTiendaOptional = tiendaRepository.findById(id);
+    public Tienda updateTienda(Long id, Tienda updatedTienda) {
+        Optional<Tienda> existingTiendaOptional = tiendaRepository.findById(id);
         if (existingTiendaOptional.isPresent()) {
             updatedTienda.setId(id);
             return tiendaRepository.save(updatedTienda);

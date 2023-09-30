@@ -1,14 +1,14 @@
-package uniandes.edu.co.proyecto.entities;
+package uniandes.edu.co.proyecto.model;
 
 import java.util.Date;
 import jakarta.persistence.Entity;
 
 @Entity
-public class consumoEntity {
+public class Consumo {
     private Integer id;
     private Date fecha;
     private Float valorTotal;
-    public consumoEntity(Integer id, Date fecha, Float valorTotal) {
+    public Consumo(Integer id, Date fecha, Float valorTotal) {
         this.id = id;
         this.fecha = fecha;
         this.valorTotal = valorTotal;

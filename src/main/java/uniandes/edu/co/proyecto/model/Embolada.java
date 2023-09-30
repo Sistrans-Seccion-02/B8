@@ -1,14 +1,14 @@
-package uniandes.edu.co.proyecto.entities;
+package uniandes.edu.co.proyecto.model;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="emboladas")
-public class EmboladaEntity extends ServicioEntity {
+public class Embolada extends Servicio {
     private String catalogo;
     private Integer numeroPrendas;
     private String tipoPrenda;
-    public EmboladaEntity(Integer id, Float capacidad, Float costoDanios, String nombre, String catalogo,
+    public Embolada(Integer id, Float capacidad, Float costoDanios, String nombre, String catalogo,
             Integer numeroPrendas, String tipoPrenda) {
         super(id, capacidad, costoDanios, nombre);
         this.catalogo = catalogo;
