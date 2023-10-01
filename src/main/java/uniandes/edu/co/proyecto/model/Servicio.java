@@ -1,13 +1,11 @@
 package uniandes.edu.co.proyecto.model;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Table;
 
-@Entity
 @MappedSuperclass
 @Table(name="servicios")
 public class Servicio {

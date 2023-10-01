@@ -1,11 +1,16 @@
 package uniandes.edu.co.proyecto.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
 @Table(name="habitaciones")
 public class Habitacion {
+
+    @Id
     private Integer numero;
     private String tipoHabitacion;
     private String plan;

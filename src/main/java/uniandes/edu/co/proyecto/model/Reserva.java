@@ -26,20 +26,20 @@ public class Reserva {
 
     @ManyToOne
     @JoinColumn(name="numeroHabitacion", referencedColumnName = "numero")
-    private Integer numeroHabitacion;
+    private Habitacion habitacion;
 
     @OneToOne
     @JoinColumn(name="idConsumo", referencedColumnName = "id")
-    private Integer idConsumo;
+    private Consumo consumo;
 
 
-    public Reserva(Integer costoTotal, Date fechaInicio, Date fechaFin, String planEstadia, Integer numeroHabitacion, Integer idConsumo) {
+    public Reserva(Integer costoTotal, Date fechaInicio, Date fechaFin, String planEstadia, Habitacion habitacion, Consumo consumo) {
         this.costoTotal = costoTotal;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.planEstadia = planEstadia;
-        this.numeroHabitacion = numeroHabitacion;
-        this.idConsumo = idConsumo;
+        this.habitacion = habitacion;
+        this.consumo = consumo;
     }
 
     public Reserva() {;}
@@ -84,20 +84,20 @@ public class Reserva {
         this.planEstadia = planEstadia;
     }
 
-    public Integer getNumeroHabitacion() {
-        return numeroHabitacion;
+    public Habitacion getHabitacion() {
+        return habitacion;
     }
 
-    public void setNumeroHabitacion(Integer numeroHabitacion) {
-        this.numeroHabitacion = numeroHabitacion;
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
     }
 
-    public Integer getIdConsumo() {
-        return idConsumo;
+    public Consumo getConsumo() {
+        return consumo;
     }
 
-    public void setIdConsumo(Integer idConsumo) {
-        this.idConsumo = idConsumo;
+    public void setConsumo(Consumo consumo) {
+        this.consumo = consumo;
     }
     
 }

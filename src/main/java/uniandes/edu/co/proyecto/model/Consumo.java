@@ -2,17 +2,25 @@ package uniandes.edu.co.proyecto.model;
 
 import java.util.Date;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 
 @Entity
 public class Consumo {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private Date fecha;
     private Float valorTotal;
+
     public Consumo(Integer id, Date fecha, Float valorTotal) {
         this.id = id;
         this.fecha = fecha;
         this.valorTotal = valorTotal;
     }
+    
     public Integer getId() {
         return id;
     }
