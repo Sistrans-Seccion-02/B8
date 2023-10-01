@@ -1,8 +1,10 @@
 package uniandes.edu.co.proyecto.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="servicios")
 public class Servicio {
 
     private Integer id;
@@ -50,7 +52,5 @@ public class Servicio {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    
 
 }
