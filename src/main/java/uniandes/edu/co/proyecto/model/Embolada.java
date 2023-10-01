@@ -8,9 +8,9 @@ public class Embolada extends Servicio {
     private String catalogo;
     private Integer numeroPrendas;
     private String tipoPrenda;
-    public Embolada(Integer id, Float capacidad, Float costoDanios, String nombre, String catalogo,
+    public Embolada(Float capacidad, Float costoDanios, String nombre, String catalogo,
             Integer numeroPrendas, String tipoPrenda) {
-        super(id, capacidad, costoDanios, nombre);
+        super(capacidad, costoDanios, nombre);
         this.catalogo = catalogo;
         this.numeroPrendas = numeroPrendas;
         this.tipoPrenda = tipoPrenda;

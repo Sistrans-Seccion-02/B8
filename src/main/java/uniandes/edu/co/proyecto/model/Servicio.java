@@ -1,21 +1,27 @@
 package uniandes.edu.co.proyecto.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Table;
 
 @Entity
+@MappedSuperclass
 @Table(name="servicios")
 public class Servicio {
 
-    private Integer id;
-    private Float capacidad;
-    private Float costoDanios;
-    private String nombre;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    protected Integer id;
+    protected Float capacidad;
+    protected Float costoDanios;
+    protected String nombre;
 
     public Servicio() {;}
 
-    public Servicio(Integer id, Float capacidad, Float costoDanios, String nombre) {
-        this.id = id;
+    public Servicio(Float capacidad, Float costoDanios, String nombre) {
         this.capacidad = capacidad;
         this.costoDanios = costoDanios;
         this.nombre = nombre;

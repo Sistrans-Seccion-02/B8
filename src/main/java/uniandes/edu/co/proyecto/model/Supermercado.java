@@ -9,8 +9,8 @@ public class Supermercado extends Servicio {
 
     private String productos;
 
-    public Supermercado(Integer id, Float capacidad, Float costoDanios, String nombre, String productos) {
-        super(id, capacidad, costoDanios, nombre);
+    public Supermercado(Float capacidad, Float costoDanios, String nombre, String productos) {
+        super(capacidad, costoDanios, nombre);
         this.productos = productos;
     }
 

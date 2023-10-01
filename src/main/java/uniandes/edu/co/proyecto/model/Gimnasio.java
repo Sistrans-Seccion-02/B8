@@ -8,9 +8,9 @@ public class Gimnasio extends Servicio {
 
     private String maquinas;
     private String horario;
-    public Gimnasio(Integer id, Float capacidad, Float costoDanios, String nombre, String maquinas,
+    public Gimnasio(Float capacidad, Float costoDanios, String nombre, String maquinas,
             String horario) {
-        super(id, capacidad, costoDanios, nombre);
+        super(capacidad, costoDanios, nombre);
         this.maquinas = maquinas;
         this.horario = horario;
     }

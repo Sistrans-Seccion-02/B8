@@ -8,8 +8,8 @@ import jakarta.persistence.Table;
 public class Internet extends Servicio {
     private Float cobroPorDia;
 
-    public Internet(Integer id, Float capacidad, Float costoDanios, String nombre, Float cobroPorDia) {
-        super(id, capacidad, costoDanios, nombre);
+    public Internet(Float capacidad, Float costoDanios, String nombre, Float cobroPorDia) {
+        super(capacidad, costoDanios, nombre);
         this.cobroPorDia = cobroPorDia;
     }
     

@@ -10,8 +10,8 @@ public class Restaurante extends Servicio {
     private String estilo;
     private String carta;
 
-    public Restaurante(Integer id, Float capacidad, Float costoDanios, String nombre, String estilo, String carta) {
-        super(id, capacidad, costoDanios, nombre);
+    public Restaurante(Float capacidad, Float costoDanios, String nombre, String estilo, String carta) {
+        super(capacidad, costoDanios, nombre);
         this.estilo = estilo;
         this.carta = carta;
     }

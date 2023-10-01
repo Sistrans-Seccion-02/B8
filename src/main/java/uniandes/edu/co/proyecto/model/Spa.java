@@ -9,8 +9,8 @@ public class Spa extends Servicio {
 
     private String catalogo;
 
-    public Spa(Integer id, Float capacidad, Float costoDanios, String nombre, String catalogo) {
-        super(id, capacidad, costoDanios, nombre);
+    public Spa(Float capacidad, Float costoDanios, String nombre, String catalogo) {
+        super(capacidad, costoDanios, nombre);
         this.catalogo = catalogo;
     }
 
