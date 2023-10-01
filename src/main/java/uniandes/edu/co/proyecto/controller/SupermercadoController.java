@@ -32,7 +32,7 @@ public class SupermercadoController {
 
     @PostMapping("/supermercados/new/save")
     public String supermercadoGuardar(@ModelAttribute Supermercado supermercado) {
-        supermercadoRepository.insertarSupermercado(supermercado.getId(), supermercado.getCapacidad(), supermercado.getCostoDanios(), supermercado.getNombre(), supermercado.getProductos());
+        supermercadoRepository.insertarSupermercado(supermercado.getId(), supermercado.getProductos());
         return "redirect:/supermercados";
     }
 
@@ -49,7 +49,7 @@ public class SupermercadoController {
 
     @PostMapping("/supermercados/{id}/edit/save")
     public String supermercadoEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Supermercado supermercado) {
-        supermercadoRepository.actualizarSupermercado(id, supermercado.getCapacidad(), supermercado.getCostoDanios(), supermercado.getNombre(), supermercado.getProductos());
+        supermercadoRepository.actualizarSupermercado(id, supermercado.getProductos());
         return "redirect:/supermercados";
     }
 

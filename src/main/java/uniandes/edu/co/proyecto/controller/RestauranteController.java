@@ -32,7 +32,7 @@ public class RestauranteController {
 
     @PostMapping("/restaurantes/new/save")
     public String restauranteGuardar(@ModelAttribute Restaurante restaurante) {
-        restauranteRepository.insertarRestaurante(restaurante.getId(), restaurante.getCapacidad(), restaurante.getCostoDanios(), restaurante.getNombre(), restaurante.getEstilo(), restaurante.getCarta());
+        restauranteRepository.insertarRestaurante(restaurante.getId(), restaurante.getEstilo(), restaurante.getCarta());
         return "redirect:/restaurantes";
     }
 
@@ -49,7 +49,7 @@ public class RestauranteController {
 
     @PostMapping("/restaurantes/{id}/edit/save")
     public String restauranteEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Restaurante restaurante) {
-        restauranteRepository.actualizarRestaurante(id, restaurante.getCapacidad(), restaurante.getCostoDanios(), restaurante.getNombre(), restaurante.getEstilo(), restaurante.getCarta());
+        restauranteRepository.actualizarRestaurante(id, restaurante.getEstilo(), restaurante.getCarta());
         return "redirect:/restaurantes";
     }
 
@@ -58,5 +58,5 @@ public class RestauranteController {
         restauranteRepository.eliminarRestaurante(id);
         return "redirect:/restaurantes";
     }
-    
+
 }

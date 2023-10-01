@@ -32,7 +32,7 @@ public class SpaController {
 
     @PostMapping("/spas/new/save")
     public String spaGuardar(@ModelAttribute Spa spa) {
-        spaRepository.insertarSpa(spa.getId(), spa.getCapacidad(), spa.getCostoDanios(), spa.getNombre(), spa.getCatalogo());
+        spaRepository.insertarSpa(spa.getId(), spa.getCatalogo());
         return "redirect:/spas";
     }
 
@@ -49,7 +49,7 @@ public class SpaController {
 
     @PostMapping("/spas/{id}/edit/save")
     public String spaEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Spa spa) {
-        spaRepository.actualizarSpa(id, spa.getCapacidad(), spa.getCostoDanios(), spa.getNombre(), spa.getCatalogo());
+        spaRepository.actualizarSpa(id, spa.getCatalogo());
         return "redirect:/spas";
     }
     

@@ -20,15 +20,13 @@ public interface SupermercadoRepository extends JpaRepository<Supermercado, Inte
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO supermercados (id, capacidad, costoDanios, nombre, productos) VALUES (:id, :capacidad, :costoDanios, :nombre, :productos)", nativeQuery = true)
-    void insertarSupermercado(@Param("id") Integer id, @Param("capacidad") Float capacidad, @Param("costoDanios") Float costoDanios,
-                            @Param("nombre") String nombre, @Param("productos") String productos);
+    @Query(value = "INSERT INTO supermercados (id, productos) VALUES (:id, :productos)", nativeQuery = true)
+    void insertarSupermercado(@Param("id") Integer id, @Param("productos") String productos);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE supermercados SET capacidad = :capacidad, costoDanios = :costoDanios, nombre = :nombre, productos = :productos WHERE id = :id", nativeQuery = true)
-    void actualizarSupermercado(@Param("id") Integer id, @Param("capacidad") Float capacidad, @Param("costoDanios") Float costoDanios,
-                            @Param("nombre") String nombre, @Param("productos") String productos);
+    @Query(value = "UPDATE supermercados SET productos = :productos WHERE id = :id", nativeQuery = true)
+    void actualizarSupermercado(@Param("id") Integer id, @Param("productos") String productos);
 
     @Modifying
     @Transactional

@@ -20,15 +20,13 @@ public interface TiendaRepository extends JpaRepository<Tienda, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO tiendas (id, capacidad, costoDanios, nombre, tipo, productos) VALUES (:id, :capacidad, :costoDanios, :nombre, :tipo, :productos)", nativeQuery = true)
-    void insertarTienda(@Param("id") Integer id, @Param("capacidad") Float capacidad, @Param("costoDanios") Float costoDanios,
-                        @Param("nombre") String nombre, @Param("tipo") String tipo, @Param("productos") String productos);
+    @Query(value = "INSERT INTO tiendas (id, tipo, productos) VALUES (:id, :tipo, :productos)", nativeQuery = true)
+    void insertarTienda(@Param("id") Integer id, @Param("tipo") String tipo, @Param("productos") String productos);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE tiendas SET capacidad = :capacidad, costoDanios = :costoDanios, nombre = :nombre, tipo = :tipo, productos = :productos WHERE id = :id", nativeQuery = true)
-    void actualizarTienda(@Param("id") Integer id, @Param("capacidad") Float capacidad, @Param("costoDanios") Float costoDanios,
-                        @Param("nombre") String nombre, @Param("tipo") String tipo, @Param("productos") String productos);
+    @Query(value = "UPDATE tiendas SET tipo = :tipo, productos = :productos WHERE id = :id", nativeQuery = true)
+    void actualizarTienda(@Param("id") Integer id, @Param("tipo") String tipo, @Param("productos") String productos);
 
     @Modifying
     @Transactional
