@@ -12,6 +12,7 @@ public class Consumo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+    
     private Date fecha;
     private Float valorTotal;
 

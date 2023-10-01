@@ -1,7 +1,11 @@
 package uniandes.edu.co.proyecto.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -9,17 +13,23 @@ import jakarta.persistence.Table;
 public class Usuario {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
     private Integer cedula;
-    
     private String nombre;
     private String apellido;
     private String correo;
-    private String tipoUsuario;
+
+    @ManyToOne
+    @JoinColumn(name="tipoUsuario", referencedColumnName = "id")
+    private TipoUsuario tipoUsuario;
+
     private String password;
     private Integer numAcompañantes;
     private String areaEmpleado;
 
-    public Usuario(Integer cedula, String nombre, String apellido, String correo, String tipoUsuario, String password, Integer numAcompañantes, String areaEmpleado) {
+    public Usuario(Integer cedula, String nombre, String apellido, String correo, TipoUsuario tipoUsuario, String password, Integer numAcompañantes, String areaEmpleado) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -31,6 +41,14 @@ public class Usuario {
     }
 
     public Usuario() {;}
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getCedula() {
         return cedula;
@@ -64,11 +82,11 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getTipoUsuario() {
+    public TipoUsuario getTipoUsuario() {
         return tipoUsuario;
     }
 
-    public void setTipoUsuario(String tipoUsuario) {
+    public void setTipoUsuario(TipoUsuario tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
     }
 

@@ -11,6 +11,9 @@ import jakarta.persistence.Table;
 public class Habitacion {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+
     private Integer numero;
     private String tipoHabitacion;
     private String plan;
@@ -31,6 +34,15 @@ public class Habitacion {
     }
     public Habitacion()
     {;}
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
     public Integer getNumero() {
         return numero;
     }
