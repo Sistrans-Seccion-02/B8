@@ -20,7 +20,7 @@ public interface HotelRepository extends JpaRepository<Hotel, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO hoteles (id, nombre, direccion, ciudad, pais) VALUES ( hotelandes_sequence.nextval , :nombre, :direccion, :ciudad, :pais)", nativeQuery = true)
+    @Query(value = "INSERT INTO hoteles (id, nombre, direccion, ciudad, pais) VALUES ( hotelandes_sequence.nextval, :nombre, :direccion, :ciudad, :pais)", nativeQuery = true)
     void insertarHotel(@Param("nombre") String nombre, @Param("direccion") String direccion,
                         @Param("ciudad") String ciudad, @Param("pais") String pais);
 
@@ -34,4 +34,5 @@ public interface HotelRepository extends JpaRepository<Hotel, Integer> {
     @Transactional
     @Query(value = "DELETE FROM hoteles WHERE id = :id", nativeQuery = true)
     void eliminarHotel(@Param("id") long id);
+    
 }

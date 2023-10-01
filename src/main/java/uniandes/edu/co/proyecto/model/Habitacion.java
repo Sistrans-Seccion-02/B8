@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -15,18 +17,20 @@ public class Habitacion {
     private Integer id;
 
     private Integer numero;
-    private String tipoHabitacion;
-    private String plan;
+
+    @ManyToOne
+    @JoinColumn(name="tipoHabitacion", referencedColumnName = "id")
+    private TipoHabitacion tipoHabitacion;
+
     private Boolean television;
     private Boolean minibar;
     private Boolean cafetera;
     private Integer diasEstadia;
 
-    public Habitacion(Integer numero, String tipoHabitacion, String plan, Boolean television, Boolean minibar, Boolean cafetera, Integer diasEstadia)
+    public Habitacion(Integer numero, TipoHabitacion tipoHabitacion, Boolean television, Boolean minibar, Boolean cafetera, Integer diasEstadia)
     {
         this.numero=numero;
         this.tipoHabitacion=tipoHabitacion;
-        this.plan=plan;
         this.television=television;
         this.minibar=minibar;
         this.cafetera=cafetera;
@@ -42,24 +46,18 @@ public class Habitacion {
     public void setId(Integer id) {
         this.id = id;
     }
-    
+
     public Integer getNumero() {
         return numero;
     }
     public void setNumero(Integer numero) {
         this.numero = numero;
     }
-    public String getTipoHabitacion() {
+    public TipoHabitacion getTipoHabitacion() {
         return tipoHabitacion;
     }
-    public void setTipoHabitacion(String tipoHabitacion) {
+    public void setTipoHabitacion(TipoHabitacion tipoHabitacion) {
         this.tipoHabitacion = tipoHabitacion;
-    }
-    public String getPlan() {
-        return plan;
-    }
-    public void setPlan(String plan) {
-        this.plan = plan;
     }
     public Boolean getTelevision() {
         return television;
