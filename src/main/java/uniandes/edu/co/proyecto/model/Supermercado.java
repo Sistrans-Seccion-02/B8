@@ -9,8 +9,8 @@ public class Supermercado extends Servicio {
 
     private String productos;
 
-    public Supermercado(Float capacidad, Float costoDanios, String nombre, String productos) {
-        super(capacidad, costoDanios, nombre);
+    public Supermercado(Float capacidad, Float costoDanios, String nombre, Hotel hotel, String productos) {
+        super(capacidad, costoDanios, nombre, hotel);
         this.productos = productos;
     }
 

@@ -27,7 +27,11 @@ public class Habitacion {
     private Boolean cafetera;
     private Integer diasEstadia;
 
-    public Habitacion(Integer numero, TipoHabitacion tipoHabitacion, Boolean television, Boolean minibar, Boolean cafetera, Integer diasEstadia)
+    @ManyToOne
+    @JoinColumn(name="idHotel", referencedColumnName = "id")
+    private Hotel hotel;
+
+    public Habitacion(Integer numero, TipoHabitacion tipoHabitacion, Boolean television, Boolean minibar, Boolean cafetera, Integer diasEstadia, Hotel hotel)
     {
         this.numero=numero;
         this.tipoHabitacion=tipoHabitacion;
@@ -35,7 +39,9 @@ public class Habitacion {
         this.minibar=minibar;
         this.cafetera=cafetera;
         this.diasEstadia=diasEstadia;
+        this.hotel=hotel;
     }
+
     public Habitacion()
     {;}
 
@@ -50,38 +56,57 @@ public class Habitacion {
     public Integer getNumero() {
         return numero;
     }
+
     public void setNumero(Integer numero) {
         this.numero = numero;
     }
+
     public TipoHabitacion getTipoHabitacion() {
         return tipoHabitacion;
     }
+
     public void setTipoHabitacion(TipoHabitacion tipoHabitacion) {
         this.tipoHabitacion = tipoHabitacion;
     }
+
     public Boolean getTelevision() {
         return television;
     }
+
     public void setTelevision(Boolean television) {
         this.television = television;
     }
+
     public Boolean getMinibar() {
         return minibar;
     }
+
     public void setMinibar(Boolean minibar) {
         this.minibar = minibar;
     }
+
     public Boolean getCafetera() {
         return cafetera;
     }
+
     public void setCafetera(Boolean cafetera) {
         this.cafetera = cafetera;
     }
+
     public Integer getDiasEstadia() {
         return diasEstadia;
     }
+    
     public void setDiasEstadia(Integer diasEstadia) {
         this.diasEstadia = diasEstadia;
+    }
+
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
     }
     
 }

@@ -21,15 +21,15 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO habitaciones (id, numero, tipo, television, minibar, cafetera, diasEstadia) VALUES ( hotelandes_sequence.nextval, :numero, :tipo, :television, :minibar, :cafetera, :diasEstadia)", nativeQuery = true)
-    void insertarHabitacion(@Param("numero") Integer numero, @Param("tipo") Integer tipo, @Param("minibar") Boolean minibar,
-                        @Param("cafetera") Boolean cafetera, @Param("diasEstadia") Integer diasEstadia);
+    @Query(value = "INSERT INTO habitaciones (id, numero, tipoHabitacion, television, minibar, cafetera, diasEstadia, idHotel) VALUES ( hotelandes_sequence.nextval, :numero, :tipoHabitacion, :television, :minibar, :cafetera, :diasEstadia, :idHotel)", nativeQuery = true)
+    void insertarHabitacion(@Param("numero") Integer numero, @Param("tipoHabitacion") Integer tipo, @Param("minibar") Boolean minibar,
+                        @Param("cafetera") Boolean cafetera, @Param("diasEstadia") Integer diasEstadia, @Param("idHotel") Integer idHotel);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE habitaciones SET numero = :numero, tipo = :tipo, television = :television, minibar = :minibar, cafetera = :cafetera, diasEstadia = :diasEstadia WHERE id = :id", nativeQuery = true)
-    void actualizarHabitacion(@Param("numero") Integer numero, @Param("tipo") Integer tipo, @Param("minibar") Boolean minibar,
-                        @Param("cafetera") Boolean cafetera, @Param("diasEstadia") Integer diasEstadia);
+    @Query(value = "UPDATE habitaciones SET numero = :numero, tipoHabitacion = :tipoHabitacion, television = :television, minibar = :minibar, cafetera = :cafetera, diasEstadia = :diasEstadia, idHotel = :idHotel WHERE id = :id", nativeQuery = true)
+    void actualizarHabitacion(@Param("numero") Integer numero, @Param("tipoHabitacion") Integer tipo, @Param("minibar") Boolean minibar,
+                        @Param("cafetera") Boolean cafetera, @Param("diasEstadia") Integer diasEstadia, @Param("idHotel") Integer idHotel);
 
     @Modifying
     @Transactional

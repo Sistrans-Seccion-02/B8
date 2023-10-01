@@ -9,9 +9,9 @@ public class Bar extends Servicio {
 
     private String estilo;
     private String carta;
-    public Bar(Float capacidad, Float costoDanios, String nombre, String estilo,
+    public Bar(Float capacidad, Float costoDanios, String nombre, Hotel hotel, String estilo,
             String carta) {
-        super(capacidad, costoDanios, nombre);
+        super(capacidad, costoDanios, nombre, hotel);
         this.estilo = estilo;
         this.carta = carta;
     }
