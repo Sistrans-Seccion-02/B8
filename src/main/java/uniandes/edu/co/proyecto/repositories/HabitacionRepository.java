@@ -21,15 +21,15 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO habitaciones (numero, tipo, plan, television, minibar, cafetera, diasEstadia, tipoHabitacion) VALUES (:numero, :tipo, :plan, :television, :minibar, :cafetera, :diasEstadia, :tipoHabitacion)", nativeQuery = true)
-    void insertarHabitacion(@Param("numero") Integer numero, @Param("tipo") String tipo, @Param("minibar") Boolean minibar,
-                        @Param("cafetera") Boolean cafetera, @Param("diasEstadia") Integer diasEstadia, @Param("tipoHabitacion") String tipoHabitacion);
+    @Query(value = "INSERT INTO habitaciones (numero, tipoHabitacion, plan, television, minibar, cafetera, diasEstadia) VALUES (:numero, :tipoHabitacion, :plan, :television, :minibar, :cafetera, :diasEstadia)", nativeQuery = true)
+    void insertarHabitacion(@Param("numero") Integer numero, @Param("tipoHabitacion") String tipoHabitacion, @Param("plan") String plan,  @Param("television") Boolean television, @Param("minibar") Boolean minibar,
+                        @Param("cafetera") Boolean cafetera, @Param("diasEstadia") Integer diasEstadia);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE habitaciones SET tipo = :tipo, plan = :plan, television = :television, minibar = :minibar, cafetera = :cafetera, diasEstadia = :diasEstadia, tipoHabitacion = :tipoHabitacion WHERE numero = :numero", nativeQuery = true)
-    void actualizarHabitacion(@Param("numero") Integer numero, @Param("tipo") String tipo, @Param("minibar") Boolean minibar,
-                        @Param("cafetera") Boolean cafetera, @Param("diasEstadia") Integer diasEstadia, @Param("tipoHabitacion") String tipoHabitacion);
+    @Query(value = "UPDATE habitaciones SET tipoHabitacion = :tipoHabitacion, plan = :plan, television = :television, minibar = :minibar, cafetera = :cafetera, diasEstadia = :diasEstadia WHERE numero = :numero", nativeQuery = true)
+    void actualizarHabitacion(@Param("numero") Integer numero, @Param("tipoHabitacion") String tipoHabitacion, @Param("plan") String plan,  @Param("television") Boolean television, @Param("minibar") Boolean minibar,
+                        @Param("cafetera") Boolean cafetera, @Param("diasEstadia") Integer diasEstadia);
 
     @Modifying
     @Transactional

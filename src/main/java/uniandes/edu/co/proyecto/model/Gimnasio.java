@@ -14,6 +14,9 @@ public class Gimnasio extends Servicio {
         this.maquinas = maquinas;
         this.horario = horario;
     }
+
+    public Gimnasio() {;}
+
     public String getMaquinas() {
         return maquinas;
     }

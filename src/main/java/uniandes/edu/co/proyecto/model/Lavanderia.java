@@ -15,6 +15,9 @@ public class Lavanderia extends Servicio {
         this.numeroPrendas = numeroPrendas;
         this.tipoPrenda = tipoPrenda;
     }
+
+    public Lavanderia() {;}
+
     public String getCatalogo() {
         return catalogo;
     }
