@@ -15,6 +15,9 @@ public class Embolada extends Servicio {
         this.numeroPrendas = numeroPrendas;
         this.tipoPrenda = tipoPrenda;
     }
+
+    public Embolada() {;}
+
     public String getCatalogo() {
         return catalogo;
     }

@@ -15,6 +15,9 @@ public class Bar extends Servicio {
         this.estilo = estilo;
         this.carta = carta;
     }
+    
+    public Bar() {;}
+
     public String getEstilo() {
         return estilo;
     }

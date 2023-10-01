@@ -14,6 +14,9 @@ public class Piscina extends Servicio {
         this.profundidad = profundidad;
         this.horario = horario;
     }
+
+    public Piscina() {;}
+
     public Float getProfundidad() {
         return profundidad;
     }
