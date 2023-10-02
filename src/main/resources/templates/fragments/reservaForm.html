@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragmento</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+    <div th:fragment="reservaForm(titulo)" class="container border border-2 w-25">
+        <h1 class="text-center" th:text="${titulo}"></h1>
+    <form>
+        <label class="col-form-label">Id</label>
+        <input class="form-control" type="text" id="id" name="id" required th:value="${reserva.id}" />
+
+        <label class="col-form-label">Costo Total</label>
+        <input class="form-control" type="text" id="costoTotal" name="costoTotal" required th:value="${reserva.costoTotal}" />
+
+        <label class="col-form-label">Fecha de Inicio</label>
+        <input class="form-control" type="text" id="fechaInicio" name="fechaInicio" required th:value="${reserva.fechaInicio}" />
+
+        <label class="col-form-label">Fecha de Fin</label>
+        <input class="form-control" type="text" id="fechaFin" name="fechaFin" required th:value="${reserva.fechaFin}" />
+
+        <select class="form-control" id="planEstadia" name="planEstadia" required>
+            <option value="LARGA_ESTADIA" th:selected="${reserva.planEstadia eq 'LARGA_ESTADIA'}">LARGA ESTADIA</option>
+            <option value="TIEMPO_COMPARTIDO" th:selected="${reserva.planEstadia eq 'TIEMPO_COMPARTIDO'}">TIEMPO COMPARTIDO</option>
+            <option value="TODO_INCLUIDO" th:selected="${reserva.planEstadia eq 'TODO_INCLUIDO'}">TODO INCLUIDO</option>
+            <option value="PROMOCION" th:selected="${reserva.planEstadia eq 'PROMOCION'}">PROMOCION</option>
+        </select>
+        <div class="text-center">
+            <input type="submit" value="Guardar" class="btn btn-primary">
+            <a th:href="@{/reservas}" class="btn btn-primary">Cancelar</a>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
