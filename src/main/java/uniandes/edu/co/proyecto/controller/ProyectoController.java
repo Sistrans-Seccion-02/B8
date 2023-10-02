@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ProyectoController {
     
     @RequestMapping("/")
-    public String index() {
-        return "index";
+    public String menuPrincipal() {
+        return "menuPrincipal";
     }
     
 }
