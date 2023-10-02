@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Usuarios</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
-</head>
+    <head>
+        <title>Usuarios</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+        <script th:src="@{/css/jquery.min.js}"></script>
+        <script th:src="@{/css/bootstrap.min.js}"></script>
+    </head>
 <body>
     <div>
         <h1>Lista de usuario</h1>
@@ -21,7 +20,7 @@
                     <th>TipoUsuario</th>
                     <th>contraseña</th>
                     <th>numero acompañantes</th>
-                    <th>area empleado</th>
+                
                 </tr>
             </thead>
             <th:block th:each="usuario : ${usuarios}">
@@ -34,7 +33,7 @@
                     <td th:text="${usuario.TipoUsuario}"></td>
                     <td th:text="${usuario.contraseña}"></td>
                     <td th:text="${usuario.numAcompañantes}"></td>
-                    <td th:text="${usuario.areaEmpleado}"></td>
+                    
                     <td>
                         <a th:href="@{usuarios/{id}/edit(id=${usuario.id})}">Editar</a>
                         <a th:href="@{usuarios/{id}/delete(id=${usuario.id})}"
