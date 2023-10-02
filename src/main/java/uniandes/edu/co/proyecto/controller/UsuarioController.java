@@ -14,7 +14,7 @@ import org.springframework.ui.Model;
 
 @Controller
 public class UsuarioController {
-    
+
     @Autowired
     private UsuarioRepository usuarioRepository;
 
@@ -32,7 +32,9 @@ public class UsuarioController {
 
     @PostMapping("/usuarios/new/save")
     public String usuarioGuardar(@ModelAttribute Usuario usuario) {
-        usuarioRepository.insertarUsuario(usuario.getCedula(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getTipoUsuario().getId(), usuario.getPassword(), usuario.getNumAcompañantes(), usuario.getAreaEmpleado());
+        usuarioRepository.insertarUsuario(usuario.getCedula(), usuario.getNombre(), usuario.getApellido(),
+                usuario.getCorreo(), usuario.getTipoUsuario().getId(), usuario.getPassword(),
+                usuario.getNumAcompañantes(), usuario.getAreaEmpleado());
         return "redirect:/usuarios";
     }
 
@@ -49,7 +51,9 @@ public class UsuarioController {
 
     @PostMapping("/usuarios/{id}/edit/save")
     public String usuarioEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Usuario usuario) {
-        usuarioRepository.actualizarUsuario(id, usuario.getCedula(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getTipoUsuario().getId(), usuario.getPassword(), usuario.getNumAcompañantes(), usuario.getAreaEmpleado());
+        usuarioRepository.actualizarUsuario(id, usuario.getCedula(), usuario.getNombre(), usuario.getApellido(),
+                usuario.getCorreo(), usuario.getTipoUsuario().getId(), usuario.getPassword(),
+                usuario.getNumAcompañantes(), usuario.getAreaEmpleado());
         return "redirect:/usuarios";
     }
 

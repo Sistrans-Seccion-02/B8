@@ -1,5 +1,6 @@
 package uniandes.edu.co.proyecto.model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,7 +10,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="usuarios")
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
@@ -22,14 +23,15 @@ public class Usuario {
     private String correo;
 
     @ManyToOne
-    @JoinColumn(name="tipoUsuario", referencedColumnName = "id")
+    @JoinColumn(name = "tipoUsuario", referencedColumnName = "id")
     private TipoUsuario tipoUsuario;
 
     private String password;
     private Integer numAcompañantes;
     private String areaEmpleado;
 
-    public Usuario(Integer cedula, String nombre, String apellido, String correo, TipoUsuario tipoUsuario, String password, Integer numAcompañantes, String areaEmpleado) {
+    public Usuario(Integer cedula, String nombre, String apellido, String correo, TipoUsuario tipoUsuario,
+            String password, Integer numAcompañantes, String areaEmpleado) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -37,10 +39,13 @@ public class Usuario {
         this.tipoUsuario = tipoUsuario;
         this.password = password;
         this.numAcompañantes = numAcompañantes;
+
         this.areaEmpleado = areaEmpleado;
     }
 
-    public Usuario() {;}
+    public Usuario() {
+        ;
+    }
 
     public Integer getId() {
         return id;

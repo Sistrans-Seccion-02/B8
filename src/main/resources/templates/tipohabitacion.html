@@ -20,18 +20,18 @@
             </thead>
             <th:block th:each="tipohabitacion : ${tipotipohabitaciones}">
                 <tr>
-                    <td th:text="${tipohabitacion.id}"></td>
-                    <td th:text="${tipohabitacion.nombre}"></td>
+                    <td th:text="${tiposHabitacion.id}"></td>
+                    <td th:text="${tiposHabitacion.nombre}"></td>
                     <td>
-                        <a th:href="@{tipotipohabitaciones/{id}/edit(id=${tipohabitacion.id})}">Editar</a>
-                        <a th:href="@{tipotipohabitaciones/{id}/delete(id=${tipohabitacion.id})}"
+                        <a th:href="@{tiposHabitacion/{id}/edit(id=${tipohabitacion.id})}">Editar</a>
+                        <a th:href="@{tiposHabitacion/{id}/delete(id=${tipohabitacion.id})}"
                             onclick="return confirm('¿Estás seguro de borrar este tipohabitacion?')">Borrar</a>
                     </td>
                 </tr>
             </th:block>
         </table>
         <div>
-            <a th:href='@{tipotipohabitaciones/new}' class="btn btn-primary">Añadir Tipohabitacion</a>
+            <a th:href='@{tipohabitacion/new}' class="btn btn-primary">Añadir Tipohabitacion</a>
             <a th:href='@{/}' class="btn btn-primary">Volver Atrás</a>
 
         </div>
