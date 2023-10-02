@@ -11,8 +11,8 @@ public class Salon extends Servicio {
     private Float costoPorHora;
     private Integer equipos;
 
-    public Salon(Float capacidad, Float costoDanios, String nombre, String tipo, Float costoPorHora, Integer equipos) {
-        super(capacidad, costoDanios, nombre);
+    public Salon(Float capacidad, Float costoDanios, String nombre, Hotel hotel, String tipo, Float costoPorHora, Integer equipos) {
+        super(capacidad, costoDanios, nombre, hotel);
         this.tipo = tipo;
         this.costoPorHora = costoPorHora;
         this.equipos = equipos;

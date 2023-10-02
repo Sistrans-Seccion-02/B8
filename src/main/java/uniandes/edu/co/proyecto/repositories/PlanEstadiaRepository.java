@@ -21,7 +21,7 @@ public interface PlanEstadiaRepository extends JpaRepository<PlanEstadia, Intege
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO planesEstadia (id, nombre) VALUES ( hotelandes_sequence.nextval, :nombre)", nativeQuery = true)
-    void insertarPlanEstadia(@Param("id") Integer id, @Param("nombre") String nombre);
+    void insertarPlanEstadia(@Param("nombre") String nombre);
 
     @Modifying
     @Transactional

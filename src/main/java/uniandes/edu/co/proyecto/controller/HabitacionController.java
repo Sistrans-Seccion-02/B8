@@ -30,13 +30,13 @@ public class HabitacionController {
 
     @PostMapping("/habitaciones/new/save")
     public String habitacionGuardar(@ModelAttribute Habitacion habitacion) {
-        habitacionRepository.insertarHabitacion(habitacion.getNumero(), habitacion.getTipoHabitacion(), habitacion.getPlan(), habitacion.getTelevision(), habitacion.getMinibar(), habitacion.getCafetera(), habitacion.getDiasEstadia());
+        habitacionRepository.insertarHabitacion(habitacion.getNumero(), habitacion.getTipoHabitacion().getId(), habitacion.getTelevision(), habitacion.getMinibar(), habitacion.getCafetera(), habitacion.getDiasEstadia(), habitacion.getHotel().getId());
         return "redirect:/habitaciones";
     }
 
-    @GetMapping("/habitaciones/{numero}/edit")
-    public String habitacionEditarForm(@PathVariable("numero") Integer numero, Model model) {
-        Habitacion habitacion = habitacionRepository.darHabitacion(numero);
+    @GetMapping("/habitaciones/{id}/edit")
+    public String habitacionEditarForm(@PathVariable("id") Integer id, Model model) {
+        Habitacion habitacion = habitacionRepository.darHabitacion(id);
         if (habitacion != null) {
             model.addAttribute("habitacion", habitacion);
             return "habitacionEditar";
@@ -45,15 +45,15 @@ public class HabitacionController {
         }
     }
 
-    @PostMapping("/habitaciones/{numero}/edit/save")
-    public String habitacionEditarGuardar(@PathVariable("numero") Integer numero, @ModelAttribute Habitacion habitacion) {
-        habitacionRepository.actualizarHabitacion(numero, habitacion.getTipoHabitacion(), habitacion.getPlan(), habitacion.getTelevision(), habitacion.getMinibar(), habitacion.getCafetera(), habitacion.getDiasEstadia());
+    @PostMapping("/habitaciones/{id}/edit/save")
+    public String habitacionEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Habitacion habitacion) {
+        habitacionRepository.actualizarHabitacion(id, habitacion.getNumero(), habitacion.getTipoHabitacion().getId(), habitacion.getTelevision(), habitacion.getMinibar(), habitacion.getCafetera(), habitacion.getDiasEstadia(), habitacion.getHotel().getId());
         return "redirect:/habitaciones";
     }
 
-    @GetMapping("/habitaciones/{numero}/delete")
-    public String habitacionEliminar(@PathVariable("numero") Integer numero) {
-        habitacionRepository.eliminarHabitacion(numero);
+    @GetMapping("/habitaciones/{id}/delete")
+    public String habitacionEliminar(@PathVariable("id") Integer id) {
+        habitacionRepository.eliminarHabitacion(id);
         return "redirect:/habitaciones";
     }
 

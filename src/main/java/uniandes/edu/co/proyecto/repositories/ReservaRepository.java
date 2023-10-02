@@ -22,7 +22,7 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO reservas (id, costoTotal, fechaInicio, fechaFin, planEstadia, numeroHabitacion, idConsumo) VALUES ( hotelandes_sequence.nextval, :costoTotal, :fechaInicio, :fechaFin, :planEstadia, :numeroHabitacion, :idConsumo)", nativeQuery = true)
-    void insertarReserva(@Param("id") Integer id, @Param("costoTotal") Integer costoTotal, @Param("fechaInicio") Date fechaInicio,
+    void insertarReserva(@Param("costoTotal") Integer costoTotal, @Param("fechaInicio") Date fechaInicio,
                         @Param("fechaFin") Date fechaFin, @Param("planEstadia") Integer planEstadia, @Param("numeroHabitacion") Integer numeroHabitacion, @Param("idConsumo") Integer idConsumo);
 
     @Modifying

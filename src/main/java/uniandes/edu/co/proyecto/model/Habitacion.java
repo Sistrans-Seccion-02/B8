@@ -27,19 +27,25 @@ public class Habitacion {
     private Boolean cafetera;
     private Integer diasEstadia;
 
-    public Habitacion(Integer numero, TipoHabitacion tipoHabitacion, Boolean television, Boolean minibar,
-            Boolean cafetera, Integer diasEstadia) {
-        this.numero = numero;
-        this.tipoHabitacion = tipoHabitacion;
-        this.television = television;
-        this.minibar = minibar;
-        this.cafetera = cafetera;
-        this.diasEstadia = diasEstadia;
+
+    @ManyToOne
+    @JoinColumn(name="idHotel", referencedColumnName = "id")
+    private Hotel hotel;
+
+    public Habitacion(Integer numero, TipoHabitacion tipoHabitacion, Boolean television, Boolean minibar, Boolean cafetera, Integer diasEstadia, Hotel hotel)
+    {
+        this.numero=numero;
+        this.tipoHabitacion=tipoHabitacion;
+        this.television=television;
+        this.minibar=minibar;
+        this.cafetera=cafetera;
+        this.diasEstadia=diasEstadia;
+        this.hotel=hotel;
     }
 
-    public Habitacion() {
-        ;
-    }
+    public Habitacion()
+    {;}
+
 
     public Integer getId() {
         return id;
@@ -97,4 +103,12 @@ public class Habitacion {
         this.diasEstadia = diasEstadia;
     }
 
+    public Hotel getHotel() {
+        return hotel;
+    }
+
+    public void setHotel(Hotel hotel) {
+        this.hotel = hotel;
+    }
+    
 }
