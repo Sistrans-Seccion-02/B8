@@ -27,6 +27,7 @@ public class Habitacion {
     private Boolean cafetera;
     private Integer diasEstadia;
 
+
     @ManyToOne
     @JoinColumn(name="idHotel", referencedColumnName = "id")
     private Hotel hotel;
@@ -44,6 +45,7 @@ public class Habitacion {
 
     public Habitacion()
     {;}
+
 
     public Integer getId() {
         return id;
@@ -96,7 +98,7 @@ public class Habitacion {
     public Integer getDiasEstadia() {
         return diasEstadia;
     }
-    
+
     public void setDiasEstadia(Integer diasEstadia) {
         this.diasEstadia = diasEstadia;
     }

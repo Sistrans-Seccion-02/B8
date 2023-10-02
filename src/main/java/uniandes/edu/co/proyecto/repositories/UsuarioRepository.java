@@ -8,6 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
+import uniandes.edu.co.proyecto.model.TipoUsuario;
 import uniandes.edu.co.proyecto.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
@@ -21,20 +22,24 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Modifying
     @Transactional
     @Query(value = "INSERT INTO usuarios (id, cedula, nombre, apellido, correo, tipoUsuario, password, numAcompaniantes, areaEmpleado) VALUES ( hotelandes_sequence.nextval, :cedula, :nombre, :apellido, :correo, :tipoUsuario, :password, :numAcompaniantes, :areaEmpleado)", nativeQuery = true)
-    void insertarUsuario(@Param("cedula") Integer cedula, @Param("nombre") String nombre, @Param("apellido") String apellido,
-                        @Param("correo") String correo, @Param("tipoUsuario") Integer tipoUsuario, @Param("password") String password,
-                        @Param("numAcompaniantes") Integer numAcompaniantes, @Param("areaEmpleado") String areaEmpleado);
+    void insertarUsuario(@Param("cedula") Integer cedula, @Param("nombre") String nombre,
+            @Param("apellido") String apellido,
+            @Param("correo") String correo, @Param("tipoUsuario") TipoUsuario tipoUsuario,
+            @Param("password") String password,
+            @Param("numAcompaniantes") Integer numAcompaniantes, @Param("areaEmpleado") String areaEmpleado);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE usuarios SET cedula = :cedula, nombre = :nombre, apellido = :apellido, correo = :correo, tipoUsuario = :tipoUsuario, password = :password, numAcompaniantes = :numAcompaniantes, areaEmpleado = :areaEmpleado WHERE id = :id", nativeQuery = true)
-    void actualizarUsuario(@Param("id") Integer id, @Param("cedula") Integer cedula, @Param("nombre") String nombre, @Param("apellido") String apellido,
-                        @Param("correo") String correo, @Param("tipoUsuario") Integer tipoUsuario, @Param("password") String password,
-                        @Param("numAcompaniantes") Integer numAcompaniantes, @Param("areaEmpleado") String areaEmpleado);
+    void actualizarUsuario(@Param("id") Integer id, @Param("cedula") Integer cedula, @Param("nombre") String nombre,
+            @Param("apellido") String apellido,
+            @Param("correo") String correo, @Param("tipoUsuario") Integer tipoUsuario,
+            @Param("password") String password,
+            @Param("numAcompaniantes") Integer numAcompaniantes, @Param("areaEmpleado") String areaEmpleado);
 
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM usuarios WHERE id = :id", nativeQuery = true)
     void eliminarUsuario(@Param("id") Integer cedula);
-    
+
 }

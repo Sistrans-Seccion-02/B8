@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Tipohabitacion</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+
+</head>
+<body>
+    </br>
+    <form th:action="@{/tipotipohabitaciones/new/save}" method="post">
+    <div th:replace="~{fragments/tipohabitacionForm :: tipohabitacionForm(titulo='Crear Tipohabitacion')}">
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel de los Andes</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+    <div class="container mx-auto w-25">
+
+    <h1>Hotel de los Andes</h1>
+    <img th:src="@{/images/logo.png}" width="250">
+
+    <div>
+        <a th:href="@{/administradores}" class="btn btn-primary">Menu Administradores</a>
+        <a th:href="@{/clientes}" class="btn btn-primary">Menu Clientes</a>
+        <a th:href="@{/empleados}" class="btn btn-primary">Menu Empleados</a>
+        <a th:href="@{/gerentes}" class="btn btn-primary">Menu Gerentes</a>
+        <a th:href="@{/recepcionistas}" class="btn btn-primary">Menu Recepcionistas</a>
+        
+    </div>
+    <br/>
+
+</div>
+</body>
+</html>
