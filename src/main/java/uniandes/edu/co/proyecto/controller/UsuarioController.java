@@ -32,13 +32,13 @@ public class UsuarioController {
 
     @PostMapping("/usuarios/new/save")
     public String usuarioGuardar(@ModelAttribute Usuario usuario) {
-        usuarioRepository.insertarUsuario(usuario.getCedula(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getTipoUsuario(), usuario.getPassword(), usuario.getNumAcompañantes(), usuario.getAreaEmpleado());
+        usuarioRepository.insertarUsuario(usuario.getCedula(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getTipoUsuario().getId(), usuario.getPassword(), usuario.getNumAcompañantes(), usuario.getAreaEmpleado());
         return "redirect:/usuarios";
     }
 
-    @GetMapping("/usuarios/{cedula}/edit")
-    public String usuarioEditarForm(@PathVariable("cedula") Integer cedula, Model model) {
-        Usuario usuario = usuarioRepository.darUsuario(cedula);
+    @GetMapping("/usuarios/{id}/edit")
+    public String usuarioEditarForm(@PathVariable("id") Integer id, Model model) {
+        Usuario usuario = usuarioRepository.darUsuario(id);
         if (usuario != null) {
             model.addAttribute("usuario", usuario);
             return "usuarioEditar";
@@ -47,9 +47,9 @@ public class UsuarioController {
         }
     }
 
-    @PostMapping("/usuarios/{cedula}/edit/save")
-    public String usuarioEditarGuardar(@PathVariable("cedula") Integer cedula, @ModelAttribute Usuario usuario) {
-        usuarioRepository.actualizarUsuario(cedula, usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getTipoUsuario(), usuario.getPassword(), usuario.getNumAcompañantes(), usuario.getAreaEmpleado());
+    @PostMapping("/usuarios/{id}/edit/save")
+    public String usuarioEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Usuario usuario) {
+        usuarioRepository.actualizarUsuario(id, usuario.getCedula(), usuario.getNombre(), usuario.getApellido(), usuario.getCorreo(), usuario.getTipoUsuario().getId(), usuario.getPassword(), usuario.getNumAcompañantes(), usuario.getAreaEmpleado());
         return "redirect:/usuarios";
     }
 

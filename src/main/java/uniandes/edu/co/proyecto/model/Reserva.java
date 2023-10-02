@@ -22,7 +22,10 @@ public class Reserva {
     private Integer costoTotal;
     private Date fechaInicio;
     private Date fechaFin;
-    private String planEstadia;
+
+    @ManyToOne
+    @JoinColumn(name="planEstadia", referencedColumnName = "id")
+    private PlanEstadia planEstadia;
 
     @ManyToOne
     @JoinColumn(name="numeroHabitacion", referencedColumnName = "numero")
@@ -33,7 +36,7 @@ public class Reserva {
     private Consumo consumo;
 
 
-    public Reserva(Integer costoTotal, Date fechaInicio, Date fechaFin, String planEstadia, Habitacion habitacion, Consumo consumo) {
+    public Reserva(Integer costoTotal, Date fechaInicio, Date fechaFin, PlanEstadia planEstadia, Habitacion habitacion, Consumo consumo) {
         this.costoTotal = costoTotal;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
@@ -76,11 +79,11 @@ public class Reserva {
         this.fechaFin = fechaFin;
     }
 
-    public String getPlanEstadia() {
+    public PlanEstadia getPlanEstadia() {
         return planEstadia;
     }
 
-    public void setPlanEstadia(String planEstadia) {
+    public void setPlanEstadia(PlanEstadia planEstadia) {
         this.planEstadia = planEstadia;
     }
 

@@ -8,12 +8,15 @@ import jakarta.persistence.Table;
 public class Piscina extends Servicio {
     private Float profundidad;
     private String horario;
-    public Piscina(Float capacidad, Float costoDanios, String nombre, Float profundidad,
+    public Piscina(Float capacidad, Float costoDanios, String nombre, Hotel hotel, Float profundidad,
             String horario) {
-        super(capacidad, costoDanios, nombre);
+        super(capacidad, costoDanios, nombre, hotel);
         this.profundidad = profundidad;
         this.horario = horario;
     }
+
+    public Piscina() {;}
+
     public Float getProfundidad() {
         return profundidad;
     }

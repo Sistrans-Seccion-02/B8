@@ -8,13 +8,16 @@ public class Lavanderia extends Servicio {
     private String catalogo;
     private Integer numeroPrendas;
     private String tipoPrenda;
-    public Lavanderia(Float capacidad, Float costoDanios, String nombre, String catalogo,
+    public Lavanderia(Float capacidad, Float costoDanios, String nombre, Hotel hotel, String catalogo,
             Integer numeroPrendas, String tipoPrenda) {
-        super(capacidad, costoDanios, nombre);
+        super(capacidad, costoDanios, nombre, hotel);
         this.catalogo = catalogo;
         this.numeroPrendas = numeroPrendas;
         this.tipoPrenda = tipoPrenda;
     }
+
+    public Lavanderia() {;}
+
     public String getCatalogo() {
         return catalogo;
     }

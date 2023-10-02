@@ -19,8 +19,9 @@ public class Hotel {
     private String ciudad;
     private String pais;
     
-    public Hotel(String nombre, String direccion, String ciudad, String pais)
+    public Hotel(Integer id, String nombre, String direccion, String ciudad, String pais)
     {
+        this.id=id;
         this.nombre=nombre;
         this.direccion=direccion;
         this.ciudad=ciudad;
@@ -28,6 +29,14 @@ public class Hotel {
     }
 
     public Hotel() {;}
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getNombre() {
         return nombre;

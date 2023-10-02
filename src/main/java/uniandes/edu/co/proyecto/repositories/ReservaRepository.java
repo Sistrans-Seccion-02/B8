@@ -21,15 +21,15 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO reservas (id, costoTotal, fechaInicio, fechaFin, planEstadia, numeroHabitacion, idConsumo) VALUES (:id, :costoTotal, :fechaInicio, :fechaFin, :planEstadia, :numeroHabitacion, :idConsumo)", nativeQuery = true)
-    void insertarReserva(@Param("id") Integer id, @Param("costoTotal") Integer costoTotal, @Param("fechaInicio") Date fechaInicio,
-                        @Param("fechaFin") Date fechaFin, @Param("planEstadia") String planEstadia, @Param("numeroHabitacion") Integer numeroHabitacion, @Param("idConsumo") Integer idConsumo);
+    @Query(value = "INSERT INTO reservas (id, costoTotal, fechaInicio, fechaFin, planEstadia, numeroHabitacion, idConsumo) VALUES ( hotelandes_sequence.nextval, :costoTotal, :fechaInicio, :fechaFin, :planEstadia, :numeroHabitacion, :idConsumo)", nativeQuery = true)
+    void insertarReserva(@Param("costoTotal") Integer costoTotal, @Param("fechaInicio") Date fechaInicio,
+                        @Param("fechaFin") Date fechaFin, @Param("planEstadia") Integer planEstadia, @Param("numeroHabitacion") Integer numeroHabitacion, @Param("idConsumo") Integer idConsumo);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE reservas SET costoTotal = :costoTotal, fechaInicio = :fechaInicio, fechaFin = :fechaFin, planEstadia = :planEstadia, numeroHabitacion = :numeroHabitacion, idConsumo = :idConsumo WHERE id = :id", nativeQuery = true)
     void actualizarReserva(@Param("id") Integer id, @Param("costoTotal") Integer costoTotal, @Param("fechaInicio") Date fechaInicio,
-                        @Param("fechaFin") Date fechaFin, @Param("planEstadia") String planEstadia, @Param("numeroHabitacion") Integer numeroHabitacion, @Param("idConsumo") Integer idConsumo);
+                        @Param("fechaFin") Date fechaFin, @Param("planEstadia") Integer planEstadia, @Param("numeroHabitacion") Integer numeroHabitacion, @Param("idConsumo") Integer idConsumo);
 
     @Modifying
     @Transactional
