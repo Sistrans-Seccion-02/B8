@@ -1,0 +1,160 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4863F093-5D26-22E0-F78C-033CDE1B42EE" name="Reservas">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>8BC79196-22C4-DD2F-31D7-E4AF2C344538</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="C2F7CB96-16FF-E6B4-7B07-B72AE8C9C284">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>9E4D9D8A-AD1D-0413-D33D-8C909E24014F</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="costoTotal" id="8A8EC7F4-2235-F252-5830-AB08FBAC6588">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>C8DD245B-0ED1-0C6E-8855-989F12CC2454</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechaInicio" id="048E5A49-184D-A565-7117-F1EB26D5EEEE">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>9EDB7641-14C3-9EA9-2024-DA749DE1F918</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fechaFin" id="4C65102B-A324-7047-6406-FAF5610E93C6">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>8386F711-802C-284F-6BFF-5E9902B0A4AF</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="planesEstadia" id="153860D4-EC33-FDB6-3262-1DF206A0F969">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>3561B93E-FBD2-A9E6-A835-C71835DACBDF</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7BEE44FA-0FF0-A9E2-50C8-179CB6FB3A27" referredColumn="FBEDEEF8-6278-CC9E-C178-6FBF75FE878F"/>
+</associations>
+</Column>
+<Column name="numeroHabitacion" id="7CA65093-7F96-C47F-3117-0D323B15F293">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:58:41 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="20189FEB-9108-AAF3-4035-A9946268A7DA" referredColumn="A468F190-B5DB-9A0F-5917-9BC04F06C6E4"/>
+</associations>
+</Column>
+<Column name="idConsumo" id="A35A01E1-1C7D-265C-E078-8EC5B4BBDF20">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>EC62F04B-1DF2-1A5D-BF31-652F576FC3A3</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="5ACB6F78-BD93-8AE9-1D7E-474572ABB88B" referredColumn="A2856EBB-7790-43DF-4098-491C28DEE90F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="3DAC9F13-7C90-F387-ABF8-AFC86F52343F" name="Reservas_PK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>A7FEF2E1-04C1-CC42-8C3F-5ED9E0F35190</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C2F7CB96-16FF-E6B4-7B07-B72AE8C9C284"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="10B65196-4FC3-FC9A-2EBD-2ACE30B63C10" name="Reservas__IDX">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:32 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>00CBACE6-63A1-E054-52E3-EA91AA879FF2</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="A35A01E1-1C7D-265C-E078-8EC5B4BBDF20"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="5AC7E0B9-25A8-3683-3792-0F751F3EA4E2" name="Reservas_Habitaciones_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:32 UTC</createdTime>
+<generatorID>A61FDB33-49CD-6604-03B7-3A1ECF8CDBA1</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7CA65093-7F96-C47F-3117-0D323B15F293"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="19B3CF67-4570-3A5B-97AE-AA2F31405783" name="Reservas_Consumos_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:32 UTC</createdTime>
+<generatorID>00CBACE6-63A1-E054-52E3-EA91AA879FF2</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A35A01E1-1C7D-265C-E078-8EC5B4BBDF20"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3EBF6FB5-8E61-F1ED-BC88-81E4BEB3EFC5" name="Reservas_PlanesEstadia_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:32 UTC</createdTime>
+<generatorID>4F8702B6-CE15-F21A-D81F-BCDDBB4675CF</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="153860D4-EC33-FDB6-3262-1DF206A0F969"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

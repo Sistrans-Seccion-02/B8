@@ -40,5 +40,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Transactional
     @Query(value = "DELETE FROM usuarios WHERE id = :id", nativeQuery = true)
     void eliminarUsuario(@Param("id") Integer cedula);
+    
+    @Query(value = "SELECT * FROM usuarios \r\n" + //
+    "WHERE id = (SELECT id FROM tiposUsuario WHERE nombre = :rol)", nativeQuery = true)
+    void consultarUsuariosPorRol(@Param("rol") String rol);
 
 }

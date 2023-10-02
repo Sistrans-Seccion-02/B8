@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4C89C65C-13C6-BEFE-FF71-00D553C5D377" name="Contiene">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:31 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="idServicio" id="302F7EB8-5033-F6E2-A896-C224EDD5B9F6">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:32 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="C82ECC28-2D8D-D9CF-54A9-AB48ECB73E04" referredColumn="267E4712-CD11-C2FD-8C2D-0E519819F2F4"/>
+</associations>
+</Column>
+<Column name="idConsumo" id="6475CF36-6625-717E-132E-4ECC09A7BE55">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:32 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="CA9DC51F-718E-51C0-F87D-112916F333AF" referredColumn="A2856EBB-7790-43DF-4098-491C28DEE90F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="EC542CB4-08F6-036A-8789-71822632295E" name="Contiene_PK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:32 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6475CF36-6625-717E-132E-4ECC09A7BE55"/>
+<colUsage columnID="302F7EB8-5033-F6E2-A896-C224EDD5B9F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="126BBE74-20BC-2A0C-B85E-B263417324AA" name="Contiene_Consumos_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:32 UTC</createdTime>
+<generatorID>D4C8DCD1-C61A-89EF-3A34-54D76FBC52DA</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6475CF36-6625-717E-132E-4ECC09A7BE55"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="C2D4C234-6C5A-D125-98B0-B347C2CC47AA" name="Contiene_Servicios_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:32 UTC</createdTime>
+<generatorID>D4C8DCD1-C61A-89EF-3A34-54D76FBC52DA</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="302F7EB8-5033-F6E2-A896-C224EDD5B9F6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

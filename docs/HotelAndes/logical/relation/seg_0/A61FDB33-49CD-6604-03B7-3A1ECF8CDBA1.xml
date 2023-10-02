@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Reservas Habitaciones FK" directorySegmentName="seg_0" id="A61FDB33-49CD-6604-03B7-3A1ECF8CDBA1">
+<createdBy>nicol</createdBy>
+<createdTime>2023-09-30 19:56:50 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<sourcePk>F7AB8B80-927B-4594-5852-01D56E0AE367</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>5C6D52F2-48A7-E357-AD72-98FE50C98486</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>8BC79196-22C4-DD2F-31D7-E4AF2C344538</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

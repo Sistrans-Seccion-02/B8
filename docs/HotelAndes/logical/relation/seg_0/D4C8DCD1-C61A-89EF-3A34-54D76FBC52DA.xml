@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Contiene" directorySegmentName="seg_0" id="D4C8DCD1-C61A-89EF-3A34-54D76FBC52DA">
+<createdBy>nicol</createdBy>
+<createdTime>2023-09-30 21:07:48 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<sourcePk>867236B1-9E08-E05A-6A1E-90CF22F3900D</sourcePk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>187F156B-BACF-593E-D156-76C11DEC8BF5</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>59E96C43-EB2C-B310-0313-EB08FC9ED5C5</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

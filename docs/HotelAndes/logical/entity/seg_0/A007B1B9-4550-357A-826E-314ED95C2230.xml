@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="A007B1B9-4550-357A-826E-314ED95C2230" name="Bares">
+<createdBy>user</createdBy>
+<createdTime>2023-09-28 02:03:43 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>59E96C43-EB2C-B310-0313-EB08FC9ED5C5</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="estilo" id="E204D9B3-0DB3-9D39-7BB7-AD953671C780">
+<createdBy>user</createdBy>
+<createdTime>2023-09-28 02:03:43 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<importedID>BAD8F218-7AF0-5E6F-44D7-A76470E235E2</importedID>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="carta" id="1C1E6D1B-AB25-B155-0027-AD764488F0B8">
+<createdBy>user</createdBy>
+<createdTime>2023-09-28 02:03:43 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<importedID>BBC858A9-6D8D-9067-4617-C32EBF268862</importedID>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>
