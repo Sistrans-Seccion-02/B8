@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import uniandes.edu.co.proyecto.model.TipoUsuario;
 import uniandes.edu.co.proyecto.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
@@ -24,7 +23,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Query(value = "INSERT INTO usuarios (id, cedula, nombre, apellido, correo, tipoUsuario, password, numAcompaniantes, areaEmpleado) VALUES ( hotelandes_sequence.nextval, :cedula, :nombre, :apellido, :correo, :tipoUsuario, :password, :numAcompaniantes, :areaEmpleado)", nativeQuery = true)
     void insertarUsuario(@Param("cedula") Integer cedula, @Param("nombre") String nombre,
             @Param("apellido") String apellido,
-            @Param("correo") String correo, @Param("tipoUsuario") TipoUsuario tipoUsuario,
+            @Param("correo") String correo, @Param("tipoUsuario") Integer tipoUsuario,
             @Param("password") String password,
             @Param("numAcompaniantes") Integer numAcompaniantes, @Param("areaEmpleado") String areaEmpleado);
 
