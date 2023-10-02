@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C5C2A0F6-0137-E540-4EEB-374E0D8AF897" containerWithKeyObject="4516F03A-D48B-7829-54C7-3E03E848701A" localFKIndex="2B5E1FEE-980B-F5F7-661D-CADB66C22F65" name="Emboladas_Servicios_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:31 UTC</createdTime>
+<generatorID>F67FF845-9C92-6C3E-988B-3965D64CB750</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<referredTableLongName>Servicios</referredTableLongName>
+<arc>5375D5E8-9252-37AF-50CD-15472E7191F1</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8AA46035-5A58-EEC5-F959-4A86718F1561</referredTableID>
+<keyObject>FC44A09C-5490-A3B4-AA04-26B90477BDF9</keyObject>
+<referredKeyID>FC44A09C-5490-A3B4-AA04-26B90477BDF9</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<discriminatorValue>embolada</discriminatorValue>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

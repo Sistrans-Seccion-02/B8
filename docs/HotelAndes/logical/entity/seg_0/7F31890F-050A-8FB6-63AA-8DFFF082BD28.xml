@@ -1,0 +1,48 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7F31890F-050A-8FB6-63AA-8DFFF082BD28" name="Tiendas">
+<createdBy>user</createdBy>
+<createdTime>2023-09-28 02:03:35 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>59E96C43-EB2C-B310-0313-EB08FC9ED5C5</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="tipo" id="41F1DD7D-BCBD-DB81-9348-53A0ADD0A6DB">
+<createdBy>user</createdBy>
+<createdTime>2023-09-28 02:03:35 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<importedID>6B52AF81-D416-C2B1-5DD9-A4BD0FB0AFE5</importedID>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="productos" id="9FCE312F-BEDE-0375-B842-7CFC994F60D3">
+<createdBy>user</createdBy>
+<createdTime>2023-09-28 02:03:35 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<importedID>46F1F8EF-855A-DFCD-DC5A-6E66BF51C7F7</importedID>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

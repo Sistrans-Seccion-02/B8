@@ -1,0 +1,61 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4025231F-EBBF-8F40-7639-171ED8A164F7" name="Salones">
+<createdBy>user</createdBy>
+<createdTime>2023-09-28 02:03:28 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>59E96C43-EB2C-B310-0313-EB08FC9ED5C5</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="tipo" id="D7CCD776-E369-E088-F3E5-77E9EEEB24BF">
+<createdBy>user</createdBy>
+<createdTime>2023-09-28 02:03:28 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<importedID>67AE9A85-560E-BF1B-2C51-0DB0DA91DEE9</importedID>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="costoPorHora" id="9D3C565D-E38A-4EA5-A80D-1958FFF5CC2B">
+<createdBy>user</createdBy>
+<createdTime>2023-09-28 02:03:28 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<importedID>AC535289-47FB-96AA-473B-FEE4144C78C7</importedID>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="equipos" id="77FDDB02-32B1-FD23-AD6A-4B0014F3AFC3">
+<createdBy>user</createdBy>
+<createdTime>2023-09-28 02:03:28 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<importedID>326E04BB-B027-98EC-4ED6-D283A705E431</importedID>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

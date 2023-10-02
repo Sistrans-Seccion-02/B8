@@ -1,0 +1,19 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BA86E1F4-91F1-53BE-DCA0-F78B18301E15" containerWithKeyObject="D7FC4E06-3760-DB5F-5FCB-E2CE140D0BB6" localFKIndex="9CA7B320-C686-A9DB-3A67-8BAA6BDD3D23" name="Spas_Servicios_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:31 UTC</createdTime>
+<generatorID>1D3C613F-F1F9-7B03-ED4D-4B5B55197C9C</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<referredTableLongName>Servicios</referredTableLongName>
+<arc>5375D5E8-9252-37AF-50CD-15472E7191F1</arc>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>8AA46035-5A58-EEC5-F959-4A86718F1561</referredTableID>
+<keyObject>FC44A09C-5490-A3B4-AA04-26B90477BDF9</keyObject>
+<referredKeyID>FC44A09C-5490-A3B4-AA04-26B90477BDF9</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<discriminatorValue>spa</discriminatorValue>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

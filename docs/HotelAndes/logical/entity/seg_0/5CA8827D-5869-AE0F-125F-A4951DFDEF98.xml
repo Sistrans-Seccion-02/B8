@@ -1,0 +1,34 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="5CA8827D-5869-AE0F-125F-A4951DFDEF98" name="Spas">
+<createdBy>user</createdBy>
+<createdTime>2023-09-28 02:03:20 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<hierarchicalParent>59E96C43-EB2C-B310-0313-EB08FC9ED5C5</hierarchicalParent>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="catalogo" id="145EACB6-6F83-E811-AB6A-E7073D37798B">
+<createdBy>user</createdBy>
+<createdTime>2023-09-28 02:03:20 UTC</createdTime>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<importedID>25A11780-2CE6-7ED0-47EE-E424194BFD53</importedID>
+<engineerTo>
+<item key="C1E0000F-CFAA-FBA7-6AAB-986A4B466039" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

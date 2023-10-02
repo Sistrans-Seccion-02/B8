@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="989C9637-B682-ED74-7332-83B167FF8B3C" name="Piscinas">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>31780D0F-B81D-725A-AD3B-F0C5BAB40757</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="CB0A252D-17EC-EF91-9638-D597A779D4B6">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:31 UTC</createdTime>
+<generatorID>B93B1473-5120-C14B-035E-F63AD9B1BAA2</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9596F774-8BEB-2ED3-62A5-3D213B969C7E" referredColumn="267E4712-CD11-C2FD-8C2D-0E519819F2F4"/>
+</associations>
+</Column>
+<Column name="profundidad" id="79510914-150A-58D1-EE4A-7538748667F8">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:31 UTC</createdTime>
+<generatorID>E8D9766F-763F-DC76-BD17-0D124DB2095E</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT021</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="horario" id="64365AFA-FF8B-A807-C976-6CD40FAEECDC">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:31 UTC</createdTime>
+<generatorID>5E2FFF16-8A2B-5789-D743-0CFB1F49C449</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="79521626-08CD-4BF6-08DF-6FACB847AB6D" name="Piscinas_PK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:31 UTC</createdTime>
+<generatorID>52F9464C-4BBC-EE16-7CA4-F5A5DEAFC766</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB0A252D-17EC-EF91-9638-D597A779D4B6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="DE2E3C47-13CC-53DF-F12A-A996CD8C6266" name="Piscinas_Servicios_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:31 UTC</createdTime>
+<generatorID>88DF5C80-298A-F672-BDAC-1E06854D035D</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="CB0A252D-17EC-EF91-9638-D597A779D4B6"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
