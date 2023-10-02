@@ -4,24 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reservas</title>
+    <title>Servicios</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 <body>
     <div>
-        <h1>Lista de Servicios</h1>
-        <ul>
-            <li><a th:href="@{/gimnasios}" class="btn btn-primary">Gimnasio</a></li>
-            <li><a th:href="@{/restaurantes}" class="btn btn-primary">Restaurante</a></li>
-            <li><a th:href="@{/piscinas}" class="btn btn-primary">Piscina</a></li>
-            <li><a th:href="@{/internet}" class="btn btn-primary">Internet</a></li>
-            <li><a th:href="@{/bares}" class="btn btn-primary">Bar</a></li>
-            <li><a th:href="@{/lavanderias}" class="btn btn-primary">Lavandería</a></li>
-            <li><a th:href="@{/spas}" class="btn btn-primary">Spa</a></li>
-            <li><a th:href="@{/supermercados}" class="btn btn-primary">Supermercado</a></li>
-            <li><a th:href="@{/tiendas}" class="btn btn-primary">Tienda</a></li>
-            <li><a th:href="@{/salones}" class="btn btn-primary">Salón</a></li>
-        </ul>
+        <h1>Lista de servicio</h1>
+        <table class="table table-hover table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>capacidad</th>
+                    <th>costo Daños</th>
+                    <th>nombre</th>
+                </tr>
+            </thead>
+            <th:block th:each="servicio : ${servicios}">
+                <tr>
+                    <td th:text="${servicio.id}"></td>
+                    <td th:text="${servicio.capacidad}"></td>
+                    <td th:text="${servicio.costoDanios}"></td>
+                    <td th:text="${servicio.nombre}"></td>
+                    <td>
+                        <a th:href="@{servicios/{id}/edit(id=${servicio.id})}">Editar</a>
+                        <a th:href="@{servicios/{id}/delete(id=${servicio.id})}"
+                            onclick="return confirm('¿Estás seguro de borrar este servicio?')">Borrar</a>
+                    </td>
+                </tr>
+            </th:block>
+        </table>
+        <div>
+            <a th:href='@{servicios/new}' class="btn btn-primary">Añadir Servicio</a>
+            <a th:href='@{/}' class="btn btn-primary">Volver Atrás</a>
+
+        </div>
     </div>
+    
 </body>
 </html>

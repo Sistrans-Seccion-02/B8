@@ -14,35 +14,41 @@
         <h1 class="text-center" th:text="${titulo}"></h1>
     
     <form>
-        <label class="col-form-label">Cedula:</label>
-        <input class="form-control" type="text" id="cedula" name="cedula" required th:value="${usuario.cedula}" />
+        <label class="col-form-label">Id:</label>
+        <input class="form-control" type="number" id="id" name="id" required th:value="${usuario.id}" />
 
         <label class="col-form-label">Nombre:</label>
-        <input class="form-control" type="text" id="cedula" name="cedula" required th:value="${usuario.cedula}" />
+        <input class="form-control" type="text" id="nombre" name="nombre" required th:value="${usuario.nombre}" />
+
+        <label class="col-form-label">Apellido:</label>
+        <input class="form-control" type="text" id="apellido" name="apellido" required th:value="${usuario.apellido}" />
+
+        <label class="col-form-label">Correo:</label>
+        <input class="form-control" type="text" id="correo" name="correo" required th:value="${usuario.correo}" />
 
         <label class="col-form-label">Cedula:</label>
         <input class="form-control" type="text" id="cedula" name="cedula" required th:value="${usuario.cedula}" />
 
-        <label class="col-form-label">Cedula:</label>
-        <input class="form-control" type="text" id="cedula" name="cedula" required th:value="${usuario.cedula}" />
-
-        <label class="col-form-label">Cedula:</label>
-        <input class="form-control" type="text" id="cedula" name="cedula" required th:value="${usuario.cedula}" />
-
-        <label class="col-form-label">Ciudad:</label>
-        <input class="form-control" type="text" id="ciudad" name="ciudad" required th:value="${usuario.ciudad}" />
-        <label class="col-form-label" for="presupuesto">Presupuesto:</label>
-        <select class="form-control" id="presupuesto" name="presupuesto" required>
-            <option value="Alto" th:selected="${usuario.presupuesto eq 'Alto'}">Alto</option>
-            <option value="Medio" th:selected="${usuario.presupuesto eq 'Medio'}">Medio</option>
-            <option value="Bajo" th:selected="${usuario.presupuesto eq 'Bajo'}">Bajo</option>
+        <select class="form-control" id="tipoUsuario" name="tipoUsuario" required>
+            <option value="empleado" th:selected="${usuario.tipoUsuario eq 'empleado'}">empleado</option>
+            <option value="administrador" th:selected="${usuario.tipoUsuario eq 'administrador'}">administrador</option>
+            <option value="gerente" th:selected="${usuario.tipoUsuario eq 'gerente'}">gerente</option>
+            <option value="recepcionista" th:selected="${usuario.tipoUsuario eq 'recepcionista'}">recepcionista</option>
+            <option value="cliente" th:selected="${usuario.tipoUsuario eq 'cliente'}">cliente</option>
         </select>
-        <label for="cant_sedes" class="col-form-label">Cantidad de Sedes:</label>
-        <input class="form-control" type="number" id="cant_sedes" name="cant_sedes" required
-            th:value=${usuario.cant_sedes}><br>
+
+        <label class="col-form-label">Contraseña:</label>
+        <input class="form-control" type="text" id="contraseña" name="contraseña" required th:value="${usuario.contraseña}" />
+
+        <label class="col-form-label">Numero de acompañantes:</label>
+        <input class="form-control" type="number" id="numAcompañantes" name="numAcompañantes" required th:value="${usuario.numAcompañantes}" />
+       
+        <label class="col-form-label">Area Empleado:</label>
+        <input class="form-control" type="text" id="areaEmpleado" name="areaEmpleado" required th:value="${usuario.areaEmpleado}" />
+       
         <div class="text-center">
             <input type="submit" value="Guardar" class="btn btn-primary">
-            <a th:href="@{/usuarioes}" class="btn btn-primary">Cancelar</a>
+            <a th:href="@{/usuarios}" class="btn btn-primary">Cancelar</a>
         </div>
     </form>
 
