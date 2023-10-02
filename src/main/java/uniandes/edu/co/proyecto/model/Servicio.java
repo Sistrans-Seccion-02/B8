@@ -10,7 +10,7 @@ import jakarta.persistence.Table;
 
 @MappedSuperclass
 @Table(name="servicios")
-public abstract class Servicio {
+public class Servicio {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

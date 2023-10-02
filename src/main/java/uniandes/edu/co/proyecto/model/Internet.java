@@ -12,6 +12,8 @@ public class Internet extends Servicio {
         super(capacidad, costoDanios, nombre, hotel);
         this.cobroPorDia = cobroPorDia;
     }
+
+    public Internet() {;}
     
     public Float getCobroPorDia() {
         return cobroPorDia;

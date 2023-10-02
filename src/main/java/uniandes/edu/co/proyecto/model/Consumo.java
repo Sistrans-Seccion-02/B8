@@ -1,6 +1,6 @@
 package uniandes.edu.co.proyecto.model;
 
-import java.util.Date;
+import java.sql.Date;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -22,6 +22,8 @@ public class Consumo {
         this.valorTotal = valorTotal;
     }
     
+    public Consumo() {;}
+
     public Integer getId() {
         return id;
     }

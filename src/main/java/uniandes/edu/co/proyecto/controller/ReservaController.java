@@ -32,7 +32,7 @@ public class ReservaController {
 
     @PostMapping("/reservas/new/save")
     public String reservaGuardar(@ModelAttribute Reserva reserva) {
-        reservaRepository.insertarReserva(reserva.getId(), reserva.getCostoTotal(), reserva.getFechaInicio(), reserva.getFechaFin(), reserva.getPlanEstadia(), reserva.getHabitacion().getNumero(), reserva.getConsumo().getId());
+        reservaRepository.insertarReserva(reserva.getCostoTotal(), reserva.getFechaInicio(), reserva.getFechaFin(), reserva.getPlanEstadia().getId(), reserva.getHabitacion().getNumero(), reserva.getConsumo().getId());
         return "redirect:/reservas";
     }
 
@@ -49,7 +49,7 @@ public class ReservaController {
 
     @PostMapping("/reservas/{id}/edit/save")
     public String reservaEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Reserva reserva) {
-        reservaRepository.actualizarReserva(id, reserva.getCostoTotal(), reserva.getFechaInicio(), reserva.getFechaFin(), reserva.getPlanEstadia(), reserva.getHabitacion().getNumero(), reserva.getConsumo().getId());
+        reservaRepository.actualizarReserva(id, reserva.getCostoTotal(), reserva.getFechaInicio(), reserva.getFechaFin(), reserva.getPlanEstadia().getId(), reserva.getHabitacion().getNumero(), reserva.getConsumo().getId());
         return "redirect:/reservas";
     }
 

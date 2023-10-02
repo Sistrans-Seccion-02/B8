@@ -20,19 +20,20 @@ public interface HotelRepository extends JpaRepository<Hotel, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO hoteles (id, nombre, direccion, ciudad, pais) VALUES ( hotelandes_sequence.nextval, :nombre, :direccion, :ciudad, :pais)", nativeQuery = true)
+    @Query(value = "INSERT INTO hoteles (id, nombre, direccion, ciudad, pais) VALUES ( hotelandes_sequence.nextval , :nombre, :direccion, :ciudad, :pais)", nativeQuery = true)
     void insertarHotel(@Param("nombre") String nombre, @Param("direccion") String direccion,
-                        @Param("ciudad") String ciudad, @Param("pais") String pais);
+
+            @Param("ciudad") String ciudad, @Param("pais") String pais);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE hoteles SET nombre = :nombre, direccion = :direccion, ciudad = :ciudad, pais = :pais WHERE id = :id", nativeQuery = true)
     void actualizarHotel(@Param("id") long id, @Param("nombre") String nombre, @Param("direccion") String direccion,
-                        @Param("ciudad") String ciudad, @Param("pais") String pais);
+            @Param("ciudad") String ciudad, @Param("pais") String pais);
 
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM hoteles WHERE id = :id", nativeQuery = true)
     void eliminarHotel(@Param("id") long id);
-    
+
 }

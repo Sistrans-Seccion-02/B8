@@ -32,7 +32,7 @@ public class ServicioController {
 
     @PostMapping("/servicios/new/save")
     public String servicioGuardar(@ModelAttribute Servicio servicio) {
-        servicioRepository.insertarServicio(servicio.getId(), servicio.getCapacidad(), servicio.getCostoDanios(), servicio.getNombre());
+        servicioRepository.insertarServicio(servicio.getCapacidad(), servicio.getCostoDanios(), servicio.getNombre(), servicio.getHotel().getId());
         return "redirect:/servicios";
     }
 
@@ -49,7 +49,7 @@ public class ServicioController {
 
     @PostMapping("/servicios/{id}/edit/save")
     public String servicioEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Servicio servicio) {
-        servicioRepository.actualizarServicio(id, servicio.getCapacidad(), servicio.getCostoDanios(), servicio.getNombre());
+        servicioRepository.actualizarServicio(id, servicio.getCapacidad(), servicio.getCostoDanios(), servicio.getNombre(), servicio.getHotel().getId());
         return "redirect:/servicios";
     }
 
