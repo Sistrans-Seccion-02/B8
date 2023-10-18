@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import uniandes.edu.co.proyecto.model.Habitacion;
 import uniandes.edu.co.proyecto.repositories.HabitacionRepository;
@@ -16,10 +17,15 @@ public class HabitacionController {
     @Autowired
     private HabitacionRepository habitacionRepository;
 
+    @RequestMapping("/Habitaciones")
+    public String menuPrincipal() {
+        return "habitacion";
+    }
+
     @GetMapping("/habitaciones")
     public String habitaciones(Model model) {
         model.addAttribute("habitaciones", habitacionRepository.darHabitaciones());
-        return "habitaciones";
+        return "habitacion";
     }
 
     @GetMapping("/habitaciones/new")
@@ -30,8 +36,10 @@ public class HabitacionController {
 
     @PostMapping("/habitaciones/new/save")
     public String habitacionGuardar(@ModelAttribute Habitacion habitacion) {
-        habitacionRepository.insertarHabitacion(habitacion.getNumero(), habitacion.getTipoHabitacion().getId(), habitacion.getTelevision(), habitacion.getMinibar(), habitacion.getCafetera(), habitacion.getDiasEstadia(), habitacion.getHotel().getId());
-        return "redirect:/habitaciones";
+        habitacionRepository.insertarHabitacion(habitacion.getNumero(), habitacion.getTipoHabitacion().getId(),
+                habitacion.getTelevision(), habitacion.getMinibar(), habitacion.getCafetera(),
+                habitacion.getDiasEstadia(), habitacion.getHotel().getId());
+        return "redirect:/habitacion";
     }
 
     @GetMapping("/habitaciones/{id}/edit")
@@ -41,21 +49,22 @@ public class HabitacionController {
             model.addAttribute("habitacion", habitacion);
             return "habitacionEditar";
         } else {
-            return "redirect:/habitaciones";
+            return "redirect:/habitacion";
         }
     }
 
     @PostMapping("/habitaciones/{id}/edit/save")
     public String habitacionEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Habitacion habitacion) {
-        habitacionRepository.actualizarHabitacion(id, habitacion.getNumero(), habitacion.getTipoHabitacion().getId(), habitacion.getTelevision(), habitacion.getMinibar(), habitacion.getCafetera(), habitacion.getDiasEstadia(), habitacion.getHotel().getId());
-        return "redirect:/habitaciones";
+        habitacionRepository.actualizarHabitacion(id, habitacion.getNumero(), habitacion.getTipoHabitacion().getId(),
+                habitacion.getTelevision(), habitacion.getMinibar(), habitacion.getCafetera(),
+                habitacion.getDiasEstadia(), habitacion.getHotel().getId());
+        return "redirect:/habitacion";
     }
 
     @GetMapping("/habitaciones/{id}/delete")
     public String habitacionEliminar(@PathVariable("id") Integer id) {
         habitacionRepository.eliminarHabitacion(id);
-        return "redirect:/habitaciones";
+        return "redirect:/habitacion";
     }
 
 }
-

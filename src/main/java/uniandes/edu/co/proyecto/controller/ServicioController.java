@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import uniandes.edu.co.proyecto.model.Servicio;
 import uniandes.edu.co.proyecto.repositories.ServicioRepository;
@@ -17,6 +18,11 @@ public class ServicioController {
 
     @Autowired
     private ServicioRepository servicioRepository;
+
+    @RequestMapping("/Servicios")
+    public String menuPrincipal() {
+        return "servicios";
+    }
 
     @GetMapping("/servicios")
     public String servicios(Model model) {
@@ -32,7 +38,8 @@ public class ServicioController {
 
     @PostMapping("/servicios/new/save")
     public String servicioGuardar(@ModelAttribute Servicio servicio) {
-        servicioRepository.insertarServicio(servicio.getCapacidad(), servicio.getCostoDanios(), servicio.getNombre(), servicio.getHotel().getId());
+        servicioRepository.insertarServicio(servicio.getCapacidad(), servicio.getCostoDanios(), servicio.getNombre(),
+                servicio.getHotel().getId());
         return "redirect:/servicios";
     }
 
@@ -49,7 +56,8 @@ public class ServicioController {
 
     @PostMapping("/servicios/{id}/edit/save")
     public String servicioEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Servicio servicio) {
-        servicioRepository.actualizarServicio(id, servicio.getCapacidad(), servicio.getCostoDanios(), servicio.getNombre(), servicio.getHotel().getId());
+        servicioRepository.actualizarServicio(id, servicio.getCapacidad(), servicio.getCostoDanios(),
+                servicio.getNombre(), servicio.getHotel().getId());
         return "redirect:/servicios";
     }
 
@@ -58,5 +66,5 @@ public class ServicioController {
         servicioRepository.eliminarServicio(id);
         return "redirect:/servicios";
     }
-    
+
 }

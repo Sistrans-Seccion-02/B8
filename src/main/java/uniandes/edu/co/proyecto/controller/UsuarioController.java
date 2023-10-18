@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import uniandes.edu.co.proyecto.model.Usuario;
 import uniandes.edu.co.proyecto.repositories.UsuarioRepository;
@@ -17,6 +18,11 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioRepository usuarioRepository;
+
+    @RequestMapping("/Usuarios")
+    public String menuPrincipal() {
+        return "usuarios";
+    }
 
     @GetMapping("/usuarios")
     public String usuarios(Model model) {

@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import uniandes.edu.co.proyecto.model.PlanEstadia;
 import uniandes.edu.co.proyecto.repositories.PlanEstadiaRepository;
@@ -14,9 +15,14 @@ import org.springframework.ui.Model;
 
 @Controller
 public class PlanEstadiaController {
-    
+
     @Autowired
     private PlanEstadiaRepository planEstadiaRepository;
+
+    @RequestMapping("/PlanesConsumo")
+    public String menuPrincipal() {
+        return "";
+    }
 
     @GetMapping("/planesEstadia")
     public String planesEstadia(Model model) {
@@ -58,5 +64,5 @@ public class PlanEstadiaController {
         planEstadiaRepository.eliminarPlanEstadia(id);
         return "redirect:/planesEstadia";
     }
-    
+
 }

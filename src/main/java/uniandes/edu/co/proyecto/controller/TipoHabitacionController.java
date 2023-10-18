@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import uniandes.edu.co.proyecto.model.TipoHabitacion;
 import uniandes.edu.co.proyecto.repositories.TipoHabitacionRepository;
@@ -17,6 +18,11 @@ public class TipoHabitacionController {
 
     @Autowired
     private TipoHabitacionRepository tipoHabitacionRepository;
+
+    @RequestMapping("/tiposHabitaciones")
+    public String menuPrincipal() {
+        return "tipohabitacion";
+    }
 
     @GetMapping("/tiposHabitacion")
     public String tiposHabitacion(Model model) {
@@ -48,7 +54,8 @@ public class TipoHabitacionController {
     }
 
     @PostMapping("/tiposHabitacion/{id}/edit/save")
-    public String tipoHabitacionEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute TipoHabitacion tipoHabitacion) {
+    public String tipoHabitacionEditarGuardar(@PathVariable("id") Integer id,
+            @ModelAttribute TipoHabitacion tipoHabitacion) {
         tipoHabitacionRepository.actualizarTipoHabitacion(id, tipoHabitacion.getTipoHabitacion());
         return "redirect:/tiposHabitacion";
     }
@@ -58,5 +65,5 @@ public class TipoHabitacionController {
         tipoHabitacionRepository.eliminarTipoHabitacion(id);
         return "redirect:/tiposHabitacion";
     }
-    
+
 }
