@@ -18,13 +18,13 @@
                     <th>Acciones</th>
                 </tr>
             </thead>
-            <th:block th:each="tipousuario : ${tiposUsuario}">
+            <th:block th:each="tipoUsuario : ${tiposUsuario}">
                 <tr>
-                    <td th:text="${tipousuario.id}"></td>
-                    <td th:text="${tipousuario.nombre}"></td>
+                    <td th:text="${tipoUsuario.id}"></td>
+                    <td th:text="${tipoUsuario.nombre}"></td>
                     <td>
-                        <a th:href="@{tiposUsuario/{id}/edit(id=${tipousuario.id})}">Editar</a>
-                        <a th:href="@{tiposUsuario/{id}/delete(id=${tipousuario.id})}"
+                        <a th:href="@{tiposUsuario/{id}/edit(id=${tipoUsuario.id})}">Editar</a>
+                        <a th:href="@{tiposUsuario/{id}/delete(id=${tipoUsuario.id})}"
                             onclick="return confirm('¿Estás seguro de borrar este tipo de usuario?')">Borrar</a>
                     </td>
                 </tr>
