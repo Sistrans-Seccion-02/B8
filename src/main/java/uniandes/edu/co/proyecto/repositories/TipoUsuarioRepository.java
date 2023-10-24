@@ -16,21 +16,21 @@ public interface TipoUsuarioRepository extends JpaRepository<TipoUsuario, Intege
     Collection<TipoUsuario> darTiposUsuario();
 
     @Query(value = "SELECT * FROM tiposUsuario WHERE id = :id", nativeQuery = true)
-    TipoUsuario darTipoUsuario(@Param("id") Integer id);
-
-    @Modifying
-    @Transactional
-    @Query(value = "INSERT INTO tiposUsuario (id, nombre) VALUES ( hotelandes_sequence.nextval, :nombre)", nativeQuery = true)
-    void insertarTipoUsuario(@Param("nombre") String nombre);
-
-    @Modifying
-    @Transactional
-    @Query(value = "UPDATE tiposUsuario SET nombre = :nombre WHERE id = :id", nativeQuery = true)
-    void actualizarTipoUsuario(@Param("id") Integer id, @Param("nombre") String nombre);
+    TipoUsuario darTipoUsuario(@Param("id") long id);
 
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM tiposUsuario WHERE id = :id", nativeQuery = true)
-    void eliminarTipoUsuario(@Param("id") Integer id);
-    
+    void eliminarTipoUsuario(@Param("id") long id);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE tiposUsuario SET nombre = :nombre WHERE id = :id", nativeQuery = true)
+    void actualizarTipoUsuario(@Param("id") long id, @Param("nombre") String nombre);
+
+    @Modifying
+    @Transactional
+    @Query(value = "INSERT INTO tiposUsuario (id, nombre) VALUES ( parranderos_sequence.nextval , :nombre)", nativeQuery = true)
+    void insertarTipoUsuario(@Param("nombre") String nombre);
+
 }

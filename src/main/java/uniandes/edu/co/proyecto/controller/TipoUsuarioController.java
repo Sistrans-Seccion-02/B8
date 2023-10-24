@@ -20,9 +20,9 @@ public class TipoUsuarioController {
     private TipoUsuarioRepository tipoUsuarioRepository;
 
     @GetMapping("/tiposUsuario")
-    public String tiposUsuario(Model model) {
+    public String bebedores(Model model, String nombre) {
+        
         model.addAttribute("tiposUsuario", tipoUsuarioRepository.darTiposUsuario());
-        System.out.println(tipoUsuarioRepository.darTiposUsuario());
         return "tiposUsuario";
     }
 
@@ -34,31 +34,32 @@ public class TipoUsuarioController {
 
     @PostMapping("/tiposUsuario/new/save")
     public String tipoUsuarioGuardar(@ModelAttribute TipoUsuario tipoUsuario) {
-        tipoUsuarioRepository.insertarTipoUsuario(tipoUsuario.getTipoUsuario());
+        tipoUsuarioRepository.insertarTipoUsuario(tipoUsuario.getNombre());
         return "redirect:/tiposUsuario";
     }
 
     @GetMapping("/tiposUsuario/{id}/edit")
-    public String tipoUsuarioEditarForm(@PathVariable("id") Integer id, Model model) {
+    public String tipoUsuarioEditarForm(@PathVariable("id") long id, Model model) {
         TipoUsuario tipoUsuario = tipoUsuarioRepository.darTipoUsuario(id);
         if (tipoUsuario != null) {
             model.addAttribute("tipoUsuario", tipoUsuario);
-            return "tiposUsuarioEditar";
+            return "tipoUsuarioEditar";
         } else {
             return "redirect:/tiposUsuario";
         }
     }
 
     @PostMapping("/tiposUsuario/{id}/edit/save")
-    public String tipoUsuarioEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute TipoUsuario tipoUsuario) {
-        tipoUsuarioRepository.actualizarTipoUsuario(id, tipoUsuario.getTipoUsuario());
+    public String tipoUsuarioEditarGuardar(@PathVariable("id") long id, @ModelAttribute TipoUsuario tipoUsuario) {
+        tipoUsuarioRepository.actualizarTipoUsuario(((long) id), tipoUsuario.getNombre());
         return "redirect:/tiposUsuario";
     }
 
     @GetMapping("/tiposUsuario/{id}/delete")
-    public String tipoUsuarioEliminar(@PathVariable("id") Integer id) {
+    public String tipoUsuarioBorrar(@PathVariable("id") long id) {
         tipoUsuarioRepository.eliminarTipoUsuario(id);
         return "redirect:/tiposUsuario";
     }
+
 
 }
