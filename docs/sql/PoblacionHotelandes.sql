@@ -136,3 +136,4 @@ UPDATE bares SET carta = 'Cerveza-5.0,Whisky-10.0,Coctel-8.0' WHERE id = 1;
 -- Menú de Restaurantes
 UPDATE restaurantes SET carta = 'Entrada-8.0,Plato Principal-15.0,Postre-6.0' WHERE id = 1;
 
+COMMIT;

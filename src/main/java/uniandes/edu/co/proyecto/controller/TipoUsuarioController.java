@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+//import org.springframework.web.bind.annotation.RequestMapping;
 
 import uniandes.edu.co.proyecto.model.TipoUsuario;
 import uniandes.edu.co.proyecto.repositories.TipoUsuarioRepository;
@@ -19,27 +19,23 @@ public class TipoUsuarioController {
     @Autowired
     private TipoUsuarioRepository tipoUsuarioRepository;
 
-    @RequestMapping("/UsuariosTipos")
-    public String menuPrincipal() {
-        return "tipousuarios";
-    }
-
     @GetMapping("/tiposUsuario")
     public String tiposUsuario(Model model) {
         model.addAttribute("tiposUsuario", tipoUsuarioRepository.darTiposUsuario());
-        return "tiposusuario";
+        System.out.println(tipoUsuarioRepository.darTiposUsuario());
+        return "tiposUsuario";
     }
 
-    @GetMapping("/tiposUsuarios/new")
+    @GetMapping("/tiposUsuario/new")
     public String tipoUsuarioForm(Model model) {
         model.addAttribute("tipoUsuario", new TipoUsuario());
-        return "tipousuarioNuevo";
+        return "tiposUsuarioNuevo";
     }
 
     @PostMapping("/tiposUsuario/new/save")
     public String tipoUsuarioGuardar(@ModelAttribute TipoUsuario tipoUsuario) {
         tipoUsuarioRepository.insertarTipoUsuario(tipoUsuario.getTipoUsuario());
-        return "redirect:/UsuariosTipos";
+        return "redirect:/tiposUsuario";
     }
 
     @GetMapping("/tiposUsuario/{id}/edit")
@@ -47,22 +43,22 @@ public class TipoUsuarioController {
         TipoUsuario tipoUsuario = tipoUsuarioRepository.darTipoUsuario(id);
         if (tipoUsuario != null) {
             model.addAttribute("tipoUsuario", tipoUsuario);
-            return "tipoUsuarioEditar";
+            return "tiposUsuarioEditar";
         } else {
-            return "redirect:/UsuariosTipos";
+            return "redirect:/tiposUsuario";
         }
     }
 
     @PostMapping("/tiposUsuario/{id}/edit/save")
     public String tipoUsuarioEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute TipoUsuario tipoUsuario) {
         tipoUsuarioRepository.actualizarTipoUsuario(id, tipoUsuario.getTipoUsuario());
-        return "redirect:/UsuariosTipos";
+        return "redirect:/tiposUsuario";
     }
 
     @GetMapping("/tiposUsuario/{id}/delete")
     public String tipoUsuarioEliminar(@PathVariable("id") Integer id) {
         tipoUsuarioRepository.eliminarTipoUsuario(id);
-        return "redirect:/UsuariosTipos";
+        return "redirect:/tiposUsuario";
     }
 
 }
