@@ -20,21 +20,21 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO usuarios (id, cedula, nombre, apellido, correo, tipoUsuario, password, numAcompaniantes, areaEmpleado) VALUES ( hotelandes_sequence.nextval, :cedula, :nombre, :apellido, :correo, :tipoUsuario, :password, :numAcompaniantes, :areaEmpleado)", nativeQuery = true)
+    @Query(value = "INSERT INTO usuarios (id, cedula, apellido, correo, tipousuario, password, numacompaniantes, areamepleado) VALUES (hotelandes_sequence.nextval, :cedula, :nombre, :apellido, :correo, :tipousuario, :password, :numacompaniantes, 'prueba'", nativeQuery = true)
     void insertarUsuario(@Param("cedula") Integer cedula, @Param("nombre") String nombre,
             @Param("apellido") String apellido,
-            @Param("correo") String correo, @Param("tipoUsuario") Integer tipoUsuario,
+            @Param("correo") String correo, @Param("tipousuario") Integer tipoUsuario,
             @Param("password") String password,
-            @Param("numAcompaniantes") Integer numAcompaniantes, @Param("areaEmpleado") String areaEmpleado);
+            @Param("numacompaniantes") Integer numAcompaniantes);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE usuarios SET cedula = :cedula, nombre = :nombre, apellido = :apellido, correo = :correo, tipoUsuario = :tipoUsuario, password = :password, numAcompaniantes = :numAcompaniantes, areaEmpleado = :areaEmpleado WHERE id = :id", nativeQuery = true)
+    @Query(value = "UPDATE usuarios SET cedula = :cedula, nombre = :nombre, apellido = :apellido, correo = :correo, tipousuario = :tipousuario, password = :password, numacompaniantes = :numacompaniantes, areaempleado = 'prueba' WHERE id = :id", nativeQuery = true)
     void actualizarUsuario(@Param("id") long id, @Param("cedula") Integer cedula, @Param("nombre") String nombre,
             @Param("apellido") String apellido,
-            @Param("correo") String correo, @Param("tipoUsuario") Integer tipoUsuario,
+            @Param("correo") String correo, @Param("tipousuario") Integer tipoUsuario,
             @Param("password") String password,
-            @Param("numAcompaniantes") Integer numAcompaniantes, @Param("areaEmpleado") String areaEmpleado);
+            @Param("numacompaniantes") Integer numAcompaniantes);
 
     @Modifying
     @Transactional

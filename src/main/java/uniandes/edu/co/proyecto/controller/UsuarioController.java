@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import uniandes.edu.co.proyecto.model.Usuario;
+import uniandes.edu.co.proyecto.repositories.TipoUsuarioRepository;
 import uniandes.edu.co.proyecto.repositories.UsuarioRepository;
 
 import org.springframework.ui.Model;
@@ -18,10 +19,13 @@ public class UsuarioController {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    @Autowired
+    private TipoUsuarioRepository tipoUsuarioRepository;
+
     @GetMapping("/usuarios")
     public String usuarios(Model model) {
         model.addAttribute("usuarios", usuarioRepository.darUsuarios());
-        return "";
+        return "usuarios";
     }
 
     @GetMapping("/usuarios/new")
@@ -33,8 +37,8 @@ public class UsuarioController {
     @PostMapping("/usuarios/new/save")
     public String usuarioGuardar(@ModelAttribute Usuario usuario) {
         usuarioRepository.insertarUsuario(usuario.getCedula(), usuario.getNombre(), usuario.getApellido(),
-                usuario.getCorreo(), usuario.getTipoUsuario().getId(), usuario.getPassword(),
-                usuario.getNumAcompaniantes(), usuario.getAreaEmpleado());
+                usuario.getCorreo(), tipoUsuarioRepository.darTipoUsuario(usuario.getTipoUsuario().getId()).getId(), usuario.getPassword(),
+                usuario.getNumAcompaniantes());
         return "redirect:/usuarios";
     }
 
@@ -53,7 +57,7 @@ public class UsuarioController {
     public String usuarioEditarGuardar(@PathVariable("id") long id, @ModelAttribute Usuario usuario) {
         usuarioRepository.actualizarUsuario(id, usuario.getCedula(), usuario.getNombre(), usuario.getApellido(),
                 usuario.getCorreo(), usuario.getTipoUsuario().getId(), usuario.getPassword(),
-                usuario.getNumAcompaniantes(), usuario.getAreaEmpleado());
+                usuario.getNumAcompaniantes());
         return "redirect:/usuarios";
     }
 

@@ -19,24 +19,22 @@ public class Usuario {
     private String apellido;
     private String correo;
     @ManyToOne
-    @JoinColumn(name = "tipoUsuario", referencedColumnName = "id")
+    @JoinColumn(name = "tipousuario", referencedColumnName = "id")
     private TipoUsuario tipoUsuario;
     private String password;
-    private Integer numAcompaniantes;
-    private String areaEmpleado;
+    private Integer numacompaniantes;
 
     public Usuario() {;}
 
     public Usuario(Integer cedula, String nombre, String apellido, String correo, TipoUsuario tipoUsuario,
-    String password, Integer numAcompañantes, String areaEmpleado) {
+    String password, Integer numAcompañantes) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.tipoUsuario = tipoUsuario;
         this.password = password;
-        this.numAcompaniantes = numAcompañantes;
-        this.areaEmpleado = areaEmpleado;
+        this.numacompaniantes = numAcompañantes;
     }
 
     public Integer getId() {
@@ -96,19 +94,12 @@ public class Usuario {
     }
 
     public Integer getNumAcompaniantes() {
-        return numAcompaniantes;
+        return numacompaniantes;
     }
 
     public void setNumAcompaniantes(Integer numAcompaniantes) {
-        this.numAcompaniantes = numAcompaniantes;
+        this.numacompaniantes = numAcompaniantes;
     }
 
-    public String getAreaEmpleado() {
-        return areaEmpleado;
-    }
-
-    public void setAreaEmpleado(String areaEmpleado) {
-        this.areaEmpleado = areaEmpleado;
-    }
     
 }

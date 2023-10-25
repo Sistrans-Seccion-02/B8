@@ -33,7 +33,7 @@ public class TipoUsuario {
         this.id = id;
     }
 
-    public void setTipoUsuario(String nombre) {
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
     
