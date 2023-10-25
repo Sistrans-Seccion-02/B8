@@ -13,7 +13,6 @@ public class TipoHabitacion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
     private String nombre;
 
     public TipoHabitacion(String nombre)
@@ -31,11 +30,11 @@ public class TipoHabitacion {
         this.id = id;
     }
 
-    public String getTipoHabitacion() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setTipoHabitacion(String tipoHabitacion) {
+    public void setNombre(String tipoHabitacion) {
         this.nombre = tipoHabitacion;
     }
     

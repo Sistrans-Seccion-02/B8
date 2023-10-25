@@ -16,7 +16,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     Collection<Usuario> darUsuarios();
 
     @Query(value = "SELECT * FROM usuarios WHERE id = :id", nativeQuery = true)
-    Usuario darUsuario(@Param("id") Integer id);
+    Usuario darUsuario(@Param("id") long id);
 
     @Modifying
     @Transactional
@@ -30,7 +30,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Modifying
     @Transactional
     @Query(value = "UPDATE usuarios SET cedula = :cedula, nombre = :nombre, apellido = :apellido, correo = :correo, tipoUsuario = :tipoUsuario, password = :password, numAcompaniantes = :numAcompaniantes, areaEmpleado = :areaEmpleado WHERE id = :id", nativeQuery = true)
-    void actualizarUsuario(@Param("id") Integer id, @Param("cedula") Integer cedula, @Param("nombre") String nombre,
+    void actualizarUsuario(@Param("id") long id, @Param("cedula") Integer cedula, @Param("nombre") String nombre,
             @Param("apellido") String apellido,
             @Param("correo") String correo, @Param("tipoUsuario") Integer tipoUsuario,
             @Param("password") String password,
@@ -39,7 +39,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM usuarios WHERE id = :id", nativeQuery = true)
-    void eliminarUsuario(@Param("id") Integer cedula);
+    void eliminarUsuario(@Param("id") long id);
     
     @Query(value = "SELECT * FROM usuarios \r\n" + //
     "WHERE id = (SELECT id FROM tiposUsuario WHERE nombre = :rol)", nativeQuery = true)

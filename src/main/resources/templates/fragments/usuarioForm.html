@@ -14,9 +14,6 @@
         <h1 class="text-center" th:text="${titulo}"></h1>
     
     <form>
-        <label class="col-form-label">Id:</label>
-        <input class="form-control" type="number" id="id" name="id" required th:value="${usuario.id}" />
-
         <label class="col-form-label">Nombre:</label>
         <input class="form-control" type="text" id="nombre" name="nombre" required th:value="${usuario.nombre}" />
 
@@ -38,7 +35,7 @@
         </select>
 
         <label class="col-form-label">Contraseña:</label>
-        <input class="form-control" type="text" id="contraseña" name="contraseña" required th:value="${usuario.contraseña}" />
+        <input class="form-control" type="text" id="password" name="password" required th:value="${usuario.password}" />
 
         <label class="col-form-label">Numero de acompañantes:</label>
         <input class="form-control" type="number" id="numAcompañantes" name="numAcompañantes" required th:value="${usuario.numAcompañantes}" />

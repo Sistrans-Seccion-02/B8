@@ -1,49 +1,42 @@
 package uniandes.edu.co.proyecto.model;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "usuarios")
+@Table(name="usuarios")
 public class Usuario {
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
     private Integer cedula;
     private String nombre;
     private String apellido;
     private String correo;
-
     @ManyToOne
     @JoinColumn(name = "tipoUsuario", referencedColumnName = "id")
     private TipoUsuario tipoUsuario;
-
     private String password;
-    private Integer numAcompañantes;
+    private Integer numAcompaniantes;
     private String areaEmpleado;
 
+    public Usuario() {;}
+
     public Usuario(Integer cedula, String nombre, String apellido, String correo, TipoUsuario tipoUsuario,
-            String password, Integer numAcompañantes, String areaEmpleado) {
+    String password, Integer numAcompañantes, String areaEmpleado) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.tipoUsuario = tipoUsuario;
         this.password = password;
-        this.numAcompañantes = numAcompañantes;
-
+        this.numAcompaniantes = numAcompañantes;
         this.areaEmpleado = areaEmpleado;
-    }
-
-    public Usuario() {
-        ;
     }
 
     public Integer getId() {
@@ -102,12 +95,12 @@ public class Usuario {
         this.password = password;
     }
 
-    public Integer getNumAcompañantes() {
-        return numAcompañantes;
+    public Integer getNumAcompaniantes() {
+        return numAcompaniantes;
     }
 
-    public void setNumAcompañantes(Integer numAcompañantes) {
-        this.numAcompañantes = numAcompañantes;
+    public void setNumAcompaniantes(Integer numAcompaniantes) {
+        this.numAcompaniantes = numAcompaniantes;
     }
 
     public String getAreaEmpleado() {
@@ -117,5 +110,5 @@ public class Usuario {
     public void setAreaEmpleado(String areaEmpleado) {
         this.areaEmpleado = areaEmpleado;
     }
-
+    
 }

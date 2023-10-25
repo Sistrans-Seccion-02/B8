@@ -7,8 +7,8 @@
 </head>
 <body>
 </br>
-<form th:action="@{'/tipotipohabitaciones/' + ${id} + '/edit/save'}" th:object="${tipohabitacion}" method="post">
-    <div th:replace="~{fragments/tipohabitacionForm :: tipohabitacionForm(titulo='Editar tipohabitacion', tipohabitacion=${tipohabitacion})}">
+<form th:action="@{'/tiposHabitacion/' + ${id} + '/edit/save'}" th:object="${tipohabitacion}" method="post">
+    <div th:replace="~{fragments/tipohabitacionForm :: tipohabitacionForm(titulo='Editar Tipo de Habitación', tipohabitacion=${tipohabitacion})}">
     </div>
 </form>
 
