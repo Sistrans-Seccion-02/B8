@@ -18,6 +18,9 @@
                     <th>apellido</th>
                     <th>correo</th>
                     <th>contraseña</th>
+                    <th>Tipo Usuario</th>
+                    <th>Número Acompañantes</th>
+                    <th>Área</th>
                     <th>Acciones</th>
                 
                 </tr>
@@ -30,6 +33,9 @@
                     <td th:text="${usuario.apellido}"></td>
                     <td th:text="${usuario.correo}"></td>
                     <td th:text="${usuario.password}"></td>
+                    <td th:text="${usuario.tipousuario}"></td>
+                    <td th:text="${usuario.numacompaniantes}"></td>
+                    <td th:text="${usuario.areaempleado}"></td>
                     
                     <td>
                         <a th:href="@{usuarios/{id}/edit(id=${usuario.id})}">Editar</a>

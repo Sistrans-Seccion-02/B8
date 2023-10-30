@@ -1,5 +1,7 @@
 package uniandes.edu.co.proyecto.controller;
 
+import java.math.BigDecimal;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import uniandes.edu.co.proyecto.model.TipoUsuario;
 import uniandes.edu.co.proyecto.model.Usuario;
 import uniandes.edu.co.proyecto.repositories.TipoUsuarioRepository;
 import uniandes.edu.co.proyecto.repositories.UsuarioRepository;
@@ -25,20 +28,25 @@ public class UsuarioController {
     @GetMapping("/usuarios")
     public String usuarios(Model model) {
         model.addAttribute("usuarios", usuarioRepository.darUsuarios());
+        for (Integer usuario : usuarioRepository.darUsuarios()) {
+            System.out.println(usuario);
+        }
+        System.out.println();
         return "usuarios";
     }
 
     @GetMapping("/usuarios/new")
     public String usuarioForm(Model model) {
         model.addAttribute("usuario", new Usuario());
+        model.addAttribute("tiposUsuario", tipoUsuarioRepository.darTiposUsuario());
         return "usuarioNuevo";
     }
 
     @PostMapping("/usuarios/new/save")
     public String usuarioGuardar(@ModelAttribute Usuario usuario) {
         usuarioRepository.insertarUsuario(usuario.getCedula(), usuario.getNombre(), usuario.getApellido(),
-                usuario.getCorreo(), tipoUsuarioRepository.darTipoUsuario(usuario.getTipoUsuario().getId()).getId(), usuario.getPassword(),
-                usuario.getNumAcompaniantes());
+                usuario.getCorreo(), usuario.getTipousuario().getId(), usuario.getPassword(),
+                usuario.getNumacompaniantes(), usuario.getAreaempleado());
         return "redirect:/usuarios";
     }
 
@@ -56,8 +64,8 @@ public class UsuarioController {
     @PostMapping("/usuarios/{id}/edit/save")
     public String usuarioEditarGuardar(@PathVariable("id") long id, @ModelAttribute Usuario usuario) {
         usuarioRepository.actualizarUsuario(id, usuario.getCedula(), usuario.getNombre(), usuario.getApellido(),
-                usuario.getCorreo(), usuario.getTipoUsuario().getId(), usuario.getPassword(),
-                usuario.getNumAcompaniantes());
+                usuario.getCorreo(), usuario.getTipousuario().getId(), usuario.getPassword(),
+                usuario.getNumacompaniantes(), usuario.getAreaempleado());
         return "redirect:/usuarios";
     }
 

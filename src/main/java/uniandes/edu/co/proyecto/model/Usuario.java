@@ -20,21 +20,23 @@ public class Usuario {
     private String correo;
     @ManyToOne
     @JoinColumn(name = "tipousuario", referencedColumnName = "id")
-    private TipoUsuario tipoUsuario;
+    private TipoUsuario tipousuario;
     private String password;
     private Integer numacompaniantes;
+    private String areaempleado;
 
     public Usuario() {;}
 
     public Usuario(Integer cedula, String nombre, String apellido, String correo, TipoUsuario tipoUsuario,
-    String password, Integer numAcompañantes) {
+    String password, Integer numAcompañantes, String areaempleado) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
-        this.tipoUsuario = tipoUsuario;
+        this.tipousuario = tipoUsuario;
         this.password = password;
         this.numacompaniantes = numAcompañantes;
+        this.areaempleado = areaempleado;
     }
 
     public Integer getId() {
@@ -77,12 +79,12 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public TipoUsuario getTipoUsuario() {
-        return tipoUsuario;
+    public TipoUsuario getTipousuario() {
+        return tipousuario;
     }
 
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+    public void setTipousuario(TipoUsuario tipoUsuario) {
+        this.tipousuario = tipoUsuario;
     }
 
     public String getPassword() {
@@ -93,13 +95,20 @@ public class Usuario {
         this.password = password;
     }
 
-    public Integer getNumAcompaniantes() {
+    public Integer getNumacompaniantes() {
         return numacompaniantes;
     }
 
-    public void setNumAcompaniantes(Integer numAcompaniantes) {
-        this.numacompaniantes = numAcompaniantes;
+    public void setNumacompaniantes(Integer numacompaniantes) {
+        this.numacompaniantes = numacompaniantes;
     }
 
-    
+    public String getAreaempleado() {
+        return areaempleado;
+    }
+
+    public void setAreaempleado(String areaempleado) {
+        this.areaempleado = areaempleado;
+    }
+
 }
