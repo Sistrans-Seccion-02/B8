@@ -1,7 +1,5 @@
 package uniandes.edu.co.proyecto.controller;
 
-import java.math.BigDecimal;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import uniandes.edu.co.proyecto.model.TipoUsuario;
 import uniandes.edu.co.proyecto.model.Usuario;
 import uniandes.edu.co.proyecto.repositories.TipoUsuarioRepository;
 import uniandes.edu.co.proyecto.repositories.UsuarioRepository;
@@ -28,17 +25,13 @@ public class UsuarioController {
     @GetMapping("/usuarios")
     public String usuarios(Model model) {
         model.addAttribute("usuarios", usuarioRepository.darUsuarios());
-        for (Integer usuario : usuarioRepository.darUsuarios()) {
-            System.out.println(usuario);
-        }
-        System.out.println();
         return "usuarios";
     }
 
     @GetMapping("/usuarios/new")
     public String usuarioForm(Model model) {
         model.addAttribute("usuario", new Usuario());
-        model.addAttribute("tiposUsuario", tipoUsuarioRepository.darTiposUsuario());
+        model.addAttribute("tiposusuario", tipoUsuarioRepository.darTiposUsuario());
         return "usuarioNuevo";
     }
 
@@ -55,6 +48,7 @@ public class UsuarioController {
         Usuario usuario = usuarioRepository.darUsuario(id);
         if (usuario != null) {
             model.addAttribute("usuario", usuario);
+            model.addAttribute("tiposusuario", tipoUsuarioRepository.darTiposUsuario());
             return "usuarioEditar";
         } else {
             return "redirect:/usuarios";

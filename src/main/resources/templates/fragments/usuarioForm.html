@@ -34,6 +34,13 @@
 
         <label class="col-form-label">Área:</label>
         <input class="form-control" type="text" id="areaempleado" name="areaempleado" required th:value="${usuario.areaempleado}" />
+
+        <label class="col-form-label" for="tipo">Tipo:</label>
+        <select class="form-control" id="tipousuario" name="tipousuario" required>
+            <th:block th:each="tipousuario : ${tiposusuario}" >
+                <option th:value="${tipousuario.id}" th:text="${tipousuario.nombre}" th:selected="${usuario!=null || usuario.tipousuario.id == tipousuario.id}"></option>
+            </th:block>
+        </select><br>
        
         <div class="text-center">
             <input type="submit" value="Guardar" class="btn btn-primary">

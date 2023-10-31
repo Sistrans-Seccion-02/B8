@@ -1,6 +1,5 @@
 package uniandes.edu.co.proyecto.repositories;
 
-import java.math.BigDecimal;
 import java.util.Collection;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -9,23 +8,19 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
-import uniandes.edu.co.proyecto.model.TipoUsuario;
 import uniandes.edu.co.proyecto.model.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
 
     @Query(value = "SELECT * FROM usuarios", nativeQuery = true)
-    Collection<Usuario> darUsuariosGrande();
-
-    @Query(value = "SELECT tipousuario FROM usuarios", nativeQuery = true)
-    Collection<Integer> darUsuarios();
+    Collection<Usuario> darUsuarios();
 
     @Query(value = "SELECT * FROM usuarios WHERE id = :id", nativeQuery = true)
     Usuario darUsuario(@Param("id") long id);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO usuarios (id, cedula, apellido, correo, tipousuario, password, numacompaniantes, areamepleado) VALUES (hotelandes_sequence.nextval, :cedula, :nombre, :apellido, :correo, :tipousuario, :password, :numacompaniantes, :areaempleado", nativeQuery = true)
+    @Query(value = "INSERT INTO usuarios (id, cedula, nombre, apellido, correo, tipousuario, password, numacompaniantes, areaempleado) VALUES (hotelandes_sequence.nextval, :cedula, :nombre, :apellido, :correo, :tipousuario, :password, :numacompaniantes, :areaempleado)", nativeQuery = true)
     void insertarUsuario(@Param("cedula") Integer cedula, @Param("nombre") String nombre,
             @Param("apellido") String apellido,
             @Param("correo") String correo, @Param("tipousuario") Integer tipoUsuario,
