@@ -15,31 +15,26 @@ public class Habitacion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
     private Integer numero;
-
     @ManyToOne
-    @JoinColumn(name = "tipoHabitacion", referencedColumnName = "id")
-    private TipoHabitacion tipoHabitacion;
-
+    @JoinColumn(name = "tipohabitacion", referencedColumnName = "id")
+    private TipoHabitacion tipohabitacion;
     private Boolean television;
     private Boolean minibar;
     private Boolean cafetera;
-    private Integer diasEstadia;
-
-
+    private Integer diasestadia;
     @ManyToOne
-    @JoinColumn(name="idHotel", referencedColumnName = "id")
+    @JoinColumn(name="idhotel", referencedColumnName = "id")
     private Hotel hotel;
 
     public Habitacion(Integer numero, TipoHabitacion tipoHabitacion, Boolean television, Boolean minibar, Boolean cafetera, Integer diasEstadia, Hotel hotel)
     {
         this.numero=numero;
-        this.tipoHabitacion=tipoHabitacion;
+        this.tipohabitacion=tipoHabitacion;
         this.television=television;
         this.minibar=minibar;
         this.cafetera=cafetera;
-        this.diasEstadia=diasEstadia;
+        this.diasestadia=diasEstadia;
         this.hotel=hotel;
     }
 
@@ -63,12 +58,12 @@ public class Habitacion {
         this.numero = numero;
     }
 
-    public TipoHabitacion getTipoHabitacion() {
-        return tipoHabitacion;
+    public TipoHabitacion getTipohabitacion() {
+        return tipohabitacion;
     }
 
-    public void setTipoHabitacion(TipoHabitacion tipoHabitacion) {
-        this.tipoHabitacion = tipoHabitacion;
+    public void setTipohabitacion(TipoHabitacion tipoHabitacion) {
+        this.tipohabitacion = tipoHabitacion;
     }
 
     public Boolean getTelevision() {
@@ -95,12 +90,12 @@ public class Habitacion {
         this.cafetera = cafetera;
     }
 
-    public Integer getDiasEstadia() {
-        return diasEstadia;
+    public Integer getDiasestadia() {
+        return diasestadia;
     }
 
-    public void setDiasEstadia(Integer diasEstadia) {
-        this.diasEstadia = diasEstadia;
+    public void setDiasestadia(Integer diasEstadia) {
+        this.diasestadia = diasEstadia;
     }
 
     public Hotel getHotel() {

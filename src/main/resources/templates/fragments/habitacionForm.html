@@ -14,26 +14,15 @@
         <h1 class="text-center" th:text="${titulo}"></h1>
     
     <form>
-        <label class="col-form-label">Id:</label>
-        <input class="form-control" type="number" id="id" name="id" required th:value="${habitacion.id}" />
-
         <label class="col-form-label">Numero:</label>
         <input class="form-control" type="number" id="numero" name="numero" required th:value="${habitacion.numero}" />
 
-        <select class="form-control" id="tipoHabitacion" name="tipoHabitacion" required>
-            <option value="SUITE" th:selected="${habitacion.tipoHabitacion eq 'SUITE'}">SUITE</option>
-            <option value="SUITE PRESIDENCIAL" th:selected="${habitacion.tipoHabitacion eq 'SUITE PRESIDENCIAL'}">SUITE PRESIDENCIAL</option>
-            <option value="FAMILIAR" th:selected="${habitacion.tipoHabitacion eq 'FAMILIAR'}">FAMILIAR</option>
-            <option value="DOBLE" th:selected="${habitacion.tipoHabitacion eq 'DOBLE'}">DOBLE</option>
-            <option value="SENCILLA" th:selected="${habitacion.tipoHabitacion eq 'SENCILLA'}">SENCILLA</option>
-        </select>
-        
-        <select class="form-control" id="planEstadia" name="planEstadia" required>
-            <option value="LARGA_ESTADIA" th:selected="${habitacion.planEstadia eq 'LARGA_ESTADIA'}">LARGA ESTADIA</option>
-            <option value="TIEMPO_COMPARTIDO" th:selected="${habitacion.planEstadia eq 'TIEMPO_COMPARTIDO'}">TIEMPO COMPARTIDO</option>
-            <option value="TODO_INCLUIDO" th:selected="${habitacion.planEstadia eq 'TODO_INCLUIDO'}">TODO INCLUIDO</option>
-            <option value="PROMOCION" th:selected="${habitacion.planEstadia eq 'PROMOCION'}">PROMOCION</option>
-        </select>
+        <label class="col-form-label" for="tipo">Tipo:</label>
+        <select class="form-control" id="tipohabitacion" name="tipohabitacion" required>
+            <th:block th:each="tipohabitacion : ${tiposhabitacion}" >
+                <option th:value="${tipohabitacion.id}" th:text="${tipohabitacion.nombre}" th:selected="${habitacion!=null || habitacion.tipohabitacion.id == tipohabitacion.id}"></option>
+            </th:block>
+        </select><br>
         
         <select class="form-control" id="television" name="television" required>
             <option value="true" th:selected="${habitacion.television == true}">si</option>
@@ -51,7 +40,14 @@
         </select>
 
         <label class="col-form-label">Dias Estadia:</label>
-        <input class="form-control" type="number" id="diasEstadia" name="diasEstadia" required th:value="${habitacion.diasEstadia}" />
+        <input class="form-control" type="number" id="diasestadia" name="diasestadia" required th:value="${habitacion.diasestadia}" />
+
+        <label class="col-form-label" for="hotel">Hotel:</label>
+        <select class="form-control" id="hotel" name="hotel" required>
+            <th:block th:each="hotel : ${hoteles}" >
+                <option th:value="${hotel.id}" th:text="${hotel.nombre}" th:selected="${habitacion!=null || habitacion.idhotel.id == hotel.id}"></option>
+            </th:block>
+        </select><br>
        
         <div class="text-center">
             <input type="submit" value="Guardar" class="btn btn-primary">

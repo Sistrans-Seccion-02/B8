@@ -596,7 +596,15 @@ EXCEPTION
 END;
 /
 
-CREATE SEQUENCE hotelandes_sequence;
+CREATE SEQUENCE consumos_sequence;
+CREATE SEQUENCE hoteles_sequence;
+CREATE SEQUENCE habitaciones_sequence;
+CREATE SEQUENCE usuarios_sequence;
+CREATE SEQUENCE tiposusuario_sequence;
+CREATE SEQUENCE tiposhabitacion_sequence;
+CREATE SEQUENCE planesestadia_sequence;
+CREATE SEQUENCE reservas_sequence;
+CREATE SEQUENCE servicios_sequence;
 
 -- Informe de Resumen de Oracle SQL Developer Data Modeler: 
 -- 
@@ -622,7 +630,7 @@ CREATE SEQUENCE hotelandes_sequence;
 -- CREATE DISK GROUP                        0
 -- CREATE ROLE                              0
 -- CREATE ROLLBACK SEGMENT                  0
--- CREATE SEQUENCE                          1
+-- CREATE SEQUENCE                          9
 -- CREATE MATERIALIZED VIEW                 0
 -- CREATE MATERIALIZED VIEW LOG             0
 -- CREATE SYNONYM                           0

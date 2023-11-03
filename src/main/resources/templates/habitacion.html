@@ -21,6 +21,7 @@
                     <th>minibar</th>
                     <th>cafetera</th>
                     <th>dias Estadia</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <th:block th:each="habitacion : ${habitaciones}">
@@ -32,7 +33,7 @@
                     <td th:text="${habitacion.television}"></td>
                     <td th:text="${habitacion.minibar}"></td>
                     <td th:text="${habitacion.cafetera}"></td>
-                    <td th:text="${habitacion.diasEstadia}"></td>
+                    <td th:text="${habitacion.diasestadia}"></td>
                     <td>
                         <a th:href="@{habitaciones/{id}/edit(id=${habitacion.id})}">Editar</a>
                         <a th:href="@{habitaciones/{id}/delete(id=${habitacion.id})}"

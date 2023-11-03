@@ -17,23 +17,26 @@ public interface HabitacionRepository extends JpaRepository<Habitacion, Integer>
     Collection<Habitacion> darHabitaciones();
 
     @Query(value = "SELECT * FROM habitaciones WHERE id = :id", nativeQuery = true)
-    Habitacion darHabitacion(@Param("id") Integer id);
+    Habitacion darHabitacion(@Param("id") long id);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO habitaciones (id, numero, tipoHabitacion, television, minibar, cafetera, diasEstadia, idHotel) VALUES ( hotelandes_sequence.nextval, :numero, :tipoHabitacion, :television, :minibar, :cafetera, :diasEstadia, :idHotel)", nativeQuery = true)
-    void insertarHabitacion(@Param("numero") Integer numero, @Param("tipoHabitacion") Integer tipo, @Param("television") Boolean television, @Param("minibar") Boolean minibar,
-                        @Param("cafetera") Boolean cafetera, @Param("diasEstadia") Integer diasEstadia, @Param("idHotel") Integer idHotel);
+    @Query(value = "INSERT INTO habitaciones (id, numero, tipohabitacion, television, minibar, cafetera, diasestadia, idhotel) VALUES (habitaciones_sequence.nextval, :numero, :tipohabitacion, :television, :minibar, :cafetera, :diasestadia, :idhotel)", nativeQuery = true)
+    void insertarHabitacion(@Param("numero") Integer numero, @Param("tipohabitacion") Integer tipoHabitacion,
+            @Param("television") Boolean television, @Param("minibar") Boolean minibar,
+            @Param("cafetera") Boolean cafetera, @Param("diasestadia") Integer diasEstadia,
+            @Param("idhotel") Integer idHotel);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE habitaciones SET numero = :numero, tipoHabitacion = :tipoHabitacion, television = :television, minibar = :minibar, cafetera = :cafetera, diasEstadia = :diasEstadia, idHotel = :idHotel WHERE id = :id", nativeQuery = true)
-    void actualizarHabitacion(@Param("id") Integer id, @Param("numero") Integer numero, @Param("tipoHabitacion") Integer tipo, @Param("television") Boolean television, @Param("minibar") Boolean minibar,
-                        @Param("cafetera") Boolean cafetera, @Param("diasEstadia") Integer diasEstadia, @Param("idHotel") Integer idHotel);
+    @Query(value = "UPDATE habitaciones SET numero = :numero, tipohabitacion = :tipohabitacion, television = :television, minibar = :minibar, cafetera = :cafetera, diasestadia = :diasestadia, idhotel = :idhotel WHERE id = :id", nativeQuery = true)
+    void actualizarHabitacion(@Param("id") long id, @Param("numero") Integer numero, @Param("tipohabitacion") Integer tipoHabitacion,
+            @Param("television") Boolean television, @Param("minibar") Boolean minibar,
+            @Param("cafetera") Boolean cafetera, @Param("diasestadia") Integer diasEstadia,
+            @Param("idhotel") Integer idHotel);
 
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM habitaciones WHERE id = :id", nativeQuery = true)
-    void eliminarHabitacion(@Param("id") Integer id);
-
+    void eliminarHabitacion(@Param("id") long id);
 }
