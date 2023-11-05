@@ -24,7 +24,7 @@ public class Habitacion {
     private Boolean cafetera;
     private Integer diasestadia;
     @ManyToOne
-    @JoinColumn(name="idhotel", referencedColumnName = "id")
+    @JoinColumn(name = "idhotel", referencedColumnName = "id")
     private Hotel hotel;
 
     public Habitacion(Integer numero, TipoHabitacion tipoHabitacion, Boolean television, Boolean minibar, Boolean cafetera, Integer diasEstadia, Hotel hotel)

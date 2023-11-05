@@ -2,13 +2,13 @@
 <html>
 
 <head>
-    <title>Lista de Tipos de Usuario</title>
+    <title>Lista de Planes</title>
     <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
 </head>
 
 <body>
     <div class="text-center">
-        <h1>Lista de Tipos de Usuario</h1>
+        <h1>Lista de Planes</h1>
             <table class="table table-condensed table-hover table-bordered" style="border-collapse:collapse;">
                 <thead class="thead-dark">
                     <tr>
@@ -18,14 +18,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <th:block th:each="tipousuario : ${tiposusuario}">
+                    <th:block th:each="planestadia : ${planesestadia}">
                         <tr>
-                            <td th:text="${tipousuario.id}"></td>
-                            <td th:text="${tipousuario.nombre}"></td>
+                            <td th:text="${planestadia.id}"></td>
+                            <td th:text="${planestadia.nombre}"></td>
                             <td>
-                                <a th:href="@{tiposUsuario/{id}/edit(id=${tipousuario.id})}">Editar</a>
-                                <a th:href="@{tiposUsuario/{id}/delete(id=${tipousuario.id})}"
-                                    onclick="return confirm('¿Estás seguro de borrar este bebedor?')">Borrar</a>
+                                <a th:href="@{planesEstadia/{id}/edit(id=${planestadia.id})}">Editar</a>
+                                <a th:href="@{planesEstadia/{id}/delete(id=${planestadia.id})}"
+                                    onclick="return confirm('¿Estás seguro de borrar este Plan de Estadía?')">Borrar</a>
                             </td>
                         </tr>
                         
@@ -33,7 +33,7 @@
                 </tbody>
             </table>
             <div class="text-center">
-                <a th:href='@{tiposUsuario/new}' class="btn btn-primary">Añadir Tipo de Usuario</a>
+                <a th:href='@{planesEstadia/new}' class="btn btn-primary">Añadir Plan</a>
                 <a th:href="@{/}" class="btn btn-primary"> Volver Atrás</a>
                 </br>
             </div>

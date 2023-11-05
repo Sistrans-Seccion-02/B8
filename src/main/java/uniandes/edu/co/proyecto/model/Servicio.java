@@ -16,11 +16,9 @@ public class Servicio {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
-
     protected Float capacidad;
     protected Float costoDanios;
     protected String nombre;
-
     @ManyToOne
     @JoinColumn(name="idHotel", referencedColumnName = "id")
     protected Hotel hotel;

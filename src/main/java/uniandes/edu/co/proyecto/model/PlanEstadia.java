@@ -7,13 +7,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="planesEstadia")
+@Table(name="planesestadia")
 public class PlanEstadia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    
     private String nombre;
 
     public PlanEstadia(String nombre)
@@ -31,11 +30,11 @@ public class PlanEstadia {
         this.id = id;
     }
 
-    public String getPlanEstadia() {
+    public String getNombre() {
         return nombre;
     }
 
-    public void setPlanEstadia(String planEstadia) {
+    public void setNombre(String planEstadia) {
         this.nombre = planEstadia;
     }
     

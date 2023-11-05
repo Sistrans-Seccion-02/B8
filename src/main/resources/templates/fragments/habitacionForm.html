@@ -22,18 +22,21 @@
             <th:block th:each="tipohabitacion : ${tiposhabitacion}" >
                 <option th:value="${tipohabitacion.id}" th:text="${tipohabitacion.nombre}" th:selected="${habitacion!=null || habitacion.tipohabitacion.id == tipohabitacion.id}"></option>
             </th:block>
-        </select><br>
+        </select>
         
+        <label class="col-form-label" for="television">Televisión:</label>
         <select class="form-control" id="television" name="television" required>
-            <option value="true" th:selected="${habitacion.television == true}">si</option>
-            <option value="false" th:selected="${habitacion.television == false}">no</option>
+            <option value="true" th:selected="${habitacion.television == true}">Sí</option>
+            <option value="false" th:selected="${habitacion.television == false}">No</option>
         </select>
 
+        <label class="col-form-label" for="minibar">Minibar:</label>
         <select class="form-control" id="minibar" name="minibar" required>
             <option value="true" th:selected="${habitacion.minibar == true}">Sí</option>
             <option value="false" th:selected="${habitacion.minibar == false}">No</option>
         </select>
         
+        <label class="col-form-label" for="cafetera">Cafetera:</label>
         <select class="form-control" id="cafetera" name="cafetera" required>
             <option value="true" th:selected="${habitacion.cafetera == true}">Sí</option>
             <option value="false" th:selected="${habitacion.cafetera == false}">No</option>

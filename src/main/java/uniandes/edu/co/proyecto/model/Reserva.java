@@ -17,22 +17,20 @@ public class Reserva {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
-    
+    private Integer id; 
     private Integer costoTotal;
     private Date fechaInicio;
     private Date fechaFin;
-
     @ManyToOne
-    @JoinColumn(name="planEstadia", referencedColumnName = "id")
+    @JoinColumn(name="planestadia", referencedColumnName = "id")
     private PlanEstadia planEstadia;
 
     @ManyToOne
-    @JoinColumn(name="numeroHabitacion", referencedColumnName = "numero")
+    @JoinColumn(name="numerohabitacion", referencedColumnName = "numero")
     private Habitacion habitacion;
-
+    
     @OneToOne
-    @JoinColumn(name="idConsumo", referencedColumnName = "id")
+    @JoinColumn(name="idconsumo", referencedColumnName = "id")
     private Consumo consumo;
 
 

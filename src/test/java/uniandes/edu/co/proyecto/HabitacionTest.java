@@ -23,11 +23,11 @@ public class HabitacionTest {
     @Test
     public void testConstructor() {
         assertEquals(101, habitacion.getNumero());
-        assertNotNull(habitacion.getTipoHabitacion());
+        assertNotNull(habitacion.getTipohabitacion());
         assertTrue(habitacion.getTelevision());
         assertTrue(habitacion.getMinibar());
         assertFalse(habitacion.getCafetera());
-        assertEquals(5, habitacion.getDiasEstadia());
+        assertEquals(5, habitacion.getDiasestadia());
         assertNotNull(habitacion.getHotel());
     }
 
@@ -37,8 +37,8 @@ public class HabitacionTest {
         assertEquals(102, habitacion.getNumero());
 
         TipoHabitacion anotherTipo = new TipoHabitacion();
-        habitacion.setTipoHabitacion(anotherTipo);
-        assertEquals(anotherTipo, habitacion.getTipoHabitacion());
+        habitacion.setTipohabitacion(anotherTipo);
+        assertEquals(anotherTipo, habitacion.getTipohabitacion());
 
         habitacion.setTelevision(false);
         assertFalse(habitacion.getTelevision());
@@ -49,8 +49,8 @@ public class HabitacionTest {
         habitacion.setCafetera(true);
         assertTrue(habitacion.getCafetera());
 
-        habitacion.setDiasEstadia(7);
-        assertEquals(7, habitacion.getDiasEstadia());
+        habitacion.setDiasestadia(7);
+        assertEquals(7, habitacion.getDiasestadia());
 
         Hotel anotherHotel = new Hotel();
         habitacion.setHotel(anotherHotel);

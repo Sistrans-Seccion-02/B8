@@ -16,21 +16,21 @@ public interface PlanEstadiaRepository extends JpaRepository<PlanEstadia, Intege
     Collection<PlanEstadia> darPlanesEstadia();
 
     @Query(value = "SELECT * FROM planesEstadia WHERE id = :id", nativeQuery = true)
-    PlanEstadia darPlanEstadia(@Param("id") Integer id);
+    PlanEstadia darPlanEstadia(@Param("id") long id);
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO planesEstadia (id, nombre) VALUES ( hotelandes_sequence.nextval, :nombre)", nativeQuery = true)
+    @Query(value = "INSERT INTO planesEstadia (id, nombre) VALUES ( planesestadia_sequence.nextval, :nombre)", nativeQuery = true)
     void insertarPlanEstadia(@Param("nombre") String nombre);
 
     @Modifying
     @Transactional
     @Query(value = "UPDATE planesEstadia SET nombre = :nombre WHERE id = :id", nativeQuery = true)
-    void actualizarPlanEstadia(@Param("id") Integer id, @Param("nombre") String nombre);
+    void actualizarPlanEstadia(@Param("id") long id, @Param("nombre") String nombre);
 
     @Modifying
     @Transactional
     @Query(value = "DELETE FROM planesEstadia WHERE id = :id", nativeQuery = true)
-    void eliminarPlanEstadia(@Param("id") Integer id);
+    void eliminarPlanEstadia(@Param("id") long id);
     
 }
