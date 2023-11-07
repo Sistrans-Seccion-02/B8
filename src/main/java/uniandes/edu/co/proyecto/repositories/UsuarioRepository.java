@@ -49,6 +49,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
                         "WHERE id = (SELECT id FROM tiposUsuario WHERE nombre = :rol)", nativeQuery = true)
         void consultarUsuariosPorRol(@Param("rol") String rol);
 
+        @Query(value = "SELECT * FROM usuarios WHERE cedula = :cedula", nativeQuery = true)
+        Usuario darUsuarioPorCedula(@Param("cedula") Integer cedula);
+
         @Query(value = "SELECT * FROM usuarios WHERE correo = :correo", nativeQuery = true)
         Usuario darUsuarioPorCorreo(@Param("correo") String correo);
 
@@ -192,4 +195,5 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
                             ORDER BY
                                 s.inicio_semana; """, nativeQuery = true)
         List<Object[]> obtenerReporteSemanal();
-}
+
+        

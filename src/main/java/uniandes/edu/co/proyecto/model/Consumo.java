@@ -5,8 +5,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name="consumos")
 public class Consumo {
 
     @Id
@@ -14,12 +16,12 @@ public class Consumo {
     private Integer id;
     
     private Date fecha;
-    private Float valorTotal;
+    private Float valortotal;
 
     public Consumo(Integer id, Date fecha, Float valorTotal) {
         this.id = id;
         this.fecha = fecha;
-        this.valorTotal = valorTotal;
+        this.valortotal = valorTotal;
     }
     
     public Consumo() {;}
@@ -36,11 +38,11 @@ public class Consumo {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    public Float getValorTotal() {
-        return valorTotal;
+    public Float getValortotal() {
+        return valortotal;
     }
-    public void setValorTotal(Float valorTotal) {
-        this.valorTotal = valorTotal;
+    public void setValortotal(Float valorTotal) {
+        this.valortotal = valorTotal;
     }
     
 }

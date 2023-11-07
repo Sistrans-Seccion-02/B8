@@ -18,12 +18,12 @@ public class Reserva {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id; 
-    private Integer costoTotal;
-    private Date fechaInicio;
-    private Date fechaFin;
+    private Integer costototal;
+    private Date fechainicio;
+    private Date fechafin;
     @ManyToOne
     @JoinColumn(name="planestadia", referencedColumnName = "id")
-    private PlanEstadia planEstadia;
+    private PlanEstadia planestadia;
 
     @ManyToOne
     @JoinColumn(name="numerohabitacion", referencedColumnName = "numero")
@@ -33,14 +33,22 @@ public class Reserva {
     @JoinColumn(name="idconsumo", referencedColumnName = "id")
     private Consumo consumo;
 
+    @ManyToOne
+    @JoinColumn(name="idusuario", referencedColumnName = "id")
+    private Usuario usuario;
 
-    public Reserva(Integer costoTotal, Date fechaInicio, Date fechaFin, PlanEstadia planEstadia, Habitacion habitacion, Consumo consumo) {
-        this.costoTotal = costoTotal;
-        this.fechaInicio = fechaInicio;
-        this.fechaFin = fechaFin;
-        this.planEstadia = planEstadia;
+    private String estado;
+
+    public Reserva(Integer costoTotal, Date fechaInicio, Date fechaFin, PlanEstadia planEstadia, 
+                    Habitacion habitacion, Consumo consumo, Usuario usuario, String estado) {
+        this.costototal = costoTotal;
+        this.fechainicio = fechaInicio;
+        this.fechafin = fechaFin;
+        this.planestadia = planEstadia;
         this.habitacion = habitacion;
         this.consumo = consumo;
+        this.usuario = usuario;
+        this.estado = estado;
     }
 
     public Reserva() {;}
@@ -53,36 +61,36 @@ public class Reserva {
         this.id = id;
     }
 
-    public Integer getCostoTotal() {
-        return costoTotal;
+    public Integer getCostototal() {
+        return costototal;
     }
 
-    public void setCostoTotal(Integer costoTotal) {
-        this.costoTotal = costoTotal;
+    public void setCostototal(Integer costoTotal) {
+        this.costototal = costoTotal;
     }
 
-    public Date getFechaInicio() {
-        return fechaInicio;
+    public Date getFechainicio() {
+        return fechainicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setFechainicio(Date fechaInicio) {
+        this.fechainicio = fechaInicio;
     }
 
-    public Date getFechaFin() {
-        return fechaFin;
+    public Date getFechafin() {
+        return fechafin;
     }
 
-    public void setFechaFin(Date fechaFin) {
-        this.fechaFin = fechaFin;
+    public void setFechafin(Date fechaFin) {
+        this.fechafin = fechaFin;
     }
 
-    public PlanEstadia getPlanEstadia() {
-        return planEstadia;
+    public PlanEstadia getPlanestadia() {
+        return planestadia;
     }
 
-    public void setPlanEstadia(PlanEstadia planEstadia) {
-        this.planEstadia = planEstadia;
+    public void setPlanestadia(PlanEstadia planEstadia) {
+        this.planestadia = planEstadia;
     }
 
     public Habitacion getHabitacion() {
@@ -99,6 +107,22 @@ public class Reserva {
 
     public void setConsumo(Consumo consumo) {
         this.consumo = consumo;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
     
 }
