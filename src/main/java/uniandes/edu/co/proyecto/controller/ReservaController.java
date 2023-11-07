@@ -71,19 +71,14 @@ public class ReservaController {
 
     @PostMapping("reservas/{id}/checkin")
     public String reservaCheckin(@PathVariable("id") Integer id, @ModelAttribute Reserva reserva) {
-        reservaRepository.actualizarReserva(id, reserva.getCostototal(), reserva.getFechainicio(), reserva.getFechafin(), 
-                                        reserva.getPlanestadia().getId(), reserva.getHabitacion().getNumero(), reserva.getConsumo().getId(), 
-                                        reserva.getUsuario().getId(), "HOSPEDADO");
+        reservaRepository.checkinReserva(id, "HOSPEDADO");
         return "redirect:/reservas";
     }
 
     @PostMapping("reservas/{id}/checkout")
     public String reservaCheckout(@PathVariable("id") Integer id, @ModelAttribute Reserva reserva) {
-        reservaRepository.actualizarReserva(id, reserva.getCostototal(), reserva.getFechainicio(), reserva.getFechafin(), 
-                                        reserva.getPlanestadia().getId(), reserva.getHabitacion().getNumero(), reserva.getConsumo().getId(), 
-                                        reserva.getUsuario().getId(), "CHECK-OUT");
+        reservaRepository.checkinReserva(id, "CHECK-OUT");
         return "redirect:/reservas";
     }
-
     
 }

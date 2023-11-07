@@ -38,7 +38,7 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
     @Query(value = "DELETE FROM reservas WHERE id = :id", nativeQuery = true)
     void eliminarReserva(@Param("id") Integer id);
 
-    @Query(value = "SELECT * FROM reservas WHERE idUsuario = (SELECT id FROM usuarios WHERE correo = :correo)", nativeQuery = true)
+    @Query(value = "SELECT * FROM reservas WHERE idUsuario = (SELECT id FROM usuarios WHERE cedula = :cedula)", nativeQuery = true)
     Reserva darReservasPorUsuario(@Param("cedula") String cedula);
 
     @Modifying

@@ -15,8 +15,8 @@ public class LoginController {
     private UsuarioRepository usuarioRepository;
 
     @PostMapping("/login")
-    public String login(Model model, @RequestParam("correo") String correo, @RequestParam("password") String password) {
-        Usuario usuario = usuarioRepository.darUsuarioPorCorreo(correo);
+    public String login(Model model, @RequestParam("cedula") Integer cedula, @RequestParam("password") String password) {
+        Usuario usuario = usuarioRepository.darUsuarioPorCedula(cedula);
         
         try {
             String contraseniaReal = usuario.getPassword();
