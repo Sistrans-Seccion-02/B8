@@ -4,11 +4,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class AdministradorController {
+public class ClienteController {
 
-    @RequestMapping("/administrador")
+    @RequestMapping("/cliente")
     public String menuPrincipal() {
-        return "menuAdministrador";
+        return "menuCliente";
     }
-
+    
 }

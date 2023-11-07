@@ -8,9 +8,9 @@ public class Lavanderia extends Servicio {
     private String catalogo;
     private Integer numeroPrendas;
     private String tipoPrenda;
-    public Lavanderia(Float capacidad, Float costoDanios, String nombre, Hotel hotel, String catalogo,
+    public Lavanderia(Float capacidad, String nombre, Hotel hotel, String catalogo,
             Integer numeroPrendas, String tipoPrenda) {
-        super(capacidad, costoDanios, nombre, hotel);
+        super(capacidad, nombre, hotel, "lavanderia");
         this.catalogo = catalogo;
         this.numeroPrendas = numeroPrendas;
         this.tipoPrenda = tipoPrenda;

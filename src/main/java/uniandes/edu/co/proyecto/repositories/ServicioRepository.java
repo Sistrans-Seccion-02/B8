@@ -20,14 +20,14 @@ public interface ServicioRepository extends JpaRepository<Servicio, Integer> {
 
     @Modifying
     @Transactional
-    @Query(value = "INSERT INTO servicios (id, capacidad, costoDanios, nombre, idHotel, clase) VALUES ( hotelandes_sequence.nextval, :capacidad, :costoDanios, :nombre, :idHotel)", nativeQuery = true)
-    void insertarServicio(@Param("capacidad") Float capacidad, @Param("costoDanios") Float costoDanios,
-                        @Param("nombre") String nombre, @Param("idHotel") Integer idHotel);
+    @Query(value = "INSERT INTO servicios (id, capacidad, nombre, idHotel, clase) VALUES ( servicios_sequence.nextval, :capacidad, :nombre, :idHotel, :clase)", nativeQuery = true)
+    void insertarServicio(@Param("capacidad") Float capacidad, @Param("nombre") String nombre, 
+                            @Param("idHotel") Integer idHotel, @Param("clase") String clase);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE servicios SET capacidad = :capacidad, costoDanios = :costoDanios, nombre = :nombre, idHotel = :idHotel WHERE id = :id", nativeQuery = true)
-    void actualizarServicio(@Param("id") Integer id, @Param("capacidad") Float capacidad, @Param("costoDanios") Float costoDanios,
+    @Query(value = "UPDATE servicios SET capacidad = :capacidad, nombre = :nombre, idHotel = :idHotel WHERE id = :id", nativeQuery = true)
+    void actualizarServicio(@Param("id") Integer id, @Param("capacidad") Float capacidad,
                         @Param("nombre") String nombre, @Param("idHotel") Integer idHotel);
 
     @Modifying

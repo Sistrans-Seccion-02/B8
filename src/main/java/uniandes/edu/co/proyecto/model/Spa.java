@@ -9,8 +9,8 @@ public class Spa extends Servicio {
 
     private String catalogo;
 
-    public Spa(Float capacidad, Float costoDanios, String nombre, Hotel hotel, String catalogo) {
-        super(capacidad, costoDanios, nombre, hotel);
+    public Spa(Float capacidad, String nombre, Hotel hotel, String catalogo) {
+        super(capacidad, nombre, hotel, "spa");
         this.catalogo = catalogo;
     }
 

@@ -14,17 +14,13 @@
             <thead class="thead-dark">
                 <tr>
                     <th>ID</th>
-                    <th>capacidad</th>
-                    <th>costo Daños</th>
-                    <th>nombre</th>
+                    <th>Acciones</th>
                 </tr>
             </thead>
             <th:block th:each="servicio : ${servicios}">
                 <tr>
                     <td th:text="${servicio.id}"></td>
-                    <td th:text="${servicio.capacidad}"></td>
-                    <td th:text="${servicio.costoDanios}"></td>
-                    <td th:text="${servicio.nombre}"></td>
+
                     <td>
                         <a th:href="@{servicios/{id}/edit(id=${servicio.id})}">Editar</a>
                         <a th:href="@{servicios/{id}/delete(id=${servicio.id})}"

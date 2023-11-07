@@ -4,12 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="internet")
+@Table(name="planesinternet")
 public class Internet extends Servicio {
     private Float cobroPorDia;
 
     public Internet(Float capacidad, Float costoDanios, String nombre, Hotel hotel, Float cobroPorDia) {
-        super(capacidad, costoDanios, nombre, hotel);
+        super(capacidad, nombre, hotel, "internet");
         this.cobroPorDia = cobroPorDia;
     }
 

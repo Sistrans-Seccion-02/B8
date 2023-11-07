@@ -9,9 +9,9 @@ public class Bar extends Servicio {
 
     private String estilo;
     private String carta;
-    public Bar(Float capacidad, Float costoDanios, String nombre, Hotel hotel, String estilo,
+    public Bar(Float capacidad, String nombre, Hotel hotel, String estilo,
             String carta) {
-        super(capacidad, costoDanios, nombre, hotel);
+        super(capacidad, nombre, hotel, "bar");
         this.estilo = estilo;
         this.carta = carta;
     }
@@ -31,5 +31,4 @@ public class Bar extends Servicio {
         this.carta = carta;
     }
 
-    
 }

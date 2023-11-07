@@ -1,22 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hotel de los Andes</title>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
-</head>
-<body>
-    <div class="container mx-auto w-25">
-        <h1>Hotel de los Andes</h1>
-        <img th:src="@{/images/logo.png}" width="250">
-    </div>
-    <div class="d-flex justify-content-center flex-column align-items-center mt-4">
-        <a th:href="@{/administradores}" class="btn btn-primary mb-2">Menu Administradores</a>
-        <a th:href="@{/clientes}" class="btn btn-primary mb-2">Menu Clientes</a>
-        <a th:href="@{/empleados}" class="btn btn-primary mb-2">Menu Empleados</a>
-        <a th:href="@{/gerentes}" class="btn btn-primary mb-2">Menu Gerentes</a>
-        <a th:href="@{/recepcionistas}" class="btn btn-primary mb-2">Menu Recepcionistas</a>
-    </div>
-</body>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HOTEL DE LOS ANDES</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <nav class="navbar navbar-light bg-light">
+              <a class="navbar-brand" th:href="@{/}">
+                  ¡Bienvenid@ a Hotel de los Andes!
+              </a>
+          </nav>
+        </nav>
+
+        <main>
+          <div class="container" style="min-height: 580px;">
+                <div style=" display: flex; align-items: center; justify-content: center;" class="login-box auth0-box before">
+                        <img style="width:70%; " th:src="@{/images/logo.png}"/>
+                </div>
+                <br>
+                <div style=" display: flex; align-items: center; justify-content: center;">
+                    <form th:action="@{/login}" method="post">
+                        <label for="correo">Correo:</label>
+                        <input type="text" id="correo" name="correo" required>
+                        <br>
+                        <label for="password">Contraseña:</label>
+                        <input type="password" id="password" name="password" required>  
+                        <br>  
+                        <input type="submit" value="Iniciar Sesión">
+                    </form>
+                </div>
+                <br>
+                <div th:if="${error}" style="color: red; text-align: center; font-weight: bold;" th:text="${error}"></div>
+          </div>
+        </main>
+
+    </body>
+
+    <!-- Footer -->
+    <footer style="background-color: #D8D8D8; position: relative; bottom: 100; width: 100%; height: 100px;">
+
+        <div style="padding: 30px">
+            <div style="float: left; width: 400px;" >ISIS-2304 Sistemas Transaccionales</div>
+            <div style="float: right; width: 220px;" >Universidad de los Andes</div>
+        </div>
+        <br>
+
+    </footer>
+    <!-- Footer -->
+
 </html>

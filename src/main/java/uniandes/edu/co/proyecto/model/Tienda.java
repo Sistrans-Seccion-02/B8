@@ -11,7 +11,7 @@ public class Tienda extends Servicio {
     private String productos;
 
     public Tienda(Float capacidad, Float costoDanios, String nombre, Hotel hotel, String tipo, String productos) {
-        super(capacidad, costoDanios, nombre, hotel);
+        super(capacidad, nombre, hotel, "tienda");
         this.tipo = tipo;
         this.productos = productos;
     }
