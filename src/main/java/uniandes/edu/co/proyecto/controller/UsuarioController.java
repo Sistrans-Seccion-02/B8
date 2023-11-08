@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -37,8 +38,24 @@ public class UsuarioController {
 
         // Agregar resultados al modelo
         model.addAttribute("resultados", resultados);
-        return "vistaResultados";
+        return "formularioConsultarConsumo";
+
     }
+
+    @GetMapping("/consultarSinConsumo")
+    public String consultarSinConsumo(
+            @RequestParam("fechainicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio,
+            @RequestParam("fechafin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin,
+            @RequestParam("servicionombre") String nombreServicio,
+            Model model) {
+
+    List<Object[]> resultados = usuarioRepository.consultarUsuariosSinConsumoNative(fechaInicio, fechaFin, nombreServicio);
+
+    // Agregar resultados directamente al modelo
+    model.addAttribute("resultados", resultados);
+    return "formularioConsultarNoConsumo";
+}
+
 
     @GetMapping("/usuarios")
     public String usuarios(Model model) {
