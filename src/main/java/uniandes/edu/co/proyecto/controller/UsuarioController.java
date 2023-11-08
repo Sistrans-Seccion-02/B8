@@ -27,7 +27,7 @@ public class UsuarioController {
     @Autowired
     private TipoUsuarioRepository tipoUsuarioRepository;
 
-    @GetMapping("/consultarConsumo")
+    @GetMapping("/usuarios/consultarConsumo")
     public String consultarConsumo(
             @RequestParam("fechainicio") Date fechaInicio,
             @RequestParam("fechafin") Date fechaFin,
@@ -42,7 +42,7 @@ public class UsuarioController {
 
     }
 
-    @GetMapping("/consultarSinConsumo")
+    @GetMapping("/usuarios/consultarSinConsumo")
     public String consultarSinConsumo(
             @RequestParam("fechainicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaInicio,
             @RequestParam("fechafin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date fechaFin,
