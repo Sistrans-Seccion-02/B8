@@ -1,10 +1,11 @@
 package uniandes.edu.co.proyecto.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="planesinternet")
+@DiscriminatorValue("planesinternet")
 public class Internet extends Servicio {
     private Float cobroPorDia;
 
@@ -13,8 +14,10 @@ public class Internet extends Servicio {
         this.cobroPorDia = cobroPorDia;
     }
 
-    public Internet() {;}
-    
+    public Internet() {
+        ;
+    }
+
     public Float getCobroPorDia() {
         return cobroPorDia;
     }
@@ -22,6 +25,5 @@ public class Internet extends Servicio {
     public void setCobroPorDia(Float cobroPorDia) {
         this.cobroPorDia = cobroPorDia;
     }
-
 
 }

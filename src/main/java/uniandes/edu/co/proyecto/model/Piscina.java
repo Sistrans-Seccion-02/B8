@@ -1,13 +1,15 @@
 package uniandes.edu.co.proyecto.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="piscinas")
+@DiscriminatorValue("piscinas")
 public class Piscina extends Servicio {
     private Float profundidad;
     private String horario;
+
     public Piscina(Float capacidad, String nombre, Hotel hotel, Float profundidad,
             String horario) {
         super(capacidad, nombre, hotel, "piscina");
@@ -15,17 +17,22 @@ public class Piscina extends Servicio {
         this.horario = horario;
     }
 
-    public Piscina() {;}
+    public Piscina() {
+        ;
+    }
 
     public Float getProfundidad() {
         return profundidad;
     }
+
     public void setProfundidad(Float profundidad) {
         this.profundidad = profundidad;
     }
+
     public String getHorario() {
         return horario;
     }
+
     public void setHorario(String horario) {
         this.horario = horario;
     }

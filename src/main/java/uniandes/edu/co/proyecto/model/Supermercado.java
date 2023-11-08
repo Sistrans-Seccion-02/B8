@@ -1,10 +1,11 @@
 package uniandes.edu.co.proyecto.model;
 
+import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="supermercados")
+@DiscriminatorValue("supermercados")
 public class Supermercado extends Servicio {
 
     private String productos;
@@ -14,7 +15,9 @@ public class Supermercado extends Servicio {
         this.productos = productos;
     }
 
-    public Supermercado() {;}
+    public Supermercado() {
+        ;
+    }
 
     public String getProductos() {
         return productos;

@@ -11,11 +11,12 @@ import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.DiscriminatorType;
 
 @Entity
-@Table(name="servicios")
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@DiscriminatorColumn(name="clase")
+@Table(name = "servicios")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "tipo", discriminatorType = DiscriminatorType.STRING)
 public class Servicio {
 
     @Id
@@ -24,12 +25,14 @@ public class Servicio {
     protected Float capacidad;
     protected String nombre;
     @ManyToOne
-    @JoinColumn(name="idhotel", referencedColumnName = "id")
+    @JoinColumn(name = "idhotel", referencedColumnName = "id")
     protected Hotel hotel;
-    @Column(insertable=false, updatable=false)
+    @Column(insertable = false, updatable = false)
     protected String clase;
 
-    public Servicio() {;}
+    public Servicio() {
+        ;
+    }
 
     public Servicio(Float capacidad, String nombre, Hotel hotel, String clase) {
         this.capacidad = capacidad;

@@ -1,5 +1,6 @@
 package uniandes.edu.co.proyecto.controller;
 
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
@@ -87,6 +88,33 @@ public class ServicioController {
                 Date.valueOf(fechaFin));
         model.addAttribute("topServicios", topServicios);
         return "vistaTopServicios"; // nombre del archivo HTML para mostrar los resultados
+    }
+
+    @GetMapping("/servicios/caracteristica")
+    public String mostrarFormularioBusquedaServicios() {
+        return "formularioBusquedaServicios"; // nombre del archivo HTML para el formulario
+    }
+
+    // Procesar los parámetros y mostrar los resultados
+    @PostMapping("/servicios/caracteristica")
+    public String mostrarServiciosPorCriterio(
+            @RequestParam("rangopiso") BigDecimal rangopiso,
+            @RequestParam("rangotecho") BigDecimal rangotecho,
+            @RequestParam("fechainicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechainicio,
+            @RequestParam("fechafin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechafin,
+            @RequestParam("clase") String clase,
+            @RequestParam("nombre") String nombre,
+            Model model) {
+
+        List<Servicio> servicios = servicioRepository.findServiciosByCriteria(
+                rangopiso,
+                rangotecho,
+                Date.valueOf(fechainicio),
+                Date.valueOf(fechafin),
+                clase,
+                nombre);
+        model.addAttribute("servicios", servicios);
+        return "vistaServiciosPorCriterio"; // nombre del archivo HTML para mostrar los resultados
     }
 
 }
