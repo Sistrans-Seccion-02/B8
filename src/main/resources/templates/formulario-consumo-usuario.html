@@ -1,0 +1,29 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario de Consumo del Usuario</title>
+    <!-- Agrega aquí tus referencias a CSS/Bootstrap si las necesitas -->
+</head>
+<body>
+
+<div class="container mt-4">
+    <h1>Introduzca los datos del usuario</h1>
+
+    <form th:action="@{/Usuario/consumo}" method="get">
+        <div class="form-group">
+            <label for="usuarioId">ID del Usuario:</label>
+            <input type="number" id="usuarioId" name="usuarioid" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="fechaInicio">Fecha de Inicio:</label>
+            <input type="date" id="fechaInicio" name="fechainicio" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="fechaFin">Fecha de Fin:</label>
+            <input type="date" id="fechaFin" name="fechafin" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Consultar Consumo</button>
+    </form>
+    
+</div>
+
+</body>

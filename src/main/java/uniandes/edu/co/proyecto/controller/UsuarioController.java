@@ -49,13 +49,13 @@ public class UsuarioController {
             @RequestParam("servicionombre") String nombreServicio,
             Model model) {
 
-    List<Object[]> resultados = usuarioRepository.consultarUsuariosSinConsumoNative(fechaInicio, fechaFin, nombreServicio);
+        List<Object[]> resultados = usuarioRepository.consultarUsuariosSinConsumoNative(fechaInicio, fechaFin,
+                nombreServicio);
 
-    // Agregar resultados directamente al modelo
-    model.addAttribute("resultados", resultados);
-    return "formularioConsultarNoConsumo";
-}
-
+        // Agregar resultados directamente al modelo
+        model.addAttribute("resultados", resultados);
+        return "formularioConsultarNoConsumo";
+    }
 
     @GetMapping("/usuarios")
     public String usuarios(Model model) {
@@ -102,6 +102,13 @@ public class UsuarioController {
     public String usuarioEliminar(@PathVariable("id") long id) {
         usuarioRepository.eliminarUsuario(id);
         return "redirect:/usuarios";
+    }
+
+    @GetMapping("/usuarios/buenos")
+    public String findHighValueCustomers(Model model) {
+        List<Object[]> highValueCustomersList = usuarioRepository.findHighValueCustomers();
+        model.addAttribute("highValueCustomers", highValueCustomersList);
+        return "buenos_clientes";
     }
 
 }

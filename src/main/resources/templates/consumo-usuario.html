@@ -1,0 +1,28 @@
+<head>
+    <meta charset="UTF-8">
+    <title>Consumo de Usuario</title>
+    <!-- Agrega aquí tus referencias a CSS/Bootstrap si las necesitas -->
+</head>
+<body>
+
+<div class="container mt-4">
+    <h1>Consumo de Usuario</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Nombre de Usuario</th>
+                <th>Total Consumos</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="usuario : ${consumosUsuario}">
+                <td th:text="${usuario.nombre}"></td>
+                <td th:text="${usuario.total_consumos}"></td>
+            </tr>
+        </tbody>
+    </table>
+    
+</div>
+
+</body>

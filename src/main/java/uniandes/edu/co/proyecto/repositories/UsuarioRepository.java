@@ -55,20 +55,24 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer> {
     @Query(value = "SELECT * FROM usuarios WHERE correo = :correo", nativeQuery = true)
     Usuario darUsuarioPorCorreo(@Param("correo") String correo);
 
-    @Query(value = "WITH EstadiasCliente AS (SELECT r.idusuario,SUM(r.fechafin - r.fechainicio) AS TotalDias" +
-            "FROM reservas r" +
-            "WHERE   r.fechainicio >= ADD_MONTHS(SYSDATE, -12)" +
-            "GROUP BY r.idusuario)," +
-            "ConsumosCliente AS (SELECT reservas.idusuario, SUM(c.valortotal) AS TotalConsumo FROM consumos c join reservas on c.id = reservas.idconsumo"
-            +
-            "WHERE c.fecha >= ADD_MONTHS(SYSDATE, -12) GROUP BY  reservas.idusuario)"
-            + """
-                    SELECT u.id AS ClienteID, u.nombre, u.apellido, COALESCE(e.TotalDias, 0) AS DiasEstadia,  COALESCE(c.TotalConsumo, 0) AS ConsumoTotal
-                    FROM usuarios u
-                    LEFT JOIN  EstadiasCliente e ON u.id = e.idusuario
-                    LEFT JOIN ConsumosCliente c ON u.id = c.idusuario
-                    WHERE  COALESCE(e.TotalDias, 0) >= 14 OR COALESCE(c.TotalConsumo, 0) > 15000000
-                    order by consumototal desc, diasestadia desc""", nativeQuery = true)
+    @Query(value = "WITH EstadiasCliente AS (" +
+            "SELECT r.idusuario, SUM(r.fechafin - r.fechainicio) AS TotalDias " +
+            "FROM reservas r " +
+            "WHERE r.fechainicio >= ADD_MONTHS(SYSDATE, -12) " +
+            "GROUP BY r.idusuario), " +
+            "ConsumosCliente AS (" +
+            "SELECT reservas.idusuario, SUM(c.valortotal) AS TotalConsumo " +
+            "FROM consumos c " +
+            "JOIN reservas ON c.id = reservas.idconsumo " +
+            "WHERE c.fecha >= ADD_MONTHS(SYSDATE, -12) " +
+            "GROUP BY reservas.idusuario) " +
+            "SELECT u.id AS ClienteID, u.nombre, u.apellido, " +
+            "COALESCE(e.TotalDias, 0) AS DiasEstadia, COALESCE(c.TotalConsumo, 0) AS ConsumoTotal " +
+            "FROM usuarios u " +
+            "LEFT JOIN EstadiasCliente e ON u.id = e.idusuario " +
+            "LEFT JOIN ConsumosCliente c ON u.id = c.idusuario " +
+            "WHERE COALESCE(e.TotalDias, 0) >= 14 OR COALESCE(c.TotalConsumo, 0) > 15000000 " +
+            "ORDER BY ConsumoTotal DESC, DiasEstadia DESC", nativeQuery = true)
     List<Object[]> findHighValueCustomers();
 
     @Query(value = "SELECT " +
