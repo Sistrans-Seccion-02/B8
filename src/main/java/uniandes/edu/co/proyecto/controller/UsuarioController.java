@@ -1,11 +1,15 @@
 package uniandes.edu.co.proyecto.controller;
 
+import java.sql.Date;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import uniandes.edu.co.proyecto.model.Usuario;
 import uniandes.edu.co.proyecto.repositories.TipoUsuarioRepository;
@@ -21,6 +25,20 @@ public class UsuarioController {
 
     @Autowired
     private TipoUsuarioRepository tipoUsuarioRepository;
+
+    @GetMapping("/consultarConsumo")
+    public String consultarConsumo(
+            @RequestParam("fechainicio") Date fechaInicio,
+            @RequestParam("fechafin") Date fechaFin,
+            @RequestParam("nombreservicio") String nombreServicio,
+            Model model) {
+
+        List<Object[]> resultados = usuarioRepository.consultarConsumoNative(fechaInicio, fechaFin, nombreServicio);
+
+        // Agregar resultados al modelo
+        model.addAttribute("resultados", resultados);
+        return "vistaResultados";
+    }
 
     @GetMapping("/usuarios")
     public String usuarios(Model model) {
