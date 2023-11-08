@@ -1,0 +1,31 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicio mas Popular en las fechas Dadas</title>
+    <!-- Incluye Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h2>Servicio mas popular</h2>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Clase de Servicio</th>
+                        <th>Cantidad de Servicios</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="servicio : ${topServicios}">
+                        <td th:text="${servicio[0]}"></td>
+                        <td th:text="${servicio[1]}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </body>
+
+
