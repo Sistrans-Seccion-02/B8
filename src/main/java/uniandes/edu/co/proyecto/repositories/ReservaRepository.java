@@ -47,6 +47,19 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
                         @Param("idConsumo") Integer idConsumo, @Param("idUsuario") Integer idUsuario,
                         @Param("estado") String estado);
 
+    @Query(value = "SELECT * FROM reservas WHERE idUsuario = (SELECT id FROM usuarios WHERE cedula = :cedula)", nativeQuery = true)
+    Collection<Reserva> darReservasPorUsuario(@Param("cedula") Integer cedula);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE reservas SET estado = 'HOSPEDADO' WHERE id = :id", nativeQuery = true)
+    void checkinReserva(@Param("id") Integer id);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE reservas SET estado = 'CHECK-OUT' WHERE id = :id", nativeQuery = true)
+    void checkoutReserva(@Param("id") Integer id);
+    
         @Modifying
         @Transactional
         @Query(value = "DELETE FROM reservas WHERE id = :id", nativeQuery = true)
@@ -107,13 +120,5 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
                         "ORDER BY habitaciones_ocupadas ASC " +
                         "FETCH FIRST 1 ROWS ONLY", nativeQuery = true)
         Object findLeastDemandedDay();
-
-        @Query(value = "SELECT * FROM reservas WHERE idUsuario = (SELECT id FROM usuarios WHERE cedula = :cedula)", nativeQuery = true)
-        Reserva darReservasPorUsuario(@Param("cedula") String cedula);
-
-        @Modifying
-        @Transactional
-        @Query(value = "UPDATE reservas SET estado = :estado WHERE id = :id", nativeQuery = true)
-        void checkinReserva(@Param("id") Integer id, @Param("estado") String estado);
 
 }

@@ -1,11 +1,17 @@
 package uniandes.edu.co.proyecto.controller;
 
+import java.sql.Date;
+import java.time.LocalDate;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import uniandes.edu.co.proyecto.model.Servicio;
 import uniandes.edu.co.proyecto.repositories.ServicioRepository;
@@ -53,7 +59,8 @@ public class ServicioController {
 
     @PostMapping("/servicios/{id}/edit/save")
     public String servicioEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Servicio servicio) {
-        servicioRepository.actualizarServicio(id, servicio.getCapacidad(), servicio.getNombre(), servicio.getHotel().getId());
+        servicioRepository.actualizarServicio(id, servicio.getCapacidad(), servicio.getNombre(),
+                servicio.getHotel().getId());
         return "redirect:/servicios";
     }
 
@@ -61,6 +68,25 @@ public class ServicioController {
     public String servicioEliminar(@PathVariable("id") Integer id) {
         servicioRepository.eliminarServicio(id);
         return "redirect:/servicios";
+    }
+
+    @GetMapping("/servicios/top20")
+    public String mostrarFormularioTopServicios() {
+        return "formularioTopServicios"; // nombre del archivo HTML para el formulario
+    }
+
+    // Procesar las fechas y mostrar los resultados
+    @PostMapping("/servicios/top20")
+    public String mostrarTopServicios(
+            @RequestParam("fechaInicio") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio,
+            @RequestParam("fechaFin") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin,
+            Model model) {
+
+        List<Object[]> topServicios = servicioRepository.findTopServiciosBetweenDates(
+                Date.valueOf(fechaInicio),
+                Date.valueOf(fechaFin));
+        model.addAttribute("topServicios", topServicios);
+        return "vistaTopServicios"; // nombre del archivo HTML para mostrar los resultados
     }
 
 }

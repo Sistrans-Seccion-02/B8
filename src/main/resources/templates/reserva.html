@@ -21,7 +21,7 @@
 
         <main>
             <div class="container text-center" style="min-height: 580px;">
-                <h1>Registrar Check-In</h1>
+                <h1>Registrar Check-In/Check-Out</h1>
 
 
             <div class="card border border-2 mx-auto">
@@ -67,7 +67,9 @@
                             <td th:text="${reserva.usuario.correo}"></td>
                             <td th:text="${reserva.estado}"></td>
                             <td>
-                                <a th:href="@{reservas/{id}/checkin}">Check-In</a>
+                                <a th:href="@{reservas/{id}/checkin(id=${reserva.id})}">Check-In</a>
+                                <br>
+                                <a th:href="@{reservas/{id}/checkout(id=${reserva.id})}">Check-Out</a>
                             </td>
                         </tr>
                     </th:block>
@@ -76,6 +78,7 @@
                     <a th:href='@{/recepcionista}' class="btn btn-primary">Volver Atrás</a>
                 </div>
                 <br>
+                <div th:if="${error}" style="color: red; text-align: center; font-weight: bold;" th:text="${error}"></div>
             </div>
         </main>    
     </body>
