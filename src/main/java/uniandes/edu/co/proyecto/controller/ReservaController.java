@@ -23,9 +23,9 @@ public class ReservaController {
     private PlanEstadiaRepository planEstadiaRepository;
 
     @GetMapping("/reservas")
-    public String reservas(Model model, String correo) {
+    public String reservas(Model model, Integer cedula) {
 
-        model.addAttribute("reservas", reservaRepository.darReservasPorUsuario(correo));
+        model.addAttribute("reservas", reservaRepository.darReservasPorUsuario(cedula));
         return "reserva";
     }
 
@@ -69,16 +69,38 @@ public class ReservaController {
         return "redirect:/reservas";
     }
 
-    @PostMapping("reservas/{id}/checkin")
-    public String reservaCheckin(@PathVariable("id") Integer id, @ModelAttribute Reserva reserva) {
-        reservaRepository.checkinReserva(id, "HOSPEDADO");
-        return "redirect:/reservas";
+    @GetMapping("reservas/{id}/checkin")
+    public String reservaCheckin(@PathVariable("id") Integer id, Model model) {
+        Reserva reserva = reservaRepository.darReserva(id);
+        if (reserva != null) {
+            if (reserva.getEstado().equals("CREADA")) {
+                reservaRepository.checkinReserva(id);
+                return "redirect:/reservas?cedula=" + reserva.getUsuario().getCedula() + "";
+            } else {
+                model.addAttribute("error", "No fue posible hacer el check-in del cliente");
+                return "redirect:/reservas?cedula=" + reserva.getUsuario().getCedula() + "";
+            }
+        } else {
+            model.addAttribute("error", "No se encontraron reservas para esa cédula");
+            return "redirect:/reservas";
+        }
     }
 
-    @PostMapping("reservas/{id}/checkout")
-    public String reservaCheckout(@PathVariable("id") Integer id, @ModelAttribute Reserva reserva) {
-        reservaRepository.checkinReserva(id, "CHECK-OUT");
-        return "redirect:/reservas";
+    @GetMapping("reservas/{id}/checkout")
+    public String reservaCheckout(@PathVariable("id") Integer id, Model model) {
+        Reserva reserva = reservaRepository.darReserva(id);
+        if (reserva != null) {
+            if (reserva.getEstado().equals("HOSPEDADO")) {
+                reservaRepository.checkoutReserva(id);
+                return "redirect:/reservas?cedula=" + reserva.getUsuario().getCedula() + "";
+            } else {
+                model.addAttribute("error", "No fue posible hacer el check-out del cliente");
+                return "redirect:/reservas?cedula=" + reserva.getUsuario().getCedula() + "";
+            }
+        } else {
+            model.addAttribute("error", "No se encontraron reservas para esa cédula");
+            return "redirect:/reservas";
+        }
     }
     
 }

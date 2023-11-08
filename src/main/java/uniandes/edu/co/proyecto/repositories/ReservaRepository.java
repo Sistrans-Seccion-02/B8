@@ -39,11 +39,16 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
     void eliminarReserva(@Param("id") Integer id);
 
     @Query(value = "SELECT * FROM reservas WHERE idUsuario = (SELECT id FROM usuarios WHERE cedula = :cedula)", nativeQuery = true)
-    Reserva darReservasPorUsuario(@Param("cedula") String cedula);
+    Collection<Reserva> darReservasPorUsuario(@Param("cedula") Integer cedula);
 
     @Modifying
     @Transactional
-    @Query(value = "UPDATE reservas SET estado = :estado WHERE id = :id", nativeQuery = true)
-    void checkinReserva(@Param("id") Integer id, @Param("estado") String estado);
+    @Query(value = "UPDATE reservas SET estado = 'HOSPEDADO' WHERE id = :id", nativeQuery = true)
+    void checkinReserva(@Param("id") Integer id);
+
+    @Modifying
+    @Transactional
+    @Query(value = "UPDATE reservas SET estado = 'CHECK-OUT' WHERE id = :id", nativeQuery = true)
+    void checkoutReserva(@Param("id") Integer id);
     
 }
