@@ -14,7 +14,7 @@ import org.springframework.ui.Model;
 
 @Controller
 public class SalonController {
-    
+
     @Autowired
     private SalonRepository salonRepository;
 
@@ -32,7 +32,7 @@ public class SalonController {
 
     @PostMapping("/salones/new/save")
     public String salonGuardar(@ModelAttribute Salon salon) {
-        salonRepository.insertarSalon(salon.getId(), salon.getTipo(), salon.getCostoPorHora(), salon.getEquipos());
+        salonRepository.insertarSalon(salon.getId(), null, salon.getCostoPorHora(), salon.getEquipos());
         return "redirect:/salones";
     }
 
@@ -49,7 +49,7 @@ public class SalonController {
 
     @PostMapping("/salones/{id}/edit/save")
     public String salonEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Salon salon) {
-        salonRepository.actualizarSalon(id, salon.getTipo(), salon.getCostoPorHora(), salon.getEquipos());
+        salonRepository.actualizarSalon(id, null, salon.getCostoPorHora(), salon.getEquipos());
         return "redirect:/salones";
     }
 

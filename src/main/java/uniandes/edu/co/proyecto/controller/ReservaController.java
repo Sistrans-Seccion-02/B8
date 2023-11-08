@@ -118,4 +118,20 @@ public class ReservaController {
         model.addAttribute("listaIndiceHabitacion", listaindiceHabitacion);
         return "indiceHabitacion";
     }
+
+    @GetMapping("/reservas/operacion")
+    public String hotelOperation(Model model) {
+        // Llamada a los métodos del repositorio
+        List<Object[]> leastDemandedDay = reservaRepository.findLeastDemandedDay();
+        List<Object[]> topIngresoDia = reservaRepository.findTopIngresoDia();
+        List<Object[]> topOccupiedDate = reservaRepository.findTopOccupiedDate();
+
+        // Agregar los resultados al modelo
+        model.addAttribute("leastDemandedDay", leastDemandedDay);
+        model.addAttribute("topIngresoDia", topIngresoDia);
+        model.addAttribute("topOccupiedDate", topOccupiedDate);
+
+        // Retornar la plantilla HTML
+        return "hotel-operation";
+    }
 }

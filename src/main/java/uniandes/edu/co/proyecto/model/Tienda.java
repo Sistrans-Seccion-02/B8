@@ -2,8 +2,6 @@ package uniandes.edu.co.proyecto.model;
 
 import jakarta.persistence.DiscriminatorValue;
 import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 
 @Entity
 @DiscriminatorValue("tiendas")

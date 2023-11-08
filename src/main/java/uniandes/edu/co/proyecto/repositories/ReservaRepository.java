@@ -47,19 +47,19 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
                         @Param("idConsumo") Integer idConsumo, @Param("idUsuario") Integer idUsuario,
                         @Param("estado") String estado);
 
-    @Query(value = "SELECT * FROM reservas WHERE idUsuario = (SELECT id FROM usuarios WHERE cedula = :cedula)", nativeQuery = true)
-    Collection<Reserva> darReservasPorUsuario(@Param("cedula") Integer cedula);
+        @Query(value = "SELECT * FROM reservas WHERE idUsuario = (SELECT id FROM usuarios WHERE cedula = :cedula)", nativeQuery = true)
+        Collection<Reserva> darReservasPorUsuario(@Param("cedula") Integer cedula);
 
-    @Modifying
-    @Transactional
-    @Query(value = "UPDATE reservas SET estado = 'HOSPEDADO' WHERE id = :id", nativeQuery = true)
-    void checkinReserva(@Param("id") Integer id);
+        @Modifying
+        @Transactional
+        @Query(value = "UPDATE reservas SET estado = 'HOSPEDADO' WHERE id = :id", nativeQuery = true)
+        void checkinReserva(@Param("id") Integer id);
 
-    @Modifying
-    @Transactional
-    @Query(value = "UPDATE reservas SET estado = 'CHECK-OUT' WHERE id = :id", nativeQuery = true)
-    void checkoutReserva(@Param("id") Integer id);
-    
+        @Modifying
+        @Transactional
+        @Query(value = "UPDATE reservas SET estado = 'CHECK-OUT' WHERE id = :id", nativeQuery = true)
+        void checkoutReserva(@Param("id") Integer id);
+
         @Modifying
         @Transactional
         @Query(value = "DELETE FROM reservas WHERE id = :id", nativeQuery = true)
@@ -107,8 +107,26 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
                         "    Ocupacion o " +
                         "ORDER BY " +
                         "    o.habitaciones_ocupadas DESC " +
-                        "FETCH FIRST 1 ROWS ONLY", nativeQuery = true)
+                        "FETCH FIRST 5 ROWS ONLY", nativeQuery = true)
         List<Object[]> findTopOccupiedDate();
+
+        @Query(value = "WITH Ingresos AS (" +
+                        "SELECT " +
+                        "fecha, " +
+                        "SUM(ValorTotal) AS ingresos_totales " +
+                        "FROM " +
+                        "Consumos " +
+                        "GROUP BY " +
+                        "fecha) " +
+                        "SELECT " +
+                        "fecha, " +
+                        "ingresos_totales " +
+                        "FROM " +
+                        "Ingresos " +
+                        "ORDER BY " +
+                        "ingresos_totales DESC " +
+                        "FETCH FIRST 5 ROWS ONLY", nativeQuery = true)
+        List<Object[]> findTopIngresoDia();
 
         @Query(value = "WITH Demanda AS (" +
                         "SELECT fechainicio, COUNT(*) AS habitaciones_ocupadas " +
@@ -118,7 +136,7 @@ public interface ReservaRepository extends JpaRepository<Reserva, Integer> {
                         "SELECT fechainicio, habitaciones_ocupadas " +
                         "FROM Demanda " +
                         "ORDER BY habitaciones_ocupadas ASC " +
-                        "FETCH FIRST 1 ROWS ONLY", nativeQuery = true)
-        Object findLeastDemandedDay();
+                        "FETCH FIRST 5 ROWS ONLY", nativeQuery = true)
+        List<Object[]> findLeastDemandedDay();
 
 }
