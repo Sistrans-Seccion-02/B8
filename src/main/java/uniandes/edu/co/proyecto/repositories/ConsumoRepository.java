@@ -2,6 +2,7 @@ package uniandes.edu.co.proyecto.repositories;
 
 import java.sql.Date;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -35,5 +36,23 @@ public interface ConsumoRepository extends JpaRepository<Consumo, Integer> {
     @Transactional
     @Query(value = "DELETE FROM consumos WHERE id = :id", nativeQuery = true)
     void eliminarConsumo(@Param("id") Integer id);
-    
+
+    @Query(value = "WITH Ingresos AS (" +
+            "SELECT " +
+            "fecha, " +
+            "SUM(ValorTotal) AS ingresos_totales " +
+            "FROM " +
+            "Consumos " +
+            "GROUP BY " +
+            "fecha) " +
+            "SELECT " +
+            "fecha, " +
+            "ingresos_totales " +
+            "FROM " +
+            "Ingresos " +
+            "ORDER BY " +
+            "ingresos_totales DESC " +
+            "FETCH FIRST 1 ROWS ONLY", nativeQuery = true)
+    List<Object[]> findTopIngresoDia();
+
 }
