@@ -1,0 +1,173 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="A01E8103-A37F-4731-33EC-419AB4D4E641" name="Usuarios">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>4192E9EE-1900-B91F-64A2-8F06D2E5A156</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id" id="3FE8FC0D-B3AC-7729-8E3F-66833DDF9309">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>70FBDEFB-AE2A-840A-D588-3944D9952C4B</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="cedula" id="544E0041-9B75-2E37-70CE-08A02E891ECF">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>B6629D89-EE63-C561-B6A7-944EFDB34E5A</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nombre" id="892465DC-48AB-5AF7-EE81-1183374F42D9">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>7DCDBD00-0189-C90B-3FAC-570955AEEBBA</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="apellido" id="1506C0FB-2AC2-6E81-44C0-A3A107BD8D06">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>586D67E0-19A4-295A-4950-4EE657ED1533</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="correo" id="C3DF5166-B8EC-CA76-A7B2-6AE1311E4C84">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>2B48A24A-5B19-8C11-FCA9-EFD989DD37AB</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="TiposUsuario_id" id="E4A55328-B97E-A65E-226A-34E2E2249E2A">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>B70538C7-A6F0-2415-9FEE-996033131D6A</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="1A289E6B-8835-9E67-9F31-68F6A22E0115" referredColumn="73ECE16E-CC5D-82C7-A9C3-92335EC2337F"/>
+</associations>
+</Column>
+<Column name="password" id="30FEF2CC-2A01-0EB6-8C8A-FD6155C53D08">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>55395656-664F-E409-3D04-55F4714F4B90</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="numAcompaniantes" id="6A88B112-1DA7-203F-22E3-3279E076EE93">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>5A98071F-14B5-75FC-BBAD-440D4C777C14</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="areaEmpleado" id="BE39FD94-0666-8017-598B-4C144F693AFC">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>52196BFF-804E-6776-6F45-B0C0E0727373</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Hoteles_id" id="D622E170-8601-61EC-AE0B-800DC66C99F8">
+<createdBy>nicol</createdBy>
+<createdTime>2023-11-08 06:33:09 UTC</createdTime>
+<generatorID>EBF4F873-672C-72A3-D025-42D93CE16D6E</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="E1CBF869-D5D8-C609-8763-387D6B8D791D" referredColumn="1C15B0F4-7779-7778-0D3A-7DE74F7ADF69"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="CACCB487-305B-C327-5D89-88FAA6DACD6C" name="Usuarios_PK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:46:03 UTC</createdTime>
+<generatorID>3363A253-4BD1-FE24-597F-795FD83BB8AF</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3FE8FC0D-B3AC-7729-8E3F-66833DDF9309"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="84E79B13-30A3-CDAF-205D-EE5AD30280E4" name="Usuarios_TiposUsuario_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-10-02 00:50:32 UTC</createdTime>
+<generatorID>0439C0F0-EADA-F8CD-C8DD-73CEAFBD8CCD</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="E4A55328-B97E-A65E-226A-34E2E2249E2A"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2A1C75E1-9DB9-C187-602A-AE2E61BA0DCD" name="Usuarios_Hoteles_FK">
+<createdBy>nicol</createdBy>
+<createdTime>2023-11-08 06:33:09 UTC</createdTime>
+<generatorID>9ABE1F49-6D99-E817-5DCB-178DD970DB0B</generatorID>
+<ownerDesignName>HotelAndes</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="D622E170-8601-61EC-AE0B-800DC66C99F8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>
