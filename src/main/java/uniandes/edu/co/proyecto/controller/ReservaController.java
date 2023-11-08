@@ -112,4 +112,10 @@ public class ReservaController {
         return "dineroHabitacion";
     }
 
+    @GetMapping("/reservas/indice")
+    public String indiceHabitacion(Model model) {
+        List<Object[]> listaindiceHabitacion = reservaRepository.findOcupacionPorHabitacion();
+        model.addAttribute("listaIndiceHabitacion", listaindiceHabitacion);
+        return "indiceHabitacion";
+    }
 }
