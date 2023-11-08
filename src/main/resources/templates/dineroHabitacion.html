@@ -1,0 +1,32 @@
+<!-- Ejemplo de cómo podría verse la tabla en Thymeleaf -->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinero de Servicios por Habitación</title>
+    <!-- Incluye Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+    <h2>Dinero de Servicios por Habitación</h2>
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered table-hover table-sm">
+
+            <thead>
+                <tr>
+                    <th>Número de Habitación</th>
+                    <th>Dinero Recolectado</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="dinero : ${listaDineroHabitacion}">
+                    <td th:text="${dinero[0]}">Número de Habitación</td>
+                    <td th:text="${dinero[1]}">Dinero Recolectado</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>

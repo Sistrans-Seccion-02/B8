@@ -1,5 +1,6 @@
 package uniandes.edu.co.proyecto.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -37,9 +38,9 @@ public class ReservaController {
 
     @PostMapping("/reservas/new/save")
     public String reservaGuardar(@ModelAttribute Reserva reserva) {
-        reservaRepository.insertarReserva(reserva.getCostototal(), reserva.getFechainicio(), reserva.getFechafin(), 
-                                        reserva.getPlanestadia().getId(), reserva.getHabitacion().getNumero(), reserva.getConsumo().getId(), 
-                                        reserva.getUsuario().getId(), reserva.getEstado());
+        reservaRepository.insertarReserva(reserva.getCostototal(), reserva.getFechainicio(), reserva.getFechafin(),
+                reserva.getPlanestadia().getId(), reserva.getHabitacion().getNumero(), reserva.getConsumo().getId(),
+                reserva.getUsuario().getId(), reserva.getEstado());
         return "redirect:/reservas";
     }
 
@@ -57,9 +58,10 @@ public class ReservaController {
 
     @PostMapping("/reservas/{id}/edit/save")
     public String reservaEditarGuardar(@PathVariable("id") Integer id, @ModelAttribute Reserva reserva) {
-        reservaRepository.actualizarReserva(id, reserva.getCostototal(), reserva.getFechainicio(), reserva.getFechafin(), 
-                                        reserva.getPlanestadia().getId(), reserva.getHabitacion().getNumero(), reserva.getConsumo().getId(), 
-                                        reserva.getUsuario().getId(), reserva.getEstado());
+        reservaRepository.actualizarReserva(id, reserva.getCostototal(), reserva.getFechainicio(),
+                reserva.getFechafin(),
+                reserva.getPlanestadia().getId(), reserva.getHabitacion().getNumero(), reserva.getConsumo().getId(),
+                reserva.getUsuario().getId(), reserva.getEstado());
         return "redirect:/reservas";
     }
 
@@ -80,5 +82,12 @@ public class ReservaController {
         reservaRepository.checkinReserva(id, "CHECK-OUT");
         return "redirect:/reservas";
     }
-    
+
+    @GetMapping("/reservas/DineroHabitacion")
+    public String dineroHabitacion(Model model) {
+        List<Object[]> listaDineroHabitacion = reservaRepository.findDineroRecolectadoPorHabitacion();
+        model.addAttribute("listaDineroHabitacion", listaDineroHabitacion);
+        return "dineroHabitacion";
+    }
+
 }

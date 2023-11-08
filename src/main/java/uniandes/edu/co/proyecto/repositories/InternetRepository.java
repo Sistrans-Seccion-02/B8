@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import uniandes.edu.co.proyecto.model.Internet;
 
 @Repository
-public interface InternetRepository extends JpaRepository<Internet, Long> {
+public interface InternetRepository extends JpaRepository<Internet, Integer> {
     @Query(value = "SELECT * FROM planesInternet", nativeQuery = true)
     Collection<Internet> darPlanesInternet();
 
