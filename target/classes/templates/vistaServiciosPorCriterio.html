@@ -1,0 +1,20 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Capacidad</th>
+            <th>Nombre</th>
+            <th>ID Hotel</th>
+            <th>Clase</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="servicio : ${servicios}">
+            <td th:text="${servicio.id}"></td>
+            <td th:text="${servicio.capacidad}"></td>
+            <td th:text="${servicio.nombre}"></td>
+            <td th:text="${servicio.hotel.id}"></td>
+            <td th:text="${servicio.clase}"></td>
+        </tr>
+    </tbody>
+</table>

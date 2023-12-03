@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menu de Recepcionista</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+        <script th:src="@{/css/jquery.min.js}"></script>
+        <script th:src="@{/css/bootstrap.min.js}"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" th:href="@{/}">
+                <img th:src="@{/images/home.png}" width="30" height="30" class="d-inline-block align-top" alt="">
+                    Hotel de los Andes (LOGOUT)
+                </a>
+            </nav>
+        </nav>
+
+        <div class="container text-center" style="min-height: 580px;">
+            <h3>¡Bienvenid@ Recepcionista!</h3>
+            <h1>Selecciona las tareas que necesitas realizar</h1>
+            <img th:src="@{/images/logo.png}" width="500">
+            <br>
+            <br>
+            <div>
+                <a th:href="@{/reservas}" class="btn btn-primary mr-2 mb-2">Check-In</a>
+                <a th:href="@{/reservas}" class="btn btn-primary mr-2 mb-2">Check-Out</a>
+            </div>
+            <br/>
+
+        </div>
+    </body>
+
+    <!-- Footer -->
+    <footer style="background-color: #D8D8D8; position: relative; bottom: 100; width: 100%; height: 100px;">
+
+        <div style="padding: 30px">
+            <div style="float: left; width: 400px;" >ISIS-2304 Sistemas Transaccionales</div>
+            <div style="float: right; width: 220px;" >Universidad de los Andes</div>
+        </div>
+        <br>
+
+    </footer>
+    <!-- Footer -->
+</html>

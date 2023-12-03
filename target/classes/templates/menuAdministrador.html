@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Menu de Administrador</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+        <script th:src="@{/css/jquery.min.js}"></script>
+        <script th:src="@{/css/bootstrap.min.js}"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <nav class="navbar navbar-light bg-light">
+                <a class="navbar-brand" th:href="@{/}">
+                <img th:src="@{/images/home.png}" width="30" height="30" class="d-inline-block align-top" alt="">
+                    Hotel de los Andes (LOGOUT)
+                </a>
+            </nav>
+        </nav>
+
+        <div class="container text-center" style="min-height: 580px;">
+            <h3>¡Bienvenid@ Administrador!</h3>
+            <h1>Selecciona las tareas que necesitas realizar</h1>
+            <img th:src="@{/images/logo.png}" width="500">
+            <br>
+            <br>
+            <div>
+                <a th:href="@{/tiposUsuario}" class="btn btn-primary mr-2 mb-2">Tipo Usuarios</a>
+                <a th:href="@{/usuarios}" class="btn btn-primary mr-2 mb-2">Usuarios</a>
+                <a th:href="@{/tiposHabitacion}" class="btn btn-primary mr-2 mb-2">Tipos Habitaciones</a>
+                <a th:href="@{/habitaciones}" class="btn btn-primary mr-2 mb-2">Habitaciones</a>
+                <a th:href="@{/servicios}" class="btn btn-primary mr-2 mb-2">Servicios</a>
+                <a th:href="@{/planesEstadia}" class="btn btn-primary mb-2">Planes Consumo</a>
+                <a th:href="@{/reservas/DineroHabitacion}" class="btn btn-primary mb-2">Dinero de Servicios por Habitacion</a>
+                <a th:href="@{/servicios/top20}" class="btn btn-primary mb-2">Top 20 Servicios</a>
+                <a th:href="@{/usuarios/consultarConsumo}" class="btn btn-primary mb-2">Consumo Servicio por Clientes</a>
+                <a th:href="@{/usuarios/consultarSinConsumo}" class="btn btn-primary mb-2">No Consumo Servicio por Clientes</a>
+                <a th:href="@{/reservas/indice}" class="btn btn-primary mb-2">Indice de Ocupacion de Habitaciones</a>
+                <a th:href="@{/servicios/caracteristica}" class="btn btn-primary mb-2">Servicios Con cierta Caracteristica</a>
+                <a th:href="@{/reservas/operacion}" class="btn btn-primary mb-2">Operacion del Hotel</a>
+                <a th:href="@{/usuarios/buenos}" class="btn btn-primary mb-2">Encontrar a los Buenos Clientes</a>
+            </div>
+            <br/>
+
+        </div>
+    </body>
+
+    <!-- Footer -->
+    <footer style="background-color: #D8D8D8; position: relative; bottom: 100; width: 100%; height: 100px;">
+
+        <div style="padding: 30px">
+            <div style="float: left; width: 400px;" >ISIS-2304 Sistemas Transaccionales</div>
+            <div style="float: right; width: 220px;" >Universidad de los Andes</div>
+        </div>
+        <br>
+
+    </footer>
+    <!-- Footer -->
+</html>

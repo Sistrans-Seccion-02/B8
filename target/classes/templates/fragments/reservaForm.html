@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fragmento</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+</head>
+<body>
+    <div th:fragment="reservaForm(titulo)" class="container border border-2 w-25">
+        <h1 class="text-center" th:text="${titulo}"></h1>
+    <form>
+        <label class="col-form-label">Id</label>
+        <input class="form-control" type="text" id="id" name="id" required th:value="${reserva.id}" />
+
+        <label class="col-form-label">Costo Total</label>
+        <input class="form-control" type="number" id="costototal" name="costototal" required th:value="${reserva.costototal}" />
+
+        <label class="col-form-label">Fecha de Inicio</label>
+        <input class="form-control" type="text" id="fechainicio" name="fechainicio" required th:value="${reserva.fechainicio}" />
+
+        <label class="col-form-label">Fecha de Fin</label>
+        <input class="form-control" type="text" id="fechafin" name="fechafin" required th:value="${reserva.fechafin}" />
+
+        <label class="col-form-label">Plan Estadía</label>
+        <select class="form-control" id="planestadia" name="planestadia" required>
+             <th:block th:each="planestadia : ${planesestadia}" >
+                <option th:value="${planestadia.id}" th:text="${planestadia.nombre}" th:selected="${reserva!=null || reserva.planestadia.id == planestadia.id}"></option>
+            </th:block>
+        </select>
+
+        <label class="col-form-label">Habitación</label>
+        <input class="form-control" type="number" id="habitacion" name="habitacion" required th:value="${reserva.habitacion.numero}" />
+
+        <label class="col-form-label">Usuario</label>
+        <input class="form-control" type="text" id="usuario" name="usuario" required th:value="${reserva.usuario.id}" />
+
+        <label class="col-form-label">Consumo</label>
+        <input class="form-control" type="number" id="consumo" name="consumo" required th:value="${reserva.consumo.id}" />
+
+        <label class="col-form-label" for="estado">Estado:</label>
+        <select class="form-control" id="estado" name="estado" required>
+            <option value="HOSPEDADO" th:selected="${reserva.estado eq 'HOSPEDADO'}">HOSPEDADO</option>
+            <option value="CHECK-OUT" th:selected="${reserva.estado eq 'CHECK-OUT'}">CHECK-OUT</option>
+        </select>
+
+        <div class="text-center">
+            <input type="submit" value="Guardar" class="btn btn-primary">
+            <a th:href="@{/reservas}" class="btn btn-primary">Cancelar</a>
+        </div>
+    </form>
+    </div>
+</body>
+</html>

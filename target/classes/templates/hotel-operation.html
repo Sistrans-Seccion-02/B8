@@ -1,0 +1,77 @@
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dinero de Servicios por Habitación</title>
+    <!-- Incluye Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="container mt-4">
+        <h2>Fechas con mayor Ocupacion</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-sm">
+    
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Numero de habitaciones ocupadas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr th:each="habitacionesocupadas : ${topOccupiedDate}">
+                        <td th:text="${#dates.format(habitacionesocupadas[0], 'yyyy-MM-dd')}">Fecha</td>
+                        <td th:text="${habitacionesocupadas[1]}"> Numero de habitaciones ocupadas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <h2>Fechas con mayores ingresos</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-sm">
+    
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Ingresos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="ingresos : ${topIngresoDia}">
+                        
+                        <td th:text="${#dates.format(ingresos[0], 'yyyy-MM-dd')}">Fecha</td>
+                        <td th:text="${ingresos[1]}"> Ingresos</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <div class="container mt-4">
+        <h2>Fechas con menor Demanda</h2>
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered table-hover table-sm">
+    
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Numero de habitaciones ocupadas</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="habitaciones : ${leastDemandedDay}">
+                        
+                        <td th:text="${#dates.format(habitaciones[0], 'yyyy-MM-dd')}">Fecha</td>
+                        <td th:text="${habitaciones[1]}"> Numero de habitaciones ocupadas</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
