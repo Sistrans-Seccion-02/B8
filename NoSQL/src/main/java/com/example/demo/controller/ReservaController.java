@@ -76,37 +76,37 @@ public class ReservaController {
         return "redirect:/mongo-reservas";
     }
 
-    @GetMapping("mongo-reservas/{id}/checkin")
+    @GetMapping("mongo-estado/{id}/checkin")
     public String reservaCheckin(@PathVariable("id") String id, Model model) {
         Reserva reserva = reservaRepository.buscarPorId(id);
         if (reserva != null) {
             if (reserva.getEstado().equals("RESERVADO")) {
                 reservaRepository.actualizarEstado(id, "HOSPEDADO");
-                return "redirect:/mongo-reservas?cedula=" + reserva.getUsuario().getCedula() + "";
+                return "redirect:/mongo-estado?cedula=" + reserva.getUsuario().getCedula() + "";
             } else {
                 model.addAttribute("error", "No fue posible hacer el check-in del cliente");
-                return "redirect:/mongo-reservas?cedula=" + reserva.getUsuario().getCedula() + "";
+                return "redirect:/mongo-estado?cedula=" + reserva.getUsuario().getCedula() + "";
             }
         } else {
             model.addAttribute("error", "No se encontraron reservas para esa cédula");
-            return "redirect:/reservas";
+            return "redirect:/mongo-estado";
         }
     }
 
-    @GetMapping("mongo-reservas/{id}/checkout")
+    @GetMapping("mongo-estado/{id}/checkout")
     public String reservaCheckout(@PathVariable("id") String id, Model model) {
         Reserva reserva = reservaRepository.buscarPorId(id);
         if (reserva != null) {
             if (reserva.getEstado().equals("HOSPEDADO")) {
                 reservaRepository.actualizarEstado(id, "CHECK-OUT");
-                return "redirect:/mongo-reservas?cedula=" + reserva.getUsuario().getCedula() + "";
+                return "redirect:/mongo-estado?cedula=" + reserva.getUsuario().getCedula() + "";
             } else {
                 model.addAttribute("error", "No fue posible hacer el check-out del cliente");
-                return "redirect:/mongo-reservas?cedula=" + reserva.getUsuario().getCedula() + "";
+                return "redirect:/mongo-estado?cedula=" + reserva.getUsuario().getCedula() + "";
             }
         } else {
             model.addAttribute("error", "No se encontraron reservas para esa cédula");
-            return "redirect:/reservas";
+            return "redirect:/mongo-estado";
         }
     }
     

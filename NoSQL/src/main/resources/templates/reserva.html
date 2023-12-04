@@ -23,35 +23,31 @@
                 <table class="table table-hover table-bordered">
                     <thead class="thead-dark">
                         <tr>
-                            <th>Número</th>
-                            <th>Tipo</th>
-                            <th>Televisión</th>
-                            <th>Minibar</th>
-                            <th>Cafetera</th>
-                            <th>Días Estadia</th>
-                            <th>Hotel</th>
+                            <th>costoTotal</th>
+                            <th>Fecha Inicio</th>
+                            <th>Fecha Fin</th>
+                            <th>Plan</th>
+                            <th>Consumos</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
-                    <th:block th:each="habitacion : ${habitaciones}">
+                    <th:block th:each="reserva : ${reservas}">
                         <tr>
-                            <td th:text="${habitacion.numero}"></td>
-                            <td th:text="${habitacion.tipoHabitacion.nombre}"></td>
-                            <td th:text="${habitacion.television}"></td>
-                            <td th:text="${habitacion.minibar}"></td>
-                            <td th:text="${habitacion.cafetera}"></td>
-                            <td th:text="${habitacion.diasEstadia}"></td>
-                            <td th:text="${habitacion.idHotel}"></td>
+                            <td th:text="${reserva.costoTotal}"></td>
+                            <td th:text="${reserva.fecha_inicio}"></td>
+                            <td th:text="${reserva.fecha_fin}"></td>
+                            <td th:text="${reserva.planes_estadia}"></td>
+                            <td th:text="${reserva.consumos}"></td>
                             <td>
-                                <a th:href="@{mongo-habitaciones/{id}/edit(id=${habitacion.id})}">Editar</a>
-                                <a th:href="@{mongo-habitaciones/{id}/delete(id=${habitacion.id})}"
-                                    onclick="return confirm('¿Estás seguro de borrar este habitacion?')">Borrar</a>
+                                <a th:href="@{mongo-reservas/{id}/edit(id=${reserva.id})}">Editar</a>
+                                <a th:href="@{mongo-reservas/{id}/delete(id=${reserva.id})}"
+                                    onclick="return confirm('¿Estás seguro de borrar esta reserva?')">Borrar</a>
                             </td>
                         </tr>
                     </th:block>
                 </table>
                 <div>
-                    <a th:href='@{mongo-habitaciones/new}' class="btn btn-primary">Añadir Habitacion</a>
+                    <a th:href='@{mongo-reserva/new}' class="btn btn-primary">Añadir Reserva</a>
                     <a th:href='@{/}' class="btn btn-primary">Volver Atrás</a>
                 </div>
                 <br>

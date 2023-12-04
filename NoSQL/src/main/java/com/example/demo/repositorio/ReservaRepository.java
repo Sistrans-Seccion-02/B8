@@ -20,7 +20,7 @@ public interface ReservaRepository extends MongoRepository<Reserva, String> {
         Reserva buscarPorId(String id);
     
         @Query("{'_id': ?0}")
-        @Update("{$set: {'costoTotal': ?1, 'fecha_inicio': ?2, 'fecha_fin': ?3, 'planes_estadia': ?4, 'usuarios': ?5, 'habitaciones': db.habitaciones.find({numero:?6})._id}}")
+        @Update("{$set: {'costoTotal': ?1, 'fecha_inicio': ?2, 'fecha_fin': ?3, 'planes_estadia': ?4, 'usuario': db.usuarios.find({id: ?5}), 'habitacion': db.habitaciones.find({numero:?6})._id}}")
         void actualizarReserva(String id, Double costoTotal, Date fecha_inicio, Date fecha_fin, String planes_estadia, String usuarios, Integer habitaciones);
     
         @DeleteQuery("{'_id': ?0}")
