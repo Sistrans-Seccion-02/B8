@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editar Tipohabitacion</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+
+</head>
+<body>
+</br>
+<form th:action="@{'/mongo-tiposhabitacion/' + ${id} + '/edit/save'}" th:object="${tipohabitacion}" method="post">
+    <div th:replace="~{tipohabitacionForm :: tipohabitacionForm(titulo='Editar Tipo de Habitación', tipohabitacion=${tipohabitacion})}">
+    </div>
+</form>
+
+</body>
+</html>
