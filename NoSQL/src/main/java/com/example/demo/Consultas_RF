@@ -158,3 +158,166 @@ db.Reservas.update(
   { _id: ObjectId("id_de_la_reserva") },
   { $unset: { salida: "" } }
 );
+
+
+
+-------------REQUERIMIENTOS FUNCIONALES DE CONSULTA BÁSICOS--------------------
+
+
+
+
+#####RFC1 - Dinero Recogido por Servicios en Cada Habitación en el Último Año######
+
+db.Reservas.aggregate([
+  {
+    $match: {
+      fecha_inicio: {
+        $gte: new Date('2023-01-01T00:00:00.000Z') 
+      }
+    }
+  },
+  {
+    $unwind: "$consumos"
+  },
+  {
+    $group: {
+      _id: "$habitacion", 
+      dineroRecolectado: { $sum: "$consumos.valorTotal" } 
+    }
+  }
+]);
+
+
+
+######RFC2 - Índice de Ocupación de Cada Habitación desde el 1 de Enero de 2023
+
+db.Reservas.aggregate([
+  {
+    $match: {
+      fecha_inicio: {
+        $gte: new Date('2023-01-01T00:00:00.000Z') 
+      }
+    }
+  },
+  {
+    $project: {
+      habitacion: 1,
+      diasOcupada: {
+        $dateDiff: {
+          startDate: {
+            $max: ["$fecha_inicio", new Date('2022-01-01T00:00:00.000Z')]
+          },
+          endDate: {
+            $min: ["$fecha_fin", new Date()]
+          },
+          unit: "day"
+        }
+      }
+    }
+  },
+  {
+    $group: {
+      _id: "$habitacion",
+      diasTotalesOcupados: { $sum: "$diasOcupada" }
+    }
+  },
+  {
+    $project: {
+      indiceOcupacion: {
+        $divide: ["$diasTotalesOcupados", {
+          $dateDiff: {
+            startDate: new Date('2022-01-01T00:00:00.000Z'),
+            endDate: new Date(),
+            unit: "day"
+          }
+        }]
+      }
+    }
+  }
+]);
+
+
+#####RFC3 - Consumo en el Hotel por un Cliente desde el 1 de Enero de 2023
+
+db.Consumos.aggregate([
+  {
+    $match: {
+      fecha: {
+        $gte: new Date('2023-01-01T00:00:00.000Z'), 
+        $lte: new Date('2024-01-01T00:00:00.000Z')
+      },
+      usuario: ObjectId("id_del_cliente") 
+    }
+  },
+  {
+    $group: {
+      _id: "$usuario",
+      consumoTotal: { $sum: "$valorTotal" } 
+    }
+  }
+]);
+
+
+####RFC4 - CONSULTAR CONSUMO EN HOTELANDES###########
+
+
+
+db.Consumos.aggregate([
+  // Etapa 1: Filtrar por rango de fechas y por servicio específico
+  {
+    $match: {
+      fecha: {
+        $gte: new Date("fecha_inicio"), // 
+        $lte: new Date("fecha_fin")    // 
+      },
+
+    }
+  },
+
+  // Etapa 2: Unir con la colección de Usuarios para obtener la información del cliente
+  {
+    $lookup: {
+      from: "Usuarios",
+      localField: "usuario",
+      foreignField: "_id",
+      as: "infoCliente"
+    }
+  },
+
+  // Etapa 3: Desagregar el array de infoCliente para tratar cada uno como un documento
+  {
+    $unwind: "$infoCliente"
+  },
+
+  // Etapa 4: Agrupar por el criterio deseado, ejemplo por cliente y contar las veces que usó el servicio
+  {
+    $group: {
+      _id: {
+        cliente: "$infoCliente",
+        fecha: "$fecha"
+      },
+      numeroVecesUsado: { $sum: 1 }
+    }
+  },
+  // Etapa 5: Opcionalmente agregar una etapa para ordenar los resultados
+  // Puede ser por fecha, número de veces que se utilizó el servicio, etc.
+  {
+    $sort: {
+      "numeroVecesUsado": -1, // -1 para descendente, 1 para ascendente
+      "_id.fecha": 1          // Ordenar por fecha si se desea
+    }
+  },
+  // Etapa 6: Proyectar los resultados finales para mostrar la información deseada
+  {
+    $project: {
+      _id: 0,
+      cliente: "$_id.cliente",
+      fecha: "$_id.fecha",
+      numeroVecesUsado: 1
+    }
+  }
+]);
+
+
+
+
