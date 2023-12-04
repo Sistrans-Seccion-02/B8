@@ -27,50 +27,36 @@ public class Reserva {
     private String planes_estadia;
 
     @DBRef
-    private Usuario usuarios;
+    private Usuario usuario;
 
     @DBRef
-    private Habitacion habitaciones;
+    private Habitacion habitacion;
 
     @DBRef
     private List<Consumo> consumos;
 
+    @Field("estado")
+    private String estado;
+
     public Reserva(){}
 
-    public Reserva(Double costoTotal, Date fecha_inicio, Date fecha_fin, String planes_estadia){
-
-        this.costoTotal = costoTotal;
-        this.fecha_inicio = fecha_inicio;
-        this.fecha_fin = fecha_fin;
-        this.planes_estadia = planes_estadia;
-    }
-
     // Constructor con todos los atributos de reserva y una lista de consumos
-    public Reserva(Double costoTotal, Date fecha_inicio, Date fecha_fin, String planes_estadia, Usuario usuarios, Habitacion habitaciones, List<Consumo> consumos){
+    public Reserva(Double costoTotal, Date fecha_inicio, Date fecha_fin, String planes_estadia, Usuario usuario, Habitacion habitacion, List<Consumo> consumos){
         
         this.costoTotal = costoTotal;
         this.fecha_inicio = fecha_inicio;
         this.fecha_fin = fecha_fin;
         this.planes_estadia = planes_estadia;
-        this.usuarios = usuarios;
-        this.habitaciones = habitaciones;
+        this.usuario = usuario;
+        this.habitacion = habitacion;
         this.consumos = consumos;
+        this.estado = "RESERVADO";
     }
 
     //setter para agregar una referencia de un consumo a las reservas que se tienen
     public void addConsumo(Consumo con){
         consumos.add(con);
     }
-
-/*     //setter para agregar una referencia de un usuario a las reservas que se tienen
-    public void addUsuario(Usuario usu){
-        usuarios.add(usu);
-    }
-
-    //setter para agregar una referencia de un consumo a las reservas que se tienen
-    public void addHabitacion(Habitacion hab){
-        habitaciones.add(hab);
-    } */
 
     public String getId() {
         return id;
@@ -88,52 +74,72 @@ public class Reserva {
         this.costoTotal = costoTotal;
     }
 
-    public Date getFechaInicio() {
+    public Date getFecha_inicio() {
         return fecha_inicio;
     }
 
-    public void setFechaInicio(Date fecha_inicio) {
+    public void setFecha_inicio(Date fecha_inicio) {
         this.fecha_inicio = fecha_inicio;
     }
 
-    public Date getFechaFinal() {
+    public Date getFecha_fin() {
         return fecha_fin;
     }
 
-    public void setFechaFinal(Date fecha_fin) {
+    public void setFecha_fin(Date fecha_fin) {
         this.fecha_fin = fecha_fin;
     }
 
-    public String getPlanesEstadia() {
+    public String getPlanes_estadia() {
         return planes_estadia;
     }
 
-    public void setPlanesEstadia(String planes_estadia) {
+    public void setPlanes_estadia(String planes_estadia) {
         this.planes_estadia = planes_estadia;
     }
 
-    public void setUsuario(Usuario usuarios) {
-        this.usuarios = usuarios;
-    }
-
     public Usuario getUsuario() {
-        return usuarios;
+        return usuario;
     }
 
-    public void setHabitaciones(Habitacion habitaciones) {
-        this.habitaciones = habitaciones;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
-    public Habitacion getHabitaciones() {
-        return habitaciones;
+    public Habitacion getHabitacion() {
+        return habitacion;
     }
-    
-    public void setConsumos(List<Consumo> consumos){
+
+    public void setHabitacion(Habitacion habitacion) {
+        this.habitacion = habitacion;
+    }
+
+    public List<Consumo> getConsumos() {
+        return consumos;
+    }
+
+    public void setConsumos(List<Consumo> consumos) {
         this.consumos = consumos;
     }
 
-    public List<Consumo> getConsumos(){
-        return this.consumos;
+    public String getEstado(){
+        return estado;
     }
+
+    public void setEstado(String estado){
+        this.estado = estado;
+    }
+
+/*     //setter para agregar una referencia de un usuario a las reservas que se tienen
+    public void addUsuario(Usuario usu){
+        usuarios.add(usu);
+    }
+
+    //setter para agregar una referencia de un consumo a las reservas que se tienen
+    public void addHabitacion(Habitacion hab){
+        habitaciones.add(hab);
+    } */
+
+
 
 }
