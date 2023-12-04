@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "servicios")
 public class Servicio {
     @Id
-    private Integer id;
+    private String id;
 
     @Field("nombre")
     private String nombre;
@@ -29,11 +29,11 @@ public class Servicio {
         this.costoDanios = costoDanios;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -45,7 +45,7 @@ public class Servicio {
         this.nombre = nombre;
     }
 
-    public double getCapacidad() {
+    public Integer getCapacidad() {
         return capacidad;
     }
 
