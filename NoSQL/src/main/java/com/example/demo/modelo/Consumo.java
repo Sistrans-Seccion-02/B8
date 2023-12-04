@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 @Document(collection = "consumos")
 public class Consumo {
     @Id
-    private Integer id;
+    private String id;
 
     @Field("fecha")
     private Date fecha;
@@ -42,11 +42,11 @@ public class Consumo {
         servicios.add(serv);
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -66,13 +66,15 @@ public class Consumo {
         this.valorTotal = valorTotal;
     }
 
-    public void setServicios(List<Servicio> servicios){
+    public List<Servicio> getServicios() {
+        return servicios;
+    }
+
+    public void setServicios(List<Servicio> servicios) {
         this.servicios = servicios;
     }
 
-    public List<Servicio> getServicios(){
-        return this.servicios;
-    }
+
 
 
 }
