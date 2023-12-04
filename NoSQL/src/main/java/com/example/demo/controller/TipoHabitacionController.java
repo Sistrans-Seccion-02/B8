@@ -31,8 +31,12 @@ public class TipoHabitacionController {
     }
 
     @PostMapping("/mongo-tiposhabitacion/new/save")
-    public String tipoHabitacionGuardar(@ModelAttribute TipoHabitacion tipoHabitacion) {
-        tipoHabitacionRepository.save(tipoHabitacion);
+    public String tipoHabitacionGuardar(Model model, @ModelAttribute TipoHabitacion tipoHabitacion) {
+        try {
+            tipoHabitacionRepository.save(tipoHabitacion);
+        } catch (Exception e) {
+            model.addAttribute("error", "No se pudo guardar el tipo de habitacion. No cumple la validación :(");
+        }
         return "redirect:/mongo-tiposhabitacion";
     }
 
@@ -48,9 +52,13 @@ public class TipoHabitacionController {
     }
 
     @PostMapping("/mongo-tiposhabitacion/{id}/edit/save")
-    public String tipoHabitacionEditarGuardar(@PathVariable("id") String id,
+    public String tipoHabitacionEditarGuardar(Model model, @PathVariable("id") String id,
             @ModelAttribute TipoHabitacion tipoHabitacion) {
-        tipoHabitacionRepository.actualizarTipoHabitacion(id, tipoHabitacion.getNombre());
+        try {
+            tipoHabitacionRepository.actualizarTipoHabitacion(id, tipoHabitacion.getNombre());
+        } catch (Exception e) {
+            model.addAttribute("error", "No se pudo actualizar. No cumple la validación :(");
+        }
         return "redirect:/mongo-tiposhabitacion";
     }
 
