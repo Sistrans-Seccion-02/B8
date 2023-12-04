@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Tipo de Habitación</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+
+</head>
+<body>
+    </br>
+    <form th:action="@{/mongo-tiposhabitacion/new/save}" method="post">
+    <div th:replace="~{tipohabitacionForm :: tipohabitacionForm(titulo='Crear Tipo de Habitación')}">
+    </div>
+    </form>
+</body>
+</html>
