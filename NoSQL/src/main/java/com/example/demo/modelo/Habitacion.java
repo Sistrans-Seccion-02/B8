@@ -19,7 +19,7 @@ public class Habitacion {
     private Integer numero;
 
     @DBRef
-    private TipoHabitacion tipoHabitaciones;
+    private TipoHabitacion tipoHabitacion;
 
     @Field("television")
     private Boolean television;
@@ -49,10 +49,10 @@ public class Habitacion {
     }
 
     // Constructor con todos los atributos de reserva y una lista de consumos
-    public Habitacion(Integer numero, TipoHabitacion tipoHabitaciones, Boolean television, Boolean minibar, Boolean cafetera, Integer diasEstadia, String idHotel){
+    public Habitacion(Integer numero, TipoHabitacion tipoHabitacion, Boolean television, Boolean minibar, Boolean cafetera, Integer diasEstadia, String idHotel){
         
         this.numero = numero;
-        this.tipoHabitaciones = tipoHabitaciones;
+        this.tipoHabitacion = tipoHabitacion;
         this.television = television;
         this.minibar = minibar;
         this.cafetera = cafetera;
@@ -76,12 +76,12 @@ public class Habitacion {
         this.numero = numero;
     }
 
-    public void setTipoHabitaciones(TipoHabitacion tipoHabitaciones) {
-        this.tipoHabitaciones = tipoHabitaciones;
+    public void setTipoHabitacion(TipoHabitacion tipoHabitacion) {
+        this.tipoHabitacion = tipoHabitacion;
     }
 
-    public TipoHabitacion getTipoHabitaciones() {
-        return tipoHabitaciones;
+    public TipoHabitacion getTipoHabitacion() {
+        return tipoHabitacion;
     }
 
     public Boolean getTelevision() {

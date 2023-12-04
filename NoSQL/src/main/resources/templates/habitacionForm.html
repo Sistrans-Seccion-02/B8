@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Fragmento</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/bootstrap.min.css}" />
+
+</head>
+
+<body>
+
+    </br>
+    <div th:fragment="habitacionForm(titulo)" class="container border border-2 w-25">
+        <h1 class="text-center" th:text="${titulo}"></h1>
+    
+    <form>
+        <label class="col-form-label">Id:</label>
+        <input class="form-control" type="text" id="id" name="id" required th:value="${habitacion.id}" />
+
+        <label class="col-form-label">Numero:</label>
+        <input class="form-control" type="number" id="numero" name="numero" required th:value="${habitacion.numero}" />
+
+        <label class="col-form-label" for="tipo">Tipo:</label>
+        <select class="form-control" id="tipoHabitacion" name="tipoHabitacion" required>
+            <th:block th:each="tipohabitacion : ${tiposHabitacion}" >
+                <option th:value="${tipohabitacion.id}" th:text="${tipohabitacion.nombre}" th:selected="${habitacion!=null || habitacion.tipohabitacion.id == tipohabitacion.id}"></option>
+            </th:block>
+        </select>
+        
+        <label class="col-form-label" for="television">Televisión:</label>
+        <select class="form-control" id="television" name="television" required>
+            <option value="true" th:selected="${habitacion.television == true}">Sí</option>
+            <option value="false" th:selected="${habitacion.television == false}">No</option>
+        </select>
+
+        <label class="col-form-label" for="minibar">Minibar:</label>
+        <select class="form-control" id="minibar" name="minibar" required>
+            <option value="true" th:selected="${habitacion.minibar == true}">Sí</option>
+            <option value="false" th:selected="${habitacion.minibar == false}">No</option>
+        </select>
+        
+        <label class="col-form-label" for="cafetera">Cafetera:</label>
+        <select class="form-control" id="cafetera" name="cafetera" required>
+            <option value="true" th:selected="${habitacion.cafetera == true}">Sí</option>
+            <option value="false" th:selected="${habitacion.cafetera == false}">No</option>
+        </select>
+
+        <label class="col-form-label">Dias Estadia:</label>
+        <input class="form-control" type="number" id="diasEstadia" name="diasEstadia" required th:value="${habitacion.diasEstadia}" />
+
+        <label class="col-form-label">Hotel:</label>
+        <input class="form-control" type="text" id="idHotel" name="idHotel" required th:value="${habitacion.idHotel}" />
+       
+        <div class="text-center">
+            <input type="submit" value="Guardar" class="btn btn-primary">
+            <a th:href="@{/mongo-habitaciones}" class="btn btn-primary">Cancelar</a>
+        </div>
+    </form>
+
+    </br>
+</div>
+
+</body>
+
+</html>
