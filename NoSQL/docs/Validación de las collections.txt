@@ -1,0 +1,219 @@
+//Collection “servicios”
+
+db.runCommand({collMod: "servicios",validator: { $jsonSchema: {  bsonType: 'object', required: ['_id', 'nombre', 'capacidad', 'costoDanios'], properties: {
+        _id: {
+          bsonType: 'string'
+        },
+        nombre: {
+          bsonType: 'string'
+        },
+        capacidad: {
+          bsonType: 'int'
+        },
+        costoDanios: {
+          bsonType: 'double'
+        }}}}})
+
+//Collection “consumos”
+
+db.runCommand({
+  collMod: "consumos",
+  validator: {
+    $jsonSchema: {
+      bsonType: 'object',
+      required: [
+        '_id',
+        'fecha',
+        'valorTotal',
+        'servicio'
+      ],
+      properties: {
+        _id: {
+          bsonType: 'string'
+        },
+        fecha: {
+          bsonType: 'date'
+        },
+        valorTotal: {
+          bsonType: 'double'
+        },
+        servicio: {
+          bsonType: 'object',
+          required: [
+            '_id',
+            'nombre',
+            'capacidad',
+            'costoDanios'
+          ],
+          properties: {
+            _id: {
+              bsonType: 'string'
+            },
+            nombre: {
+              bsonType: 'string'
+            },
+            capacidad: {
+              bsonType: 'int'
+            },
+            costoDanios: {
+              bsonType: 'double'
+            }
+          }
+        }
+      }
+    }
+  }
+});
+
+//Collection “TipoHabitaciones”
+
+db.runCommand({
+  collMod: "TipoHabitaciones",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["_id", "nombre"],
+      properties: {
+        _id: {
+          bsonType: "string"
+        },
+        nombre: {
+          bsonType: "string",
+          enum: [
+            "suite presidencial",
+            "suite",
+            "familiar",
+            "doble",
+            "sencilla"
+          ]
+        }
+      }
+    }
+  }
+})
+
+//Collection “usuarios”
+
+db.runCommand({
+  collMod: "usuarios",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [
+        "_id",
+        "nombre",
+        "apellido",
+        "cedula",
+        "correo",
+        "num_acompaniantes",
+        "tipoUsuario"
+      ],
+      properties: {
+        _id: {
+          bsonType: "string"
+        },
+        nombre: {
+          bsonType: "string"
+        },
+        apellido: {
+          bsonType: "string"
+        },
+        cedula: {
+          bsonType: "int"
+        },
+        correo: {
+          bsonType: "string",
+          pattern: "^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$"
+        },
+        num_acompaniantes: {
+          bsonType: "int",
+          minimum: 0,
+          maximum: 5
+        },
+        tipoUsuario: {
+          bsonType: "string",
+          enum: [
+            "Gerente",
+            "Administrador",
+            "Empleado",
+            "Cliente",
+            "Recepcionista"
+          ]
+        }
+      }
+    }
+  }
+})
+
+//Collection “reservas”
+
+db.runCommand({
+  collMod: "reservas",
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: [
+        "costo_total",
+        "fecha_inicio",
+        "fecha_fin",
+        "planes_estadia",
+        "usuario",
+        "habitacion",
+        "consumo"
+      ],
+      properties: {
+        costo_total: {
+          bsonType: "double"
+        },
+        fecha_inicio: {
+          bsonType: "date"
+        },
+        fecha_fin: {
+          bsonType: "date"
+        },
+        planes_estadia: {
+          bsonType: "string"
+        },
+        usuario: {
+          bsonType: "objectId"
+        },
+        habitacion: {
+          bsonType: "objectId"
+        },
+        consumo: {
+          bsonType: "object",
+          required: ["_id", "fecha", "valorTotal", "servicio"],
+          properties: {
+            _id: {
+              bsonType: "objectId"
+            },
+            fecha: {
+              bsonType: "date"
+            },
+            valorTotal: {
+              bsonType: "double"
+            },
+            servicio: {
+              bsonType: "object",
+              required: ["_id", "nombre", "capacidad", "costoDanios"],
+              properties: {
+                _id: {
+                  bsonType: "objectId"
+                },
+                nombre: {
+                  bsonType: "string"
+                },
+                capacidad: {
+                  bsonType: "int"
+                },
+                costoDanios: {
+                  bsonType: "double"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+});
