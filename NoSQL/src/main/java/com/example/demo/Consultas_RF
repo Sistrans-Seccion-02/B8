@@ -1,0 +1,160 @@
+
+
+###RF1 - Tipo de Habitación############
+
+Crear (Registrar) un nuevo tipo de habitación:
+
+db.TipoHabitaciones.insert({
+  nombre: "Suite"
+});
+
+Leer (Consultar) los tipos de habitaciones:
+db.TipoHabitaciones.find({});
+
+
+Actualizar un tipo de habitación:
+db.TipoHabitaciones.update(
+  { _id: ObjectId("id_del_tipo_de_habitacion") },
+  { $set: { nombre: "Deluxe Suite" } }
+);
+
+Eliminar un tipo de habitación:
+db.TipoHabitaciones.remove({ _id: ObjectId("id_del_tipo_de_habitacion") });
+
+
+
+##########RF2 - Habitación#####################
+
+Crear (Registrar) una nueva habitación:
+db.Habitaciones.insert({
+  numero: 101,
+  tipoHabitacion: ObjectId("id_del_tipo_de_habitacion"),
+  // Añade más atributos según sea necesario
+});
+
+Leer (Consultar) las habitaciones:
+db.Habitaciones.find({});
+
+Actualizar una habitación:
+db.Habitaciones.update(
+  { _id: ObjectId("id_de_la_habitacion") },
+  { $set: { numero: 102 } }
+);
+
+Eliminar una habitación:
+db.Habitaciones.remove({ _id: ObjectId("id_de_la_habitacion") });
+
+
+#############RF3 - Servicio del Hotel##################
+
+Crear (Registrar) un nuevo servicio:
+db.Servicios.insert({
+  nombre: "Spa",
+  // Añade más atributos según sea necesario
+});
+
+Leer (Consultar) los servicios:
+db.Servicios.find({});
+
+Actualizar un servicio:
+db.Servicios.update(
+  { _id: ObjectId("id_del_servicio") },
+  { $set: { nombre: "Bar" } }
+);
+
+
+Eliminar un servicio:
+db.Servicios.remove({ _id: ObjectId("id_del_servicio") });
+
+
+
+
+#############RF4 - Reserva de Alojamiento##################
+
+
+Crear (Registrar) una nueva reserva:
+db.Reservas.insert({
+  usuario: ObjectId("id_del_usuario"),
+  habitacion: ObjectId("id_de_la_habitacion"),
+  fecha_inicio: new Date("2023-12-20"),
+  fecha_fin: new Date("2023-12-25"),
+  // Añade más atributos según sea necesario
+});
+
+
+Leer (Consultar) las reservas:
+db.Reservas.find({});
+
+
+
+Actualizar una reserva:
+db.Reservas.update(
+  { _id: ObjectId("id_de_la_reserva") },
+  { $set: { fecha_fin: new Date("2023-12-26") } }
+);
+
+
+Eliminar una reserva:
+db.Reservas.remove({ _id: ObjectId("id_de_la_reserva") });
+
+
+
+
+#########RF5 - Llegada de un Cliente al Hotel###########
+
+Registrar llegada:
+db.Reservas.update(
+  { _id: ObjectId("id_de_la_reserva") },
+  { $set: { llegada: true } } // Asumiendo que tienes un campo 'llegada' para indicar esto.
+);
+
+
+Consultar llegadas:
+db.Reservas.find({ llegada: true });
+
+Actualizar una llegada:
+//cambiar la fecha de llegada u otro detalle.
+db.Reservas.update(
+  { _id: ObjectId("id_de_la_reserva"), llegada: true },
+  { $set: { "detalles.llegada": new Date("2023-12-20T14:00:00Z") } }
+);
+Eliminar registro de llegada:
+
+javascript
+Copy code
+db.Reservas.update(
+  { _id: ObjectId("id_de_la_reserva") },
+  { $unset: { llegada: "" } }
+);
+
+
+
+
+##################RF7 - Salida de un Cliente###############
+
+
+Registrar salida:
+db.Reservas.update(
+  { _id: ObjectId("id_de_la_reserva") },
+  { $set: { salida: true } } // Asumiendo que tienes un campo 'salida' para indicar esto.
+);
+
+
+Consultar salidas:
+db.Reservas.find({ salida: true });
+
+
+
+Actualizar registro de salida:
+// Esto puede involucrar cambiar la fecha de salida u otro detalle.
+db.Reservas.update(
+  { _id: ObjectId("id_de_la_reserva"), salida: true },
+  { $set: { "detalles.salida": new Date("2023-12-25T10:00:00Z") } }
+);
+
+
+Eliminar registro de salida:
+db.Reservas.update(
+  { _id: ObjectId("id_de_la_reserva") },
+  { $unset: { salida: "" } }
+);
