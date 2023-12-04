@@ -1,0 +1,50 @@
+{
+    "_id": "res123",
+    "costo_total": 200.00,
+    "fecha_inicio": "2023-12-20T00:00:00.000Z",
+    "fecha_fin": "2023-12-25T00:00:00.000Z",
+    "planes_estadía": "Plan todo incluido",
+    "usuario": "usu123", 
+    "habitación": "hab101", 
+    "consumos": [  
+      {
+        "_id": "con456",
+        "fecha": "2023-12-21T00:00:00.000Z",
+        "valorTotal": 50.00,
+        "servicio": {  
+          "_id": "ser789",
+          "nombre": "Spa",
+          "capacidad": 2,
+          "costoDanios": 100.00
+        }
+      }
+      
+    ]
+  }
+
+
+  {
+    "_id": "usu123",
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "cedula": 1234567890,
+    "correo": "juan.perez@example.com",
+    "num_acompaniantes": 1,
+    "tipoUsuario": "VIP"
+  }
+
+  {
+    "_id": "hab101",
+    "numero": 101,
+    "tipoHabitacion": "tiphab456", 
+    "television": true,
+    "minibar": true,
+    "cafetera": false,
+    "diasEstadia": 5,
+    "idHotel": "hotel789"
+  }
+
+  {
+    "_id": "tiphab456",
+    "nombre": "Suite"
+  }
